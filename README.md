@@ -44,4 +44,4 @@ To only run a group of tests within a realm, use:
 
 	$ phpunit --debug --group RecurrenceTypes FellowshipOneEventsTest
 
-Test dependencies are specified in the docblocks.
+PHPUnit supports the declaration of explicit dependencies between test methods. Such dependencies do not define the order in which the test methods are to be executed but if a method which is dependent on another method fails, the consequent tests will be skipped.
