@@ -9,7 +9,7 @@ It may also be used as an example of how to consume any of the methods in our AP
 License
 -------
 F1 API PHPUnit Tests is free and open source software.
-[See license details here](https://github.com/fellowshiptech/f1api-php-tests/license.txt).
+[See license details here](https://github.com/fellowshiptech/f1api-php-tests/blob/master/license.txt).
 
 
 Requirements
