@@ -19,7 +19,7 @@ Requirements
 * PECL OAuth Extension. [Details Here](http://php.net/oauth).
 * PHPUnit Test Framework.  [Installation instructions here](http://www.phpunit.de/manual/current/en/installation.html).
 * Terminal / Command Line.
-* XDebug Extension for logs. [Installation instructions here](http://xdebug.org/).
+* Xdebug Extension for logs. [Installation instructions here](http://xdebug.org/).
 
 
 Run Test Suite
@@ -44,4 +44,4 @@ To only run a group of tests within a realm, use:
 
 	$ phpunit --debug --group RecurrenceTypes FellowshipOneEventsTest
 
-Test dependencies are specified in the docblocks are are required.
+Test dependencies are specified in the docblocks.
