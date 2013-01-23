@@ -1,0 +1,22 @@
+TAP version 13
+ok 1 - FellowshipOneEventsTest::testEventList
+ok 2 - FellowshipOneEventsTest::testEventShow
+ok 3 - FellowshipOneEventsTest::testEventEdit
+ok 4 - FellowshipOneEventsTest::testEventUpdate
+ok 5 - FellowshipOneEventsTest::testScheduleList
+ok 6 - FellowshipOneEventsTest::testScheduleShow
+ok 7 - FellowshipOneEventsTest::testScheduleEdit
+ok 8 - FellowshipOneEventsTest::testScheduleNew
+ok 9 - FellowshipOneEventsTest::testScheduleCreate
+ok 10 - FellowshipOneEventsTest::testScheduleUpdate
+ok 11 - FellowshipOneEventsTest::testScheduleDelete
+ok 12 - FellowshipOneEventsTest::testLocationList
+ok 13 - FellowshipOneEventsTest::testLocationShow
+ok 14 - FellowshipOneEventsTest::testLocationEdit
+ok 15 - FellowshipOneEventsTest::testLocationNew
+ok 16 - FellowshipOneEventsTest::testLocationCreate
+ok 17 - FellowshipOneEventsTest::testLocationUpdate
+ok 18 - FellowshipOneEventsTest::testLocationDelete
+ok 19 - FellowshipOneEventsTest::testRecurrenceTypeList
+ok 20 - FellowshipOneEventsTest::testRecurrenceTypeShow
+1..20

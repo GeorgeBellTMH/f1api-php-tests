@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" tests="20" assertions="41" failures="0" errors="0" time="5.685539">
+    <testcase name="testEventList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="34" assertions="2" time="0.484193"/>
+    <testcase name="testEventShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="47" assertions="2" time="0.210421"/>
+    <testcase name="testEventEdit" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="59" assertions="2" time="0.179523"/>
+    <testcase name="testEventUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="72" assertions="2" time="0.212912"/>
+    <testcase name="testScheduleList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="85" assertions="2" time="0.227093"/>
+    <testcase name="testScheduleShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="99" assertions="2" time="0.196346"/>
+    <testcase name="testScheduleEdit" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="111" assertions="2" time="0.172155"/>
+    <testcase name="testScheduleNew" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="123" assertions="2" time="0.213323"/>
+    <testcase name="testScheduleCreate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="136" assertions="2" time="1.350891"/>
+    <testcase name="testScheduleUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="158" assertions="2" time="0.259036"/>
+    <testcase name="testScheduleDelete" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="176" assertions="2" time="0.290858"/>
+    <testcase name="testLocationList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="189" assertions="2" time="0.228681"/>
+    <testcase name="testLocationShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="203" assertions="2" time="0.173054"/>
+    <testcase name="testLocationEdit" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="215" assertions="2" time="0.203092"/>
+    <testcase name="testLocationNew" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="227" assertions="2" time="0.183273"/>
+    <testcase name="testLocationCreate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="241" assertions="3" time="0.261781"/>
+    <testcase name="testLocationUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="259" assertions="2" time="0.248049"/>
+    <testcase name="testLocationDelete" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="272" assertions="2" time="0.175509"/>
+    <testcase name="testRecurrenceTypeList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="282" assertions="2" time="0.196161"/>
+    <testcase name="testRecurrenceTypeShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/f1api-php-tests/tests/FellowshipOneEventsTest.php" line="296" assertions="2" time="0.219188"/>
+  </testsuite>
+</testsuites>
