@@ -34,8 +34,8 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/groups/v1/grouptypes.json');
       $groupTypeId = $r['body']['groupTypes']['groupType'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
-      $this->assertNotEmpty($groupTypeId, "No recurrence id returned");
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($groupTypeId, "No group type id returned");
       return $groupTypeId; 
     }
 
@@ -46,7 +46,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGroupTypeShow($groupTypeId)
     {
      $r = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId .'.json');
-     $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+     $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");
     }
 
@@ -56,7 +56,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGroupTypeSearch()
     {
       $r = self::$f1->get('/groups/v1/grouptypes/search.json?issearchable=true');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response");
     }
 
@@ -67,7 +67,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGroupSearch()
     {
       $r = self::$f1->get('/groups/v1/groups/search.json?issearchable=true');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response");
     }
 
@@ -79,7 +79,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
       $groupId = $r['body']['groups']['group'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($groupId, "No Group ID");
       return $groupId;
     }
@@ -91,7 +91,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGroupShow($groupId)
     {
       $r = self::$f1->get('/groups/v1/groups/'.$groupId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);    
+      $this->assertEquals('200', $r['http_code']);    
       $this->assertNotEmpty($r['body'], "No Response Body");  
     }
 
@@ -102,7 +102,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGroupEdit($groupId)
     {
        $model = self::$f1->get('/groups/v1/groups/'.$groupId.'/edit.json');
-       $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+       $this->assertEquals('200', $model['http_code']);
        $this->assertNotEmpty($model['body'], "No Response Body");
        return $model['body'];
     }
@@ -113,7 +113,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGroupNew()
     {
       $model = self::$f1->get('/groups/v1/groups/new.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+      $this->assertEquals('200', $model['http_code']);
       $this->assertNotEmpty($model['body'], "No Response Body");
       return $model['body'];
     }
@@ -135,7 +135,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $model['group']['timeZone']['@id'] = "115";
       $r = self::$f1->post($model, '/groups/v1/groups.json');
       $groupId = $r['body']['group']['@id'];
-      $this->assertEquals('HTTP/1.1 201 Created', $r['http_code']);
+      $this->assertEquals('201', $r['http_code']);
       $this->assertNotEmpty($groupId, "No Response Body");
       return $groupId;
     }
@@ -157,7 +157,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $model['group']['groupType']['@id'] = $groupTypeId;
       $model['group']['timeZone']['@id'] = "115";
       $r = self::$f1->put($model, '/groups/v1/groups/'.$groupId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 
     }
 
@@ -168,7 +168,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testMemberSearch($groupId)
     {
       $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/search.json?membertypeid=1');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response");
     }
 
@@ -181,7 +181,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
       $memberId = $r['body']['members']['member'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($memberId, "No Member ID");
       return $memberId;
     }
@@ -194,7 +194,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testMemberShow($groupId, $memberId)
     {
       $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'.json');  
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);  
+      $this->assertEquals('200', $r['http_code']);  
       $this->assertNotEmpty($r['body'], "No Response Body");  
     }
 
@@ -206,7 +206,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testMemberEdit($groupId, $memberId)
     {
        $model = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'/edit.json');
-       $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+       $this->assertEquals('200', $model['http_code']);
        $this->assertNotEmpty($model['body'], "No Response Body");
        return $model['body'];
     }
@@ -218,7 +218,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testMemberNew($groupId)
     {
       $model = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/new.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+      $this->assertEquals('200', $model['http_code']);
       $this->assertNotEmpty($model['body'], "No Response Body"); 
       return $model['body'];
     }
@@ -237,7 +237,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $model['member']['group']['@id'] = $groupId;      
       $r = self::$f1->post($model, '/groups/v1/groups/'.$groupId.'/members.json');
       $memberId = $r['body']['member']['@id'];
-      $this->assertEquals('HTTP/1.1 201 Created', $r['http_code']);
+      $this->assertEquals('201', $r['http_code']);
       $this->assertNotEmpty($memberId, "No Response Body");
       return $memberId;
     }
@@ -256,7 +256,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $model['member']['memberType']['@id'] = "2";
       $model['member']['group']['@id'] = $groupId;  
       $r = self::$f1->put($model, '/groups/v1/groups/'.$groupId.'/members/'.$memberId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 
     }
 
@@ -268,7 +268,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testMemberDelete($groupId, $memberId)
     {
       $r = self::$f1->delete('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'.json');
-      $this->assertContains('HTTP/1.1 204', $r['http_code']);    
+      $this->assertEquals('204', $r['http_code']);    
       $this->assertEmpty($r['body'], 'Failed to delete resource');
     }
 
@@ -280,7 +280,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/groups/v1/membertypes.json');
       $memberTypeId = $r['body']['memberTypes']['memberType'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($memberTypeId, "No Member ID");
       return $memberTypeId;
     }
@@ -292,7 +292,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testMemberTypeShow($memberTypeId)
     {
       $r = self::$f1->get('/groups/v1/membertypes/'.$memberTypeId.'.json'); 
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);   
+      $this->assertEquals('200', $r['http_code']);   
       $this->assertNotEmpty($r['body'], "No Response Body");  
     }
 
@@ -303,7 +303,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testProspectNew()
     {
       $model = self::$f1->get('/groups/v1/prospects/new.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+      $this->assertEquals('200', $model['http_code']);
       $this->assertNotEmpty($model['body'], "No Response Body"); 
       return $model['body'];
     }
@@ -320,7 +320,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $model['prospect']['email'] = self::$today->format("Y-m-d H:i:s")."@email.com";
       $r = self::$f1->post($model, '/groups/v1/groups/'.$groupId.'/prospects.json');
       $prospectId = $r['body']['prospect']['@id'];
-      $this->assertEquals('HTTP/1.1 201 Created', $r['http_code']);
+      $this->assertEquals('201', $r['http_code']);
       $this->assertNotEmpty($prospectId, "No Response Body");
       return $prospectId;
     }
@@ -333,7 +333,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/groups/v1/daterangetypes.json');
       $dateRangeTypeId = $r['body']['dateRangeTypes']['dateRangeType'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotNull($dateRangeTypeId, "No Date Range Type ID");
       return $dateRangeTypeId;
     }
@@ -346,7 +346,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testDateRangeTypeShow($dateRangeTypeId)
     {
       $r = self::$f1->get('/groups/v1/daterangetypes/'.$dateRangeTypeId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotNull($r['body'], "No response body");
       
     }
@@ -358,7 +358,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/groups/v1/genders.json');
       $genderId = $r['body']['genders']['gender'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);    
+      $this->assertEquals('200', $r['http_code']);    
       $this->assertNotNull($r['body'], "No Response Body");
       return $genderId;  
     }
@@ -371,7 +371,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGenderShow($genderId)
     {
       $r = self::$f1->get('/groups/v1/genders/'.$genderId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);    
+      $this->assertEquals('200', $r['http_code']);    
       $this->assertNotEmpty($r['body'], "No Response Body");  
     }
  
@@ -382,7 +382,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/groups/v1/maritalstatuses.json');
       $maritalStatusId = $r['body']['maritalStatuses']['maritalStatus'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotNull($maritalStatusId, "No Marital Status ID");
       return $maritalStatusId;
     }
@@ -394,7 +394,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testMaritalStatusShow($maritalStatusId)
     {
       $r = self::$f1->get('/groups/v1/maritalstatuses/'.$maritalStatusId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);    
+      $this->assertEquals('200', $r['http_code']);    
       $this->assertNotEmpty($r['body'], "No Response Body");  
     }
 
@@ -406,7 +406,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/groups/v1/timezones.json');
       $timeZoneId = $r['body']['timezones']['timezone'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($timeZoneId, "No TimeZone ID");
       return $timeZoneId;
     }
@@ -418,7 +418,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testTimeZoneShow($timeZoneId)
     {
       $r = self::$f1->get('/groups/v1/timezones/'.$timeZoneId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);    
+      $this->assertEquals('200', $r['http_code']);    
       $this->assertNotEmpty($r['body'], "No Response Body");  
     }    
 }

@@ -35,7 +35,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     {
        $r = self::$f1->get('/events/v1/events.json');   
        $eventId = $r['body']['events']['event'][0]['@id'];
-       $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+       $this->assertEquals('200', $r['http_code']);
        $this->assertNotEmpty($eventId, 'No Event ID');
        return $eventId;
     }
@@ -47,7 +47,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testEventShow($eventId)
     {
        $r = self::$f1->get('/events/v1/events/'.$eventId.'.json');
-       $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);    
+       $this->assertEquals('200', $r['http_code']);    
        $this->assertNotEmpty($r['body'], 'Could not Show Event');
        
     }
@@ -59,7 +59,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
      public function testEventEdit($eventId)
     {
       $model = self::$f1->get('/events/v1/events/'.$eventId.'/edit.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+      $this->assertEquals('200', $model['http_code']);
       $this->assertNotEmpty($model['body'], "No Model Returned");
       return $model['body'];
     }
@@ -73,7 +73,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     {
       $model['event']['name'] = "API Update Unit Test.".self::$today->format("Y-m-d H:i:s");
       $r = self::$f1->put($model, '/events/v1/events/'.$eventId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body");
     }
 
@@ -86,7 +86,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/events/v1/events/'.$eventId.'/schedules.json');
       $scheduleId = $r['body']['schedules']['schedule'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($scheduleId, "No Schedule ID");
       return $scheduleId;
     }
@@ -99,7 +99,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testScheduleShow($eventId, $scheduleId)
     {
       $r = self::$f1->get('/events/v1/events/'.$eventId.'/schedules/'.$scheduleId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);    
+      $this->assertEquals('200', $r['http_code']);    
       $this->assertNotEmpty($r['body'], "No Response Body");  
     }
 
@@ -111,7 +111,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testScheduleEdit($eventId, $scheduleId)
     {
        $model = self::$f1->get('/events/v1/events/'.$eventId.'/schedules/'.$scheduleId.'/edit.json');
-       $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+       $this->assertEquals('200', $model['http_code']);
        $this->assertNotEmpty($model['body'], "No Response Body");
        return $model['body'];
     }
@@ -123,7 +123,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testScheduleNew($eventId)
     {
       $model = self::$f1->get('/events/v1/events/'.$eventId.'/schedules/new.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+      $this->assertEquals('200', $model['http_code']);
       $this->assertNotEmpty($model['body'], "No Response Body"); 
       return $model['body'];
     }
@@ -143,7 +143,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
       $model['schedule']['recurrences']['recurrence']['recurrenceWeekly']['occurOnSunday'] = "true";
       $r = self::$f1->post($model, '/events/v1/events/'.$eventId.'/schedules.json');
       $scheduleId = $r['body']['schedule']['@id'];
-      $this->assertEquals('HTTP/1.1 201 Created', $r['http_code']);
+      $this->assertEquals('201', $r['http_code']);
       $this->assertNotEmpty($scheduleId, "No Response Body");
       return $scheduleId;
 
@@ -164,7 +164,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
       $model['schedule']['recurrences']['recurrence']['recurrenceWeekly']['recurrenceFrequency'] = "10";
       $model['schedule']['recurrences']['recurrence']['recurrenceWeekly']['occurOnSunday'] = "true";
       $r = self::$f1->put($model, '/events/v1/events/'.$eventId.'/schedules/'.$scheduleId .'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 
     }
 
@@ -176,7 +176,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testScheduleDelete($eventId, $scheduleId)
     {
       $r = self::$f1->delete('/events/v1/events/'.$eventId.'/schedules/'.$scheduleId.'.json'); 
-      $this->assertContains('HTTP/1.1 204', $r['http_code']);   
+      $this->assertEquals('204', $r['http_code']);   
       $this->assertEmpty($r['body'], 'Failed to delete resource');
     }
 
@@ -190,7 +190,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/events/v1/events/'.$eventId.'/locations.json');
       $locationId = $r['body']['locations']['location'][0]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotNull($locationId, "No Response Body");
       return $locationId;
     }
@@ -203,7 +203,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testLocationShow($eventId, $locationId)
     {
       $r = self::$f1->get('/events/v1/events/'.$eventId.'/locations/'.$locationId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);    
+      $this->assertEquals('200', $r['http_code']);    
       $this->assertNotEmpty($r['body'], "No Response Body");  
     }
 
@@ -215,7 +215,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testLocationEdit($eventId, $locationId)
     {
        $model = self::$f1->get('/events/v1/events/'.$eventId.'/locations/'.$locationId.'/edit.json');
-       $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+       $this->assertEquals('200', $model['http_code']);
        $this->assertNotEmpty($model['body'], "No Response Body");
        return $model;
     }
@@ -227,7 +227,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testLocationNew($eventId)
     {
       $model = self::$f1->get('/events/v1/events/'.$eventId.'/locations/new.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $model['http_code']);
+      $this->assertEquals('200', $model['http_code']);
       $this->assertNotEmpty($model['body'], "No Response Body"); 
       return $model['body'];
     }
@@ -245,7 +245,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->post($model, '/events/v1/events/'.$eventId.'/locations.json');
       $this->assertNotEmpty($r['body'], "No Response Body"); 
       $locationId = $r['body']['location']['@id'];
-      $this->assertEquals('HTTP/1.1 201 Created', $r['http_code']);
+      $this->assertEquals('201', $r['http_code']);
       $this->assertNotEmpty($locationId, "No Response Body");
       return $locationId;
     }
@@ -260,7 +260,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     {
       $model['location']['name'] = "API Update Unit Test.".self::$today->format("Y-m-d H:i:s");
       $r = self::$f1->post($model, '/events/v1/events/'.$eventId.'/locations/'.$locationId.'.json');
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 
     }
 
@@ -272,7 +272,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testLocationDelete($eventId, $locationId)
     {
       $r = self::$f1->delete('/events/v1/events/'.$eventId.'/locations/'.$locationId.'.json');
-      $this->assertContains('HTTP/1.1 204', $r['http_code']);    
+      $this->assertEquals('204', $r['http_code']);    
       $this->assertEmpty($r['body'], 'Failed to delete resource');
     }
 
@@ -284,7 +284,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/events/v1/recurrencetypes.json');
      
       $recurrenceTypeId = $r['body']['recurrenceTypes']['recurrenceType'][1]['@id'];
-      $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+      $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($recurrenceTypeId, "No recurrence id returned");
       return $recurrenceTypeId; 
     }
@@ -296,7 +296,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public function testRecurrenceTypeShow($recurrenceTypeId)
     {
      $r = self::$f1->get('/events/v1/recurrencetypes/'.$recurrenceTypeId .'.json');
-     $this->assertEquals('HTTP/1.1 200 OK', $r['http_code']);
+     $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
 }
