@@ -1,305 +1,35 @@
 {
     "event": "suiteStart",
-    "suite": "FellowshipOneEventsTest",
-    "tests": 20
+    "suite": "FellowshipOneGivingTest",
+    "tests": 8
 }{
     "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testEventList"
+    "suite": "FellowshipOneGivingTest",
+    "test": "FellowshipOneGivingTest::testAccountTypeList"
 }{
     "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testEventList",
+    "suite": "FellowshipOneGivingTest",
+    "test": "FellowshipOneGivingTest::testAccountTypeList",
     "status": "pass",
-    "time": 0.48419308662415,
+    "time": 0.42376399040222,
     "trace": [
 
     ],
     "message": "",
-    "output": ""
+    "output": "Array\n(\n    [http_code] => 200\n    [body] => Array\n        (\n            [accountTypes] => Array\n                (\n                    [accountType] => Array\n                        (\n                            [0] => Array\n                                (\n                                    [@array] => true\n                                    [@id] => 1\n                                    [@uri] => https:\/\/tmazelin.staging.fellowshiponeapi.com\/giving\/v1\/Accounts\/AccountTypes\/1\n                                    [name] => Checking\n                                )\n\n                            [1] => Array\n                                (\n                                    [@array] => true\n                                    [@id] => 2\n                                    [@uri] => https:\/\/tmazelin.staging.fellowshiponeapi.com\/giving\/v1\/Accounts\/AccountTypes\/2\n                                    [name] => Cash\n                                )\n\n                            [2] => Array\n                                (\n                                    [@array] => true\n                                    [@id] => 13\n                                    [@uri] => https:\/\/tmazelin.staging.fellowshiponeapi.com\/giving\/v1\/Accounts\/AccountTypes\/13\n                                    [name] => ACH\n                                )\n\n                            [3] => Array\n                                (\n                                    [@array] => true\n                                    [@id] => 14\n                                    [@uri] => https:\/\/tmazelin.staging.fellowshiponeapi.com\/giving\/v1\/Accounts\/AccountTypes\/14\n                                    [name] => CreditCard\n                                )\n\n                            [4] => Array\n                                (\n                                    [@array] => true\n                                    [@id] => 15\n                                    [@uri] => https:\/\/tmazelin.staging.fellowshiponeapi.com\/giving\/v1\/Accounts\/AccountTypes\/15\n                                    [name] => Online\n                                )\n\n                            [5] => Array\n                                (\n                                    [@array] => true\n                                    [@id] => 16\n                                    [@uri] => https:\/\/tmazelin.staging.fellowshiponeapi.com\/giving\/v1\/Accounts\/AccountTypes\/16\n                                    [name] => Voucher\n                                )\n\n                        )\n\n                )\n\n        )\n\n)\n"
 }{
     "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testEventShow"
+    "suite": "FellowshipOneGivingTest",
+    "test": "FellowshipOneGivingTest::testAccountTypeShow"
 }{
     "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testEventShow",
+    "suite": "FellowshipOneGivingTest",
+    "test": "FellowshipOneGivingTest::testAccountTypeShow",
     "status": "pass",
-    "time": 0.21042108535767,
+    "time": 0.25494813919067,
     "trace": [
 
     ],
     "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testEventEdit"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testEventEdit",
-    "status": "pass",
-    "time": 0.17952299118042,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testEventUpdate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testEventUpdate",
-    "status": "pass",
-    "time": 0.21291208267212,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleList",
-    "status": "pass",
-    "time": 0.2270929813385,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleShow",
-    "status": "pass",
-    "time": 0.19634604454041,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleEdit"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleEdit",
-    "status": "pass",
-    "time": 0.17215490341187,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleNew"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleNew",
-    "status": "pass",
-    "time": 0.21332287788391,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleCreate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleCreate",
-    "status": "pass",
-    "time": 1.3508908748627,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleUpdate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleUpdate",
-    "status": "pass",
-    "time": 0.25903606414795,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleDelete"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testScheduleDelete",
-    "status": "pass",
-    "time": 0.29085803031921,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationList",
-    "status": "pass",
-    "time": 0.2286810874939,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationShow",
-    "status": "pass",
-    "time": 0.17305397987366,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationEdit"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationEdit",
-    "status": "pass",
-    "time": 0.2030918598175,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationNew"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationNew",
-    "status": "pass",
-    "time": 0.18327307701111,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationCreate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationCreate",
-    "status": "pass",
-    "time": 0.26178097724915,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationUpdate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationUpdate",
-    "status": "pass",
-    "time": 0.24804902076721,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationDelete"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testLocationDelete",
-    "status": "pass",
-    "time": 0.17550897598267,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testRecurrenceTypeList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testRecurrenceTypeList",
-    "status": "pass",
-    "time": 0.19616079330444,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testRecurrenceTypeShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneEventsTest",
-    "test": "FellowshipOneEventsTest::testRecurrenceTypeShow",
-    "status": "pass",
-    "time": 0.21918797492981,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
+    "output": "Array\n(\n    [http_code] => 200\n    [body] => Array\n        (\n            [accountType] => Array\n                (\n                    [@id] => 1\n                    [@uri] => https:\/\/tmazelin.staging.fellowshiponeapi.com\/giving\/v1\/Accounts\/AccountTypes\/1\n                    [name] => Checking\n                )\n\n        )\n\n)\n"
 }

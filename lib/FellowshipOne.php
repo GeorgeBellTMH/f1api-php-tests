@@ -41,29 +41,67 @@
 			$this->settings = (object) $settings;
 		}
 					
-
+		/**
+		 * Generic HTTP GET function
+		 * @param string $endpoint 
+		 * @return object
+		 */
 		public function get($endpoint){
 			$url = $this->settings->baseUrl . $endpoint;
 			return $this->fetchJson($url);
 		}
 
+		/**
+		 * Generic HTTP POST function
+		 * @param object $model 
+		 * @param string $endpoint 
+		 * @return object
+		 */
 		public function post($model, $endpoint){
 			$url = $this->settings->baseUrl . $endpoint;
 			$model = json_encode($model);
 			return $this->fetchJson($url,$model,OAUTH_HTTP_METHOD_POST);
 		}
 		
+		/**
+		 * Generic HTTP PUT function
+		 * @param object $model 
+		 * @param string $endpoint 
+		 * @return object
+		 */
 		public function put($model, $endpoint){
 			$url = $this->settings->baseUrl . $endpoint;
 			$model = json_encode($model);
 			return $this->fetchJson($url,$model,OAUTH_HTTP_METHOD_PUT);
 		}
 		
+		/**
+		 * Generic HTTP DELETE function
+		 * @param string $endpoint 
+		 * @return object
+		 */
 		public function delete($endpoint){
 			$url = $this->settings->baseUrl . $endpoint;
 			return $this->fetchJson($url,$model=null,OAUTH_HTTP_METHOD_DELETE);
 		}
-		
+
+
+		/**
+		 * Grab the personId or householdId of a random person in the db
+		 * @return array
+		 */
+		public function randomId(){
+			$r = $this->fetchJson($this->settings->baseUrl . "/v1/People/Search?createdDate=2011-01-01");
+			$additionalPages = $r['body']['results']['@additionalPages'];
+			$randomPage = rand(0, $additionalPages);
+			$r = $this->fetchJson($this->settings->baseUrl . "/v1/People/Search?createdDate=2011-01-01&page={$randomPage}");
+			$index = rand(0,19); // 20 records per page is default
+			$id = array(
+				'person' => $r['body']['results']['person'][$index]['@id'],
+				'household' => $r['body']['results']['person'][$index]['@householdID']
+				);
+			return $id;
+		}
 		
 		/**
 		 * BEGIN: OAuth Functions
@@ -83,6 +121,7 @@
 		 * @param string|array $data
 		 * @param const $method
 		 * @param string $contentType
+		 * @return object|boolean
 		 */
 		public function fetchJson($url,$data=null,$method=OAUTH_HTTP_METHOD_GET,$contentType="application/json"){
 			try{
@@ -92,21 +131,28 @@
 					'Content-Type' => $contentType,
 				);
 				if($o->fetch($url, $data, $method, $headers)){
-					 $r["http_code"] = strtok($o->getLastResponseHeaders(), "\r\n");
-					 $r["body"] = json_decode($o->getLastResponse(),true);
+					$response["http_code"] = $o->getLastResponseInfo()['http_code'];
+					$response["body"] = json_decode($o->getLastResponse(),true);
 						 if($this->settings->debug){
-						 	 var_dump($method, $url, $data, $r);
+						 	print_r($response);
 						 }
-				return $r;
+				return $response;
 				}
-
-			}catch(Exception $e){
-				var_dump($method,$url,$data);
-				var_dump(strtok($o->getLastResponseHeaders(), "\r\n"));
-				//die("$e \n\nError: {$e->getMessage()}\nCode: {$e->getCode()}\nResponse: {$e->lastResponse}\n");
+	
+			}catch(OAuthException $e){
+				$this->error = array(
+					'error'=>true,
+					'http_code'=>$e->getCode(),
+					'response'=>$e->lastResponse,	
+					'data'=>$data,
+					'url'=>$url,
+				);
+				if($this->settings->debug){
+					print_r($this->error);
+					}
+				return $this->error;
 			}
-		}
-			
+		}	
 		
 		/**
 		 * get access token from session by username

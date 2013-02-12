@@ -1,22 +1,4 @@
-FellowshipOneEvents
- [x] Event list
- [x] Event show
- [x] Event edit
- [x] Event update
- [x] Schedule list
- [x] Schedule show
- [x] Schedule edit
- [x] Schedule new
- [x] Schedule create
- [x] Schedule update
- [x] Schedule delete
- [x] Location list
- [x] Location show
- [x] Location edit
- [x] Location new
- [x] Location create
- [x] Location update
- [x] Location delete
- [x] Recurrence type list
- [x] Recurrence type show
+FellowshipOneGiving
+ [x] Account type list
+ [x] Account type show
 
