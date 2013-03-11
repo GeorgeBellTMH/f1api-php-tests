@@ -22,12 +22,14 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'staging';
+        $env = 'qa';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$randomNumber = rand();
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
     }
+
+    // ACCOUNTS START
 
     /**
      * @group Accounts
@@ -77,8 +79,8 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
      */
     public function testAccountCreate($model)
     {
-      $randomId = self::$f1->randomId();
-      $model['account']['accountNumber'] = self::$randomNumber;
+      $randomId = self::$f1->randomId("household");
+      $model['account']['accountNumber'] = "111111";
       $model['account']['household']['@id'] = $randomId['household'];
       $model['account']['accountType']['@id'] = "1";
       $r = self::$f1->post($model, '/giving/v1/accounts.json');
@@ -117,34 +119,539 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('200', $r['http_code'] );
     }
 
+    // BATCHES START
+
+    
+    /**
+     * @group Batches
+     */
+    public function testBatchSearch()
+    {
+      $r = self::$f1->get('/giving/v1/batches/search.json?batchTypeID=1');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+
+     /**
+     * @group Batches
+     */
+    public function testBatchShow()
+    {
+      $randomId = self::$f1->randomId("batch");
+      $r = self::$f1->get('/giving/v1/batches/'.$randomId['batch'] .'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      return $batchId = $r['body']['batch']['@id'];
+    }
+
+    /**
+     * @group Batches
+     * @depends testBatchShow
+     */
+    public function testBatchEdit($batchId)
+    {
+      
+      $model = self::$f1->get('/giving/v1/batches/'.$batchId.'/edit.json');
+      $this->assertEquals('200', $model['http_code'] );
+      $this->assertNotEmpty($model['body'], "No Response");
+      //return $model['body'];
+    }
+
+    /**
+     * @group Batches
+     */
+    public function testBatchNew()
+    {
+      $model = self::$f1->get('/giving/v1/batches/new.json');
+      $this->assertEquals('200', $model['http_code']);
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $model['body'];
+    }
+
+     /**
+     * @group Batches
+     * @depends testBatchNew
+     */
+    public function testBatchCreate($model)
+    {
+      $model['batch']['name'] = "API Create Unit Test - ".self::$today->format("Y-m-d H:i:s");
+      $model['batch']['amount'] = "100.00";
+      $model['batch']['batchType']['@id'] = "1";
+      $model['batch']['batchStatus']['@id'] = "0";
+      $r = self::$f1->post($model, '/giving/v1/batches.json');
+      $batchId = $r['body']['batch']['@id'];
+      $this->assertEquals('201', $r['http_code']);
+      $this->assertNotEmpty($batchId, "No Response Body");
+      return $model = $r['body'];
+    }
+
+     /**
+     * @group Batches
+     * @depends testBatchCreate
+     */
+    public function testBatchUpdate($model)
+    {
+      $batchId = $model['batch']['@id'];
+      $model['batch']['amount'] = "200.00";
+      $r = self::$f1->put($model, '/giving/v1/batches/'.$batchId.'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+
+    // BATCH TYPES START
+
+    
+    /**
+     * @group BatchTypes
+     */
+    public function testBatchTypeList()
+    {
+      $r = self::$f1->get('/giving/v1/batches/batchtypes.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      return $batchType = $r['body']['batchTypes']['batchType'][0]['@id'];
+    }
+
+     /**
+     * @group BatchTypes
+     * @depends testBatchTypeList
+     */
+    public function testBatchTypeShow($batchType)
+    {
+      $r = self::$f1->get('/giving/v1/batches/batchtypes/'.$batchType .'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+    // CONTRIBUTION RECEIPTS START
+
+    /**
+     * @group ContributionReceipts
+     */
+    public function testContributionReceiptSearch()
+    {
+      $r = self::$f1->get('/giving/v1/contributionreceipts/search.json?startReceivedDate=2011-01-01');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+
+     /**
+     * @group ContributionReceipts
+     */
+    public function testContributionReceiptShow()
+    {
+      $randomId = self::$f1->randomId("contributionReceipt");
+      $r = self::$f1->get('/giving/v1/contributionreceipts/'.$randomId['contributionReceipt'] .'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      return $contributionReceiptId = $r['body']['contributionReceipt']['@id'];
+    }
+
+    /**
+     * @group ContributionReceipts
+     * @depends testContributionReceiptShow
+     */
+    public function testContributionReceiptEdit($contributionReceiptId)
+    {
+      //This is a 1st party method.  Expecting Exception and 405.
+      $model = self::$f1->get('/giving/v1/contributionreceipts/'.$contributionReceiptId.'/edit.json');
+      $this->assertEquals('405', $model['http_code'] );
+    }
+
+    /**
+     * @group ContributionReceipts
+     */
+    public function testContributionReceiptNew()
+    {
+      $model = self::$f1->get('/giving/v1/contributionreceipts/new.json');
+      $this->assertEquals('200', $model['http_code']);
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $model['body'];
+    }
+
+     /**
+     * @group ContributionReceipts
+     * @depends testContributionReceiptNew
+     */
+    public function testContributionReceiptCreate($model)
+    {
+      $r = self::$f1->get('/giving/v1/funds');
+      $fundId = $r['body']['funds']['fund'][0]['@id'];
+      $model['contributionReceipt']['amount'] = "100.00";
+      $model['contributionReceipt']['fund']['@id'] = $fundId;
+      $model['contributionReceipt']['contributionType']['@id'] = "1";
+      $model['contributionReceipt']['receivedDate']= self::$today->format(DATE_ATOM);
+      $r = self::$f1->post($model, '/giving/v1/contributionreceipts.json');
+      $contributionReceiptId = $r['body']['contributionReceipt']['@id'];
+      $this->assertEquals('201', $r['http_code']);
+      $this->assertNotEmpty($contributionReceiptId, "No Response Body");
+      return $model = $r['body'];
+    }
+
+     /**
+     * @group ContributionReceipts
+     * @depends testContributionReceiptCreate
+     */
+    public function testContributionReceiptUpdate($model)
+    {
+      //This is a 1st party only method.  Expecitng an Exception and 405.
+      $contributionReceiptId = $model['contributionReceipt']['@id'];
+      $model['contributionReceipt']['amount'] = rand(1,10000);
+      $r = self::$f1->put($model, '/giving/v1/contributionreceipts/'.$contributionReceiptId.'.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
+    
+    // CONTRIBUTION TYPES START
+
+    /**
+     * @group ContributionTypes
+     */
+    public function testContributionTypeList()
+    {
+      $r = self::$f1->get('/giving/v1/contributiontypes.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      
+      return $contributionTypeId = $r['body']['contributionTypes']['contributionType'][0]['@id'];
+      
+    }
+
+     /**
+     * @group ContributionTypes
+     * @depends testContributionTypeList
+     */
+    public function testContributionTypeShow($contributionTypeId)
+    {
+      $r = self::$f1->get('/giving/v1/contributiontypes/'.$contributionTypeId.'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+    // FUNDS START
+
+   /**
+     * @group Funds
+     */
+    public function testFundList()
+    {
+      $r = self::$f1->get('/giving/v1/funds.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      return $fundId = $r['body']['funds']['fund'][0]['@id'];
+    }
+
+
+     /**
+     * @group Funds
+     * @depends testFundList
+     */
+    public function testFundShow($fundId)
+    {
+      $r = self::$f1->get('/giving/v1/funds/'.$fundId .'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      //return $fundId = $r['body']['fund']['@id'];
+    }
+
+    /**
+     * @group Funds
+     * @depends testFundList
+     */
+    public function testFundEdit($fundId)
+    {
+      //This is a 1st party only method.  Expecting Exception to be thrown.
+      $r = self::$f1->get('/giving/v1/funds/'.$fundId.'/edit.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
+   /**
+     * @group Funds
+     */
+    public function testFundNew()
+    {
+      //This is a 1st party only method.  Expecting Exception to be thrown.
+      $r = self::$f1->get('/giving/v1/funds/new.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
+
+     /**
+     * @group Funds
+     */
+    public function testFundCreate()
+    {
+      //This is a 1st party only method.  Expecting Exception to be thrown.
+      $r = self::$f1->post($model=null, '/giving/v1/funds.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
+
+     /**
+     * @group Funds
+     * @depends testFundList
+     */
+    public function testFundUpdate($fundId)
+    {
+      //This is a 1st party only method.  Expecting Exception to be thrown.
+      $r = self::$f1->put($model=null, '/giving/v1/funds/'.$fundId.'.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
+
+
+    // FUND TYPES START
+
+   /**
+     * @group FundTypes
+     */
+    public function testFundTypeList()
+    {
+      $r = self::$f1->get('/giving/v1/funds/fundtypes.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      return $fundTypeId = $r['body']['fundTypes']['fundType'][0]['@id'];
+    }
+
+
+     /**
+     * @group FundTypes
+     * @depends testFundTypeList
+     */
+    public function testFundTypeShow($fundTypeId)
+    {
+      $r = self::$f1->get('/giving/v1/funds/fundtypes/'.$fundTypeId .'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+    // PLEDGE DRIVES START
+
+    /**
+     * @group PledgeDrives
+     * @depends testFundList
+     */
+    public function testPledgeDriveList($fundId)
+    {
+      //Docs say this is 1st party only but it works for 2nd party
+      $r = self::$f1->get('/giving/v1/funds/'.$fundId.'/pledgedrives.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      return $pledgeDriveId = $r['body']['pledgeDrives']['pledgeDrive'][0]['@id'];
+    }
+
+
+    /**
+     * @group PledgeDrives
+     * @depends testFundList
+     * @depends testPledgeDriveList
+     */
+    public function testPledgeDriveShow($fundId, $pledgeDriveId)
+    {
+      $r = self::$f1->get('/giving/v1/funds/'.$fundId . '/pledgedrives/'.$pledgeDriveId .'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+    /**
+     * @group PledgeDrives
+     * @depends testFundList
+     * @depends testPledgeDriveList
+     */
+    public function testPledgeDriveEdit($fundId, $pledgeDriveId)
+    {
+      //Docs say 3rd party but it's 1st party
+      $r = self::$f1->get('/giving/v1/funds/'.$fundId .'/pledgedrives/'.$pledgeDriveId.'/edit.json');
+      $this->assertEquals('405', $r['http_code'] );
+      //$this->assertNotEmpty($model['body'], "No Response");
+    }
+   /**
+     * @group PledgeDrives
+     */
+    public function testPledgeDriveNew()
+    {
+      //Docs say 3rd party but it's 1st party
+      $r = self::$f1->get('/giving/v1/pledgedrives/new.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
+
+     /**
+     * @group PledgeDrives
+     */
+    public function testPledgeDriveCreate()
+    {
+      //Docs say 3rd party but it's 1st party
+      $r = self::$f1->post($model=null, '/giving/v1/pledgedrives.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
+
+     /**
+     * @group PledgeDrives
+     * @depends testPledgeDriveList
+     */
+    public function testPledgeDriveUpdate($pledgeDriveId)
+    {
+      //Docs say 3rd party but it's 1st party
+      $r = self::$f1->put($model=null, '/giving/v1/pledgedrives/'.$pledgeDriveId.'.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
+
     // Todo ...
-    // Batches
+          
+         
+    // RDC START
+    
+     /**
+     * @group RDCBatches
+     * @depends testBatchShow
+     */
+    public function testRDCBatchList($batchId)
+    {
+      //1st party only.  Expecting 405..
+      $r = self::$f1->get('/giving/v1/batches/'.$batchId.'/rdcbatches.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
 
-    // Batches: Search (3rd)| Show (3rd)| Edit (3rd)| New (3rd)| Create (3rd)| Update (3rd)
-    // Batch Types: List (3rd)| Show (3rd)
-    // Contribution Receipts
 
-    // Contribution Receipts: Search (3rd)| Show (3rd)| Edit (1st)| New (3rd)| Create (3rd)| Update (1st)
-    // Contribution Types
+    /**
+     * @group RDCBatches
+     */
+    public function testRDCBatchShow()
+    {
+      //1st party only.  Expecting 405..
+      $r = self::$f1->get('/giving/v1/rdcbatches/12345.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
 
-    // Contribution Types: List (3rd)| Show (3rd)
-    // Funds
+    /**
+     * @group RDCBatches
+     */
+    public function testRDCBatchEdit()
+    {
+      //1st party only.  Expecting 405..
+      $r = self::$f1->get('/giving/v1/rdcbatches/12345/edit.json');
+      $this->assertEquals('405', $r['http_code'] );
+    
+    }
+   /**
+     * @group RDCBatches
+     */
+    public function testRDCBatchNew()
+    {
+      //1st party only.  Expecting 405..
+      $r = self::$f1->get('/giving/v1/rdcbatches/new.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
 
-    // Funds: List (3rd)| Show (3rd)| Edit (1st)| New (1st)| Create (1st)| Update (1st)
-    // Fund Types: List (3rd)| Show (3rd)
-    // Pledge Drives
+     /**
+     * @group RDCBatches
+     */
+    public function testRDCBatchCreate()
+    {
+      //1st party only.  Expecting 405..
+      $r = self::$f1->post($model=null, '/giving/v1/rdcbatches.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
 
-    // Pledge Drives: List (1st)| Show (1st)| Edit (3rd)| New (3rd)| Create (3rd)| Update (3rd)
-    // Remote Deposit Capture Batches (RDC)
+     /**
+     * @group RDCBatches
+     */
+    public function testRDCBatchUpdate()
+    {
+      //1st party only.  Expecting 405..
+      $r = self::$f1->put($model=null, '/giving/v1/rdcbatches/12345.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
 
-    // RDC Batches: List (1st)| Show (1st)| Edit | New (1st)| Create (1st)| Update (1st)
-    // RDC Batch Items: List (1st)| Show (1st)| Edit (1st)| New (1st)| Create (1st)| Update (1st)
-    // Reference Images
-
-    // Reference Images: Show (1st)| Create (1st)
-    // Sub Funds
-
-    // Sub Funds: List (3rd)| Show (3rd)| Edit (1st)| New (1st)| Create (1st)| Update (1st)
+       
+    // REFERENCE IMAGES START
    
+   /**
+     * @group ReferenceImages
+     */
+    public function testReferenceImageShow()
+    {
+      //Bug in API.  Should return 405 but returning 200.
+      $r = self::$f1->get('/giving/v1/contributionreceipts/0/referenceimages/0.json');
+      $this->assertEquals('200', $r['http_code'] ); //correct when bug fixed.
+    }
 
+    /**
+     * @group ReferenceImages
+     */
+    public function testReferenceImageCreate()
+    {
+      //1st party only.  Expecting 405..
+      $r = self::$f1->post($model=null, '/giving/v1/contributionreceipts/111111/referenceimages/111111.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
+    
+    // SUB FUNDS START
+
+    /**
+     * @group SubFunds
+     * @depends testFundList
+     */
+    public function testSubFundList($fundId)
+    {
+      $r = self::$f1->get('/giving/v1/funds/'.$fundId.'/subfunds.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      return $subFundId = $r['body']['subFunds']['subFund'][0]['@id'];
+    }
+
+
+    /**
+     * @group SubFunds
+     * @depends testFundList
+     * @depends testSubFundList
+     */
+    public function testSubFundShow($fundId, $subFundId)
+    {
+      $r = self::$f1->get('/giving/v1/funds/'.$fundId . '/subfunds/'.$subFundId .'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+    /**
+     * @group SubFunds
+     * @depends testFundList
+     * @depends testSubFundList
+     */
+    public function testSubFundEdit($fundId, $subFundId)
+    {
+      //This is a 1st party only method.  Expecting Exception to be thrown.
+      $r = self::$f1->get('/giving/v1/funds/'.$fundId .'/subfunds/'.$subFundId.'/edit.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
+   /**
+     * @group SubFunds
+     */
+    public function testSubFundNew()
+    {
+      //This is a 1st party only method.  Expecting Exception to be thrown.
+      $r = self::$f1->get('/giving/v1/funds/subfunds/new.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
+
+     /**
+     * @group SubFunds
+     */
+    public function testSubFundCreate()
+    {
+      //This is a 1st party only method.  Expecting Exception to be thrown.
+      $r = self::$f1->post($model=null, '/giving/v1/funds/subfunds.json');
+      $this->assertEquals('405', $r['http_code']);
+    }
+
+     /**
+     * @group SubFunds
+     * @depends testFundList
+     * @depends testSubFundList
+     */
+    public function testSubFundUpdate($fundId, $subFundId)
+    {
+      //This is a 1st party only method.  Expecting Exception to be thrown.
+      $r = self::$f1->put($model=null, '/giving/v1/funds/'.$fundId .'/subfunds/'.$subFundId.'.json');
+      $this->assertEquals('405', $r['http_code'] );
+    }
+   
 }

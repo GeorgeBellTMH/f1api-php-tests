@@ -39,6 +39,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       return $groupTypeId; 
     }
 
+    
     /**
      * @group GroupTypes
      * @depends testGroupTypeList
