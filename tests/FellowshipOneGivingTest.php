@@ -2,7 +2,7 @@
 
 /**
   * PHPUnit Tests for the FellowshipOne.com API Giving Realm.
-  * @class FellowshipOneEventsTest
+  * @class FellowshipOneGivingTest
   * @license apache license 2.0, code is distributed "as is", use at own risk, all rights reserved
   * @copyright 2013 Tracy Mazelin
   * @author Tracy Mazelin tracy.mazelin@activenetwork.com
@@ -22,7 +22,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'qa';
+        $env = 'staging';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$randomNumber = rand();
@@ -235,24 +235,24 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/giving/v1/contributionreceipts/search.json?startReceivedDate=2011-01-01');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
+      return $contributionReceiptId = $r['body']['results']['contributionReceipt'][2]['@id'];
     }
 
 
      /**
      * @group ContributionReceipts
+     * @depends testContributionReceiptSearch
      */
-    public function testContributionReceiptShow()
+    public function testContributionReceiptShow($contributionReceiptId)
     {
-      $randomId = self::$f1->randomId("contributionReceipt");
-      $r = self::$f1->get('/giving/v1/contributionreceipts/'.$randomId['contributionReceipt'] .'.json');
+      $r = self::$f1->get('/giving/v1/contributionreceipts/'.$contributionReceiptId.'.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
-      return $contributionReceiptId = $r['body']['contributionReceipt']['@id'];
     }
 
     /**
      * @group ContributionReceipts
-     * @depends testContributionReceiptShow
+     * @depends testContributionReceiptSearch
      */
     public function testContributionReceiptEdit($contributionReceiptId)
     {
@@ -280,10 +280,11 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get('/giving/v1/funds');
       $fundId = $r['body']['funds']['fund'][0]['@id'];
-      $model['contributionReceipt']['amount'] = "100.00";
+      $model['contributionReceipt']['amount'] = rand(1,1000);
       $model['contributionReceipt']['fund']['@id'] = $fundId;
       $model['contributionReceipt']['contributionType']['@id'] = "1";
       $model['contributionReceipt']['receivedDate']= self::$today->format(DATE_ATOM);
+      $model['contributionReceipt']['memo']= "API Unit Test: ".self::$today->format("Y-m-d H:i:s");
       $r = self::$f1->post($model, '/giving/v1/contributionreceipts.json');
       $contributionReceiptId = $r['body']['contributionReceipt']['@id'];
       $this->assertEquals('201', $r['http_code']);
@@ -493,9 +494,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->put($model=null, '/giving/v1/pledgedrives/'.$pledgeDriveId.'.json');
       $this->assertEquals('405', $r['http_code'] );
     }
-
-    // Todo ...
-          
+         
          
     // RDC START
     
