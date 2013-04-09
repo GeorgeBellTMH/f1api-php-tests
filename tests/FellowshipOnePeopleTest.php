@@ -339,9 +339,117 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('200', $r['http_code']);
     }
    
+    // People Addresses Start
+    
+    /**
+     * @group Addresses
+     */
+    public function testAddressesNew()
+    {
+      $randomId = self::$f1->randomId('person');
+      $model = self::$f1->get('/v1/people/'.$randomId['person'].'/addresses/new.json');
+      $this->assertEquals('200', $model['http_code']);
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $model['body'];
+    }
 
-    // Addresses: List (3rd) | Show (3rd) | Edit (3rd) | New (3rd) | Create (3rd) | Update (3rd) | Delete (3rd)
-    // Address Types: List (3rd) | Show (3rd)
+
+    /**
+     * @group Addresses
+     * @depends testAddressesNew
+     */
+   public function testAddressesCreate($model)
+    {      
+      $model['address']['addressType']['@id'] = "2";
+      $model['address']['address1'] = "API Create Address Unit Test";
+      $r = self::$f1->post($model, '/v1/people/'.$model['address']['person']['@id'].'/addresses.json');
+      $this->assertEquals('201', $r['http_code']);
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $address = $r['body']['address'];
+    }
+
+    /**
+     * @group Addresses
+     * @depends testAddressesNew
+     */
+    public function testAddressesList($model)
+    {
+      $r = self::$f1->get('/v1/people/'.$model['address']['person']['@id'].'/addresses.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+
+    /**
+     * @group Addresses
+     * @depends testAddressesCreate
+     */
+    public function testAddressesShow($address)
+    {
+      $r = self::$f1->get('/v1/people/'.$address['person']['@id'].'/addresses/'.$address['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+    /**
+     * @group Addresses
+     * @depends testAddressesCreate
+     */
+    public function testAddressesEdit($address)
+    {
+      $model = self::$f1->get('/v1/people/'.$address['person']['@id'].'/addresses/'.$address['@id'].'/edit.json');
+      $this->assertEquals('200', $model['http_code'] );
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $address = $model['body'];
+    }
+
+    /**
+     * @group Addresses
+     * @depends testAddressesEdit
+     */
+    public function testAddressesUpdate($address)
+    {
+      $address['address']['address1'] = "API Update Address Unit Test";
+      $r = self::$f1->put($address, '/v1/addresses/'.$address['address']['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+     /**
+     * @group Addresses
+     * @depends testAddressesCreate
+     */
+    public function testAddressesDelete($address)
+    {
+      $r = self::$f1->delete('/v1/addresses/'.$address['@id'].'.json');
+      $this->assertEquals('204', $r['http_code'] );
+    }
+
+    // Start Address Types
+    
+    /**
+     * @group AddressTypes
+     */
+    public function testAddressTypesList()
+    {
+      $r = self::$f1->get('/v1/addresses/addresstypes.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['addressTypes'];
+    }
+
+    /**
+     * @group AddressTypes
+     * @depends testAddressTypesList
+     */
+    public function testAddressTypesShow($addressTypes)
+    {
+      $r = self::$f1->get('/v1/addresses/addresstypes/'.$addressTypes['addressType'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+    
     // Attributes
 
     // Attribute Groups: List (3rd) | Show (3rd)
