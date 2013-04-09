@@ -75,7 +75,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       return $model['body'];
     }
 
-     /**
+    /**
      * @group Households
      * @depends testHouseholdNew
      */
@@ -103,7 +103,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
   
     // Household Member Types
     
-     /**
+    /**
      * @group HouseholdMemberTypes
      */
     public function testHouseholdMemberTypesList()
@@ -127,7 +127,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
 
     // People
     
-     /**
+    /**
      * @group People
      */
     public function testPeopleSearch()
@@ -173,7 +173,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       return $model['body'];
     }
 
-     /**
+    /**
      * @group People
      * @depends testPeopleNew
      * @depends testHouseholdCreate
@@ -220,7 +220,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     }
 
 
-   /**
+    /**
      * @group PeopleAttributes
      * @depends testPeopleAttributesNew
      */
@@ -236,7 +236,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     }
 
 
-   /**
+    /**
      * @group PeopleAttributes
      * @depends testPeopleAttributesCreate
      */
@@ -259,7 +259,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($r['body'], "No Response Body");
     }
 
-     /**
+    /**
      * @group PeopleAttributes
      * @depends testPeopleAttributesCreate
      */
@@ -271,7 +271,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       return $model['body'];
     }
 
-      /**
+    /**
      * @group PeopleAttributes
      * @depends testPeopleAttributesEdit
      */
@@ -283,7 +283,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($r['body'], "No Response Body");
     }
 
-     /**
+    /**
      * @group PeopleAttributes
      * @depends testPeopleAttributesCreate
      */
@@ -294,8 +294,51 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     }
 
 
-    // People Images: Show (3rd) | Create (3rd) | Update (3rd)
-    // Addresses
+    // Start People Images
+    // Used Create first to make it easier to use random people accross different environments: 
+    
+    /**
+     * @group PeopleImages
+     */
+    public function testPeopleImagesCreate()
+    {      
+      $randomId = self::$f1->randomId('person');
+      $checkNoImage = self::$f1->get('/v1/people/'.$randomId['person'].'.json');
+      if($checkNoImage['body']['person']['@imageURI'] != null){
+        $this->testPeopleImagesCreate();
+        } else {
+            $img = file_get_contents('img/smilley.jpg');
+            $r = self::$f1->post_img($img, '/v1/people/'.$randomId['person'].'/images');    
+            $this->assertEquals('201', $r['http_code']);
+            return $personId = $randomId['person'];
+          }
+    }
+
+
+    /**
+     * @group PeopleImages
+     * @depends testPeopleImagesCreate
+     */
+    public function testPeopleImagesShow($personId)
+    {
+      $r = self::$f1->get_img('/v1/people/'.$personId.'/images?size=S');
+      $this->assertEquals('200', $r['http_code'] );
+    }
+
+
+    /**
+     * @group PeopleImages
+     * @depends testPeopleImagesCreate
+     */
+    public function testPeopleImagesUpdate($personId)
+    {
+      $r = self::$f1->get('/v1/people/'.$personId.'.json');
+      $imageURI = $r['body']['person']['@imageURI'];
+      $img = file_get_contents('img/smilley_update.jpg');
+      $r = self::$f1->put_img($img, $imageURI);    
+      $this->assertEquals('200', $r['http_code']);
+    }
+   
 
     // Addresses: List (3rd) | Show (3rd) | Edit (3rd) | New (3rd) | Create (3rd) | Update (3rd) | Delete (3rd)
     // Address Types: List (3rd) | Show (3rd)
