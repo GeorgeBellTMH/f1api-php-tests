@@ -204,7 +204,96 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     }
 
     
-    // People Attributes: List (3rd) | Show (3rd) | Edit (3rd) | New (3rd) | Create (3rd) | Update (3rd) | Delete (3rd)
+    // START PEOPLE ATTRIBUTES
+    // Used New and Create first to make it easier to use random people accross different environments: 
+   
+    /**
+     * @group PeopleAttributes
+     */
+    public function testPeopleAttributesNew()
+    {
+      $randomId = self::$f1->randomId('person');
+      $model = self::$f1->get('/v1/people/'.$randomId['person'].'/attributes/new.json');
+      $this->assertEquals('200', $model['http_code']);
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $model['body'];
+    }
+
+
+   /**
+     * @group PeopleAttributes
+     * @depends testPeopleAttributesNew
+     */
+    public function testPeopleAttributesCreate($model)
+    {      
+      $attributeGroup = self::$f1->get('/v1/people/attributeGroups.json');
+      $model['attribute']['attributeGroup']['attribute']['@id'] = $attributeGroup['body']['attributeGroups']['attributeGroup'][0]['attribute'][0]['@id'];
+      $model['attribute']['comment'] = "API Create Unit Test - ".self::$today->format("Y-m-d H:i:s");
+      $r = self::$f1->post($model, '/v1/people/'.$model['attribute']['person']['@id'].'/attributes.json');
+      $this->assertEquals('201', $r['http_code']);
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $attribute = $r['body']['attribute'];
+    }
+
+
+   /**
+     * @group PeopleAttributes
+     * @depends testPeopleAttributesCreate
+     */
+    public function testPeopleAttributesList($attribute)
+    {
+      $r = self::$f1->get('/v1/people/'.$attribute['person']['@id'].'/attributes.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+
+    /**
+     * @group PeopleAttributes
+     * @depends testPeopleAttributesCreate
+     */
+    public function testPeopleAttributesShow($attribute)
+    {
+      $r = self::$f1->get('/v1/people/'.$attribute['person']['@id'].'/attributes/'.$attribute['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+     /**
+     * @group PeopleAttributes
+     * @depends testPeopleAttributesCreate
+     */
+    public function testPeopleAttributesEdit($attribute)
+    {
+      $model = self::$f1->get('/v1/people/'.$attribute['person']['@id'].'/attributes/'.$attribute['@id'].'/edit.json');
+      $this->assertEquals('200', $model['http_code'] );
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $model['body'];
+    }
+
+      /**
+     * @group PeopleAttributes
+     * @depends testPeopleAttributesEdit
+     */
+    public function testPeopleAttributesUpdate($model)
+    {
+      $model['attribute']['comment'] = "API Update Unit Test - ".self::$today->format("Y-m-d H:i:s");
+      $r = self::$f1->put($model, '/v1/people/'.$model['attribute']['person']['@id'].'/attributes/'.$model['attribute']['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+     /**
+     * @group PeopleAttributes
+     * @depends testPeopleAttributesCreate
+     */
+    public function testPeopleAttributesDelete($attribute)
+    {
+      $r = self::$f1->delete('/v1/people/'.$attribute['person']['@id'].'/attributes/'.$attribute['@id'].'.json');
+      $this->assertEquals('204', $r['http_code'] );
+    }
+
+
     // People Images: Show (3rd) | Create (3rd) | Update (3rd)
     // Addresses
 
