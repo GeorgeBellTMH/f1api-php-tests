@@ -450,27 +450,295 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     }
 
     
-    // Attributes
+    // Start Attribute Groups
+    
+    /**
+     * @group AttributeGroups
+     */
+    public function testAttributeGroupsList()
+    {
+      $r = self::$f1->get('/v1/people/attributegroups.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['attributeGroups'];
+    }
 
-    // Attribute Groups: List (3rd) | Show (3rd)
-    // Attributes: List (3rd) | Show (3rd)
-    // Communications
+    /**
+     * @group AttributeGroups
+     * @depends testAttributeGroupsList
+     */
+    public function testAttributeGroupsShow($attributeGroups)
+    {
+      $r = self::$f1->get('/v1/people/attributegroups/'.$attributeGroups['attributeGroup'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
 
-    // Communications: List (3rd) | Show (3rd) | Edit (3rd) | New (3rd) | Create (3rd) | Update (3rd) | Delete (3rd)
-    // Communication Types: List (3rd) | Show (3rd)
-    // Denominations
+    // Start Attributes
+    
+    /**
+     * @group Attributes
+     * @depends testAttributeGroupsList
+     */
+    public function testAttributeList($attributeGroups)
+    {
+      $r = self::$f1->get('/v1/people/attributegroups/'.$attributeGroups['attributeGroup'][0]['@id'].'/attributes.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['attributes'];
+    }
 
-    // Denominations: List (3rd) | Show (3rd)
-    // Occupations
+    /**
+     * @group Attributes
+     * @depends testAttributeGroupsList
+     * @depends testAttributeList
+     */
+    public function testAttributeShow($attributeGroup, $attribute)
+    {
+      $r = self::$f1->get('/v1/people/attributegroups/'.$attributeGroup['attributeGroup'][0]['@id'].'/attributes/'.$attribute['attribute'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      // returning 500 - error in api?
+      // $uri = "https://tmazelin.staging.fellowshiponeapi.com/v1/People/AttributeGroups/35240/Attributes/468099"
+    }
+   
+  
+    // Communications Start
+          
+    /**
+     * @group Communications
+     */
+    public function testCommunicationsNew()
+    {
+      $randomId = self::$f1->randomId('person');
+      $model = self::$f1->get('/v1/people/'.$randomId['person'].'/communications/new.json');
+      $this->assertEquals('200', $model['http_code']);
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $model['body'];
+    }
 
-    // Occupations: List (3rd) | Show (3rd)
-    // Schools
 
-    // Schools: List (3rd) | Show (3rd)
-    // Statuses
+    /**
+     * @group Communications
+     * @depends testCommunicationsNew
+     */
+    public function testCommunicationsCreate($model)
+    {      
+      $model['communication']['communicationType']['@id'] = "2";
+      $model['communication']['communicationValue'] = "333-333-3333";
+      $r = self::$f1->post($model, '/v1/people/'.$model['communication']['person']['@id'].'/communications.json');
+      $this->assertEquals('201', $r['http_code']);
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $communication = $r['body']['communication'];
+    } 
 
-    // Statuses: List (3rd) | Show (3rd)
-    // Sub Statuses: List (3rd) | Show (3rd)
+    /**
+     * @group Communications
+     * @depends testCommunicationsNew
+     */
+    public function testCommunicationsList($model)
+    {
+      $r = self::$f1->get('/v1/people/'.$model['communication']['person']['@id'].'/communications.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+
+    /**
+     * @group Communications
+     * @depends testCommunicationsCreate
+     */
+    public function testCommunicationsShow($communication)
+    {
+      $r = self::$f1->get('/v1/people/'.$communication['person']['@id'].'/communications/'.$communication['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+    /**
+     * @group Communications
+     * @depends testCommunicationsCreate
+     */
+    public function testCommunicationsEdit($communication)
+    {
+      $model = self::$f1->get('/v1/people/'.$communication['person']['@id'].'/communications/'.$communication['@id'].'/edit.json');
+      $this->assertEquals('200', $model['http_code'] );
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $communication = $model['body'];
+    }
+
+    /**
+     * @group Communications
+     * @depends testCommunicationsEdit
+     */
+    public function testCommunicationsUpdate($communication)
+    {
+      $communication['communication']['communicationValue'] = "222-222-2222";
+      $r = self::$f1->put($communication, '/v1/communications/'.$communication['communication']['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+    /**
+     * @group Communications
+     * @depends testCommunicationsCreate
+     */
+    public function testCommunicationsDelete($communication)
+    {
+      $r = self::$f1->delete('/v1/communications/'.$communication['@id'].'.json');
+      $this->assertEquals('204', $r['http_code'] );
+    }
+
+    // Communication Types Start
+        
+    /**
+     * @group CommunicationTypes
+     */
+    public function testCommunicationTypeList()
+    {
+      $r = self::$f1->get('/v1/communications/communicationtypes.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['communicationTypes'];
+    }
+
+    /**
+     * @group CommunicationTypes
+     * @depends testCommunicationTypeList
+     */
+    public function testCommunicationTypeShow($communicationType)
+    {
+      $r = self::$f1->get('/v1/communications/communicationtypes/'.$communicationType['communicationType'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }  
+     
+    
+    // Denominations Start
+
+    /**
+     * @group Denominations
+     */
+    public function testDenominationsList()
+    {
+      $r = self::$f1->get('/v1/people/denominations.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['denominations'];
+    }
+
+    /**
+     * @group Denominations
+     * @depends testDenominationsList
+     */
+    public function testDenominationsShow($denominations)
+    {
+      $r = self::$f1->get('/v1/people/denominations/'.$denominations['denomination'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }  
+
+
+    // Occupations Start
+
+    /**
+     * @group Occupations
+     */
+    public function testOccupationsList()
+    {
+      $r = self::$f1->get('/v1/people/occupations.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['occupations'];
+    }
+
+    /**
+     * @group Occupations
+     * @depends testOccupationsList
+     */
+    public function testOccupationsShow($occupations)
+    {
+      $r = self::$f1->get('/v1/people/occupations/'.$occupations['occupation'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }  
+
+
+    // Schools Start
+
+    /**
+     * @group Schools
+     */
+    public function testSchoolsList()
+    {
+      $r = self::$f1->get('/v1/people/schools.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['schools'];
+    }
+
+    /**
+     * @group Schools
+     * @depends testSchoolsList
+     */
+    public function testSchoolsShow($schools)
+    {
+      $r = self::$f1->get('/v1/people/schools/'.$schools['school'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }  
+
+
+    // Statuses Start
+
+    /**
+     * @group Statuses
+     */
+    public function testStatusesList()
+    {
+      $r = self::$f1->get('/v1/people/statuses.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['statuses'];
+    }
+
+    /**
+     * @group Statuses
+     * @depends testStatusesList
+     */
+    public function testStatusesShow($statuses)
+    {
+      $r = self::$f1->get('/v1/people/statuses/'.$statuses['status'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }  
+
+    // Sub Statuses Start
+
+    /**
+     * @group SubStatuses
+     */
+    public function testSubStatusesList()
+    {
+      $r = self::$f1->get('/v1/people/statuses/1/substatuses.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['subStatuses'];
+    }
+
+    /**
+     * @group SubStatuses
+     * @depends testSubStatusesList
+     */
+    public function testSubStatusesShow($subStatuses)
+    {
+      $r = self::$f1->get('/v1/people/statuses/1/substatuses/'.$subStatuses['subStatus'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }  
+    
+
+
     // Requirements
     // Requirements
 
