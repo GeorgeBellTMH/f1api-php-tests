@@ -15,12 +15,12 @@ F1 API PHPUnit Tests is free and open source software.
 Requirements
 -------------
 
-* PHP 5.3 or higher.
+* PHP 5.3.3 or later.
 * PECL OAuth Extension. [Details Here](http://php.net/oauth).
 * Composer
 * PHPUnit Test Framework.  [Installation instructions here](http://www.phpunit.de/manual/current/en/installation.html).
 * Terminal / Command Line.
-* Xdebug Extension for logs. [Installation instructions here](http://xdebug.org/).
+* Xdebug 2.2.3 or later for logs. [Installation instructions here](http://xdebug.org/).
 
 
 Run Test Suite
@@ -34,13 +34,18 @@ Enter api key, secret, username and password for each environment in settings.ph
 
 Set the appropriate environment within the "setupBeforeClass" method.
 
-Run following in your command line
+Run "composer install" and "composer update".
 
-    $ composer update 
+To run the unit tests for any given realm, change into the tests directory:
+
     $ cd f1api-php-tests/tests
-    $ ../vendor/bin/phpunit --debug people
 
-Tests are separated into realms - people.php, giving.php, groups.php, events.php
+Then run the tests based on the realm to be tested:
+
+    $ ../vendor/bin/phpunit --debug people
+    $ ../vendor/bin/phpunit --debug giving
+    $ ../vendor/bin/phpunit --debug groups
+    $ ../vendor/bin/phpunit --debug events
 
 To only run a group of tests within a realm, use:
 
