@@ -17,6 +17,7 @@ Requirements
 
 * PHP 5.3 or higher.
 * PECL OAuth Extension. [Details Here](http://php.net/oauth).
+* Composer
 * PHPUnit Test Framework.  [Installation instructions here](http://www.phpunit.de/manual/current/en/installation.html).
 * Terminal / Command Line.
 * Xdebug Extension for logs. [Installation instructions here](http://xdebug.org/).
@@ -35,13 +36,14 @@ Set the appropriate environment within the "setupBeforeClass" method.
 
 Run following in your command line
 
+    $ composer update 
     $ cd f1api-php-tests/tests
-    $ phpunit --debug FellowshipOneEventsTest
+    $ ../vendor/bin/phpunit --debug people
 
-Change "FellowshipOneEventsTest" to "FellowshipOneGroupsTest", "FellowshipOneGivingTest", or "FellowshipOnePeopleTest" as appropriate. 
+Tests are separated into realms - people.php, giving.php, groups.php, events.php
 
 To only run a group of tests within a realm, use:
 
-	$ phpunit --debug --group RecurrenceTypes FellowshipOneEventsTest
+	$ ../vendor/bin/phpunit --debug --group RecurrenceTypes events
 
 PHPUnit supports the declaration of explicit dependencies between test methods. Such dependencies do not define the order in which the test methods are to be executed but if a method which is dependent on another method fails, the consequent tests will be skipped.
