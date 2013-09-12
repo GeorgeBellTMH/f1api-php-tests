@@ -21,7 +21,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'staging';
+        $env = 'prod';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
@@ -307,7 +307,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       if($checkNoImage['body']['person']['@imageURI'] != null){
         $this->testPeopleImagesCreate();
         } else {
-            $img = file_get_contents('img/smilley.jpg');
+            $img = file_get_contents('../tests/img/smilley.jpg');
             $r = self::$f1->post_img($img, '/v1/people/'.$randomId['person'].'/images');    
             $this->assertEquals('201', $r['http_code']);
             return $personId = $randomId['person'];
