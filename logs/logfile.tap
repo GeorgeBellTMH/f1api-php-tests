@@ -1,32 +1,5 @@
 TAP version 13
-ok 1 - FellowshipOneGroupsTest::testGroupTypeList
-ok 2 - FellowshipOneGroupsTest::testGroupTypeShow
-ok 3 - FellowshipOneGroupsTest::testGroupTypeSearch
-ok 4 - FellowshipOneGroupsTest::testGroupSearch
-ok 5 - FellowshipOneGroupsTest::testGroupList
-ok 6 - FellowshipOneGroupsTest::testGroupShow
-ok 7 - FellowshipOneGroupsTest::testGroupEdit
-ok 8 - FellowshipOneGroupsTest::testGroupNew
-ok 9 - FellowshipOneGroupsTest::testGroupCreate
-ok 10 - FellowshipOneGroupsTest::testGroupUpdate
-ok 11 - FellowshipOneGroupsTest::testMemberSearch
-ok 12 - FellowshipOneGroupsTest::testMemberList
-ok 13 - FellowshipOneGroupsTest::testMemberShow
-ok 14 - FellowshipOneGroupsTest::testMemberEdit
-ok 15 - FellowshipOneGroupsTest::testMemberNew
-ok 16 - FellowshipOneGroupsTest::testMemberCreate
-ok 17 - FellowshipOneGroupsTest::testMemberUpdate
-ok 18 - FellowshipOneGroupsTest::testMemberDelete
-ok 19 - FellowshipOneGroupsTest::testMemberTypeList
-ok 20 - FellowshipOneGroupsTest::testMemberTypeShow
-ok 21 - FellowshipOneGroupsTest::testProspectNew
-ok 22 - FellowshipOneGroupsTest::testProspectCreate
-ok 23 - FellowshipOneGroupsTest::testDateRangeTypeList
-ok 24 - FellowshipOneGroupsTest::testDateRangeTypeShow
-ok 25 - FellowshipOneGroupsTest::testGenderList
-ok 26 - FellowshipOneGroupsTest::testGenderShow
-ok 27 - FellowshipOneGroupsTest::testMaritalStatusList
-ok 28 - FellowshipOneGroupsTest::testMaritalStatusShow
-ok 29 - FellowshipOneGroupsTest::testTimeZoneList
-ok 30 - FellowshipOneGroupsTest::testTimeZoneShow
-1..30
+ok 1 - FellowshipOnePeopleTest::testPeopleImagesCreate
+ok 2 - FellowshipOnePeopleTest::testPeopleImagesShow
+ok 3 - FellowshipOnePeopleTest::testPeopleImagesUpdate
+1..3

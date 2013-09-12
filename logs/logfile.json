@@ -1,17 +1,17 @@
 {
     "event": "suiteStart",
-    "suite": "FellowshipOneGroupsTest",
-    "tests": 30
+    "suite": "FellowshipOnePeopleTest",
+    "tests": 68
 }{
     "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupTypeList"
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleImagesCreate"
 }{
     "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupTypeList",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleImagesCreate",
     "status": "pass",
-    "time": 0.19053292274475,
+    "time": 3.647775888443,
     "trace": [
 
     ],
@@ -19,14 +19,14 @@
     "output": ""
 }{
     "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupTypeShow"
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleImagesShow"
 }{
     "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupTypeShow",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleImagesShow",
     "status": "pass",
-    "time": 0.15581893920898,
+    "time": 0.54095196723938,
     "trace": [
 
     ],
@@ -34,419 +34,14 @@
     "output": ""
 }{
     "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupTypeSearch"
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleImagesUpdate"
 }{
     "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupTypeSearch",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleImagesUpdate",
     "status": "pass",
-    "time": 0.23427414894104,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupSearch"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupSearch",
-    "status": "pass",
-    "time": 0.31916618347168,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupList",
-    "status": "pass",
-    "time": 0.59440493583679,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupShow",
-    "status": "pass",
-    "time": 0.16198492050171,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupEdit"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupEdit",
-    "status": "pass",
-    "time": 0.13511085510254,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupNew"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupNew",
-    "status": "pass",
-    "time": 0.13569402694702,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupCreate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupCreate",
-    "status": "pass",
-    "time": 0.29655003547668,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupUpdate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGroupUpdate",
-    "status": "pass",
-    "time": 0.17052412033081,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberSearch"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberSearch",
-    "status": "pass",
-    "time": 0.14959812164307,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberList",
-    "status": "pass",
-    "time": 0.14229106903076,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberShow",
-    "status": "pass",
-    "time": 0.13037586212158,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberEdit"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberEdit",
-    "status": "pass",
-    "time": 0.12766981124878,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberNew"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberNew",
-    "status": "pass",
-    "time": 0.1173620223999,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberCreate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberCreate",
-    "status": "pass",
-    "time": 0.92264103889465,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberUpdate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberUpdate",
-    "status": "pass",
-    "time": 0.38466191291809,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberDelete"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberDelete",
-    "status": "pass",
-    "time": 0.22193002700806,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberTypeList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberTypeList",
-    "status": "pass",
-    "time": 0.13292694091797,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberTypeShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMemberTypeShow",
-    "status": "pass",
-    "time": 0.13282084465027,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testProspectNew"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testProspectNew",
-    "status": "pass",
-    "time": 0.12175393104553,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testProspectCreate"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testProspectCreate",
-    "status": "pass",
-    "time": 0.36259198188782,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testDateRangeTypeList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testDateRangeTypeList",
-    "status": "pass",
-    "time": 0.12534713745117,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testDateRangeTypeShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testDateRangeTypeShow",
-    "status": "pass",
-    "time": 0.13235712051392,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGenderList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGenderList",
-    "status": "pass",
-    "time": 0.12514400482178,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGenderShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testGenderShow",
-    "status": "pass",
-    "time": 0.12192106246948,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMaritalStatusList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMaritalStatusList",
-    "status": "pass",
-    "time": 0.12511897087097,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMaritalStatusShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testMaritalStatusShow",
-    "status": "pass",
-    "time": 0.11956095695496,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testTimeZoneList"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testTimeZoneList",
-    "status": "pass",
-    "time": 0.1582248210907,
-    "trace": [
-
-    ],
-    "message": "",
-    "output": ""
-}{
-    "event": "testStart",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testTimeZoneShow"
-}{
-    "event": "test",
-    "suite": "FellowshipOneGroupsTest",
-    "test": "FellowshipOneGroupsTest::testTimeZoneShow",
-    "status": "pass",
-    "time": 0.13459491729736,
+    "time": 1.6263129711151,
     "trace": [
 
     ],

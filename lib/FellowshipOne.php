@@ -86,6 +86,38 @@
 		}
 
 
+		/* Generic HTTP GET IMAGE function
+		 * @param string $endpoint 
+		 * @return object
+		 */
+		public function get_img($endpoint){
+			$url = $this->settings->baseUrl . $endpoint;
+			return $this->fetchJson($url, $model=null, OAUTH_HTTP_METHOD_GET, $contentType='image/jpg');
+		}
+
+
+		/**
+		 * Generic HTTP POST IMAGE function
+		 * @param stream $img
+		 * @param string $endpoint 
+		 * @return object
+		 */
+		public function post_img($file, $endpoint){
+			$url = $this->settings->baseUrl . $endpoint;
+			return $this->fetchJson($url,$file,OAUTH_HTTP_METHOD_POST, $contentType='image/jpg');
+		}
+
+		/**
+		 * Generic HTTP PUT IMAGE function
+		 * @param stream $img
+		 * @param string $url
+		 * @return object
+		 */
+		public function put_img($file, $url){
+			return $this->fetchJson($url,$file,OAUTH_HTTP_METHOD_PUT, $contentType='image/jpg');
+		}
+
+
 		/**
 		 * Grab the personId or householdId of a random person in the db
 		 * @return array

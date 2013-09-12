@@ -1,32 +1,5 @@
-FellowshipOneGroups
- [x] Group type list
- [x] Group type show
- [x] Group type search
- [x] Group search
- [x] Group list
- [x] Group show
- [x] Group edit
- [x] Group new
- [x] Group create
- [x] Group update
- [x] Member search
- [x] Member list
- [x] Member show
- [x] Member edit
- [x] Member new
- [x] Member create
- [x] Member update
- [x] Member delete
- [x] Member type list
- [x] Member type show
- [x] Prospect new
- [x] Prospect create
- [x] Date range type list
- [x] Date range type show
- [x] Gender list
- [x] Gender show
- [x] Marital status list
- [x] Marital status show
- [x] Time zone list
- [x] Time zone show
+FellowshipOnePeople
+ [x] People images create
+ [x] People images show
+ [x] People images update
 

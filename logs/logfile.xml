@@ -1,35 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" tests="30" assertions="60" failures="0" errors="0" time="6.382954">
-    <testcase name="testGroupTypeList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="33" assertions="2" time="0.190533"/>
-    <testcase name="testGroupTypeShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="47" assertions="2" time="0.155819"/>
-    <testcase name="testGroupTypeSearch" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="57" assertions="2" time="0.234274"/>
-    <testcase name="testGroupSearch" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="68" assertions="2" time="0.319166"/>
-    <testcase name="testGroupList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="79" assertions="2" time="0.594405"/>
-    <testcase name="testGroupShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="92" assertions="2" time="0.161985"/>
-    <testcase name="testGroupEdit" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="103" assertions="2" time="0.135111"/>
-    <testcase name="testGroupNew" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="114" assertions="2" time="0.135694"/>
-    <testcase name="testGroupCreate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="127" assertions="2" time="0.296550"/>
-    <testcase name="testGroupUpdate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="150" assertions="2" time="0.170524"/>
-    <testcase name="testMemberSearch" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="169" assertions="2" time="0.149598"/>
-    <testcase name="testMemberList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="181" assertions="2" time="0.142291"/>
-    <testcase name="testMemberShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="195" assertions="2" time="0.130376"/>
-    <testcase name="testMemberEdit" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="207" assertions="2" time="0.127670"/>
-    <testcase name="testMemberNew" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="219" assertions="2" time="0.117362"/>
-    <testcase name="testMemberCreate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="232" assertions="2" time="0.922641"/>
-    <testcase name="testMemberUpdate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="252" assertions="2" time="0.384662"/>
-    <testcase name="testMemberDelete" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="269" assertions="2" time="0.221930"/>
-    <testcase name="testMemberTypeList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="280" assertions="2" time="0.132927"/>
-    <testcase name="testMemberTypeShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="293" assertions="2" time="0.132821"/>
-    <testcase name="testProspectNew" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="304" assertions="2" time="0.121754"/>
-    <testcase name="testProspectCreate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="317" assertions="2" time="0.362592"/>
-    <testcase name="testDateRangeTypeList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="333" assertions="2" time="0.125347"/>
-    <testcase name="testDateRangeTypeShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="347" assertions="2" time="0.132357"/>
-    <testcase name="testGenderList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="358" assertions="2" time="0.125144"/>
-    <testcase name="testGenderShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="372" assertions="2" time="0.121921"/>
-    <testcase name="testMaritalStatusList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="382" assertions="2" time="0.125119"/>
-    <testcase name="testMaritalStatusShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="395" assertions="2" time="0.119561"/>
-    <testcase name="testTimeZoneList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="406" assertions="2" time="0.158225"/>
-    <testcase name="testTimeZoneShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="419" assertions="2" time="0.134595"/>
+  <testsuite name="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" tests="3" assertions="3" failures="0" errors="0" time="5.815041">
+    <testcase name="testPeopleImagesCreate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="303" assertions="1" time="3.647776"/>
+    <testcase name="testPeopleImagesShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="322" assertions="1" time="0.540952"/>
+    <testcase name="testPeopleImagesUpdate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="333" assertions="1" time="1.626313"/>
   </testsuite>
 </testsuites>
