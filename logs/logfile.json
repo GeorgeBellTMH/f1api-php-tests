@@ -5,13 +5,523 @@
 }{
     "event": "testStart",
     "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdSearch"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdSearch",
+    "status": "fail",
+    "time": 1.1347439289093,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 38,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdSearch",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testHouseholdSearch\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdSearch",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testHouseholdSearch\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdNew"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdNew",
+    "status": "pass",
+    "time": 0.73928189277649,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdCreate"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdCreate",
+    "status": "fail",
+    "time": 1.1019380092621,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 86,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "201",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '201'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdCreate",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testHouseholdEdit\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdMemberTypesList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdMemberTypesList",
+    "status": "fail",
+    "time": 1.1338269710541,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 112,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testHouseholdMemberTypesList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testHouseholdMemberTypesList\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleSearch"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleSearch",
+    "status": "pass",
+    "time": 1.0083379745483,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleShow"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleShow",
+    "status": "pass",
+    "time": 0.53287100791931,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleEdit"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleEdit",
+    "status": "fail",
+    "time": 1.1344780921936,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 160,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleNew"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleNew",
+    "status": "fail",
+    "time": 1.1354629993439,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 171,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleNew\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleCreate\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleAttributesNew"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleAttributesNew",
+    "status": "fail",
+    "time": 1.9446818828583,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 217,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleAttributesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleAttributesNew\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleAttributesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleAttributesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleAttributesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleAttributesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleAttributesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleAttributesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleAttributesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleAttributesEdit\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleAttributesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleAttributesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
     "test": "FellowshipOnePeopleTest::testPeopleImagesCreate"
 }{
     "event": "test",
     "suite": "FellowshipOnePeopleTest",
     "test": "FellowshipOnePeopleTest::testPeopleImagesCreate",
+    "status": "error",
+    "time": 1.3527269363403,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/lib\/FellowshipOne.php",
+            "line": 132,
+            "function": "handleError",
+            "class": "PHPUnit_Util_ErrorHandler",
+            "type": "::",
+            "args": [
+                8,
+                "Undefined index: body",
+                "\/Users\/tmazelin\/Sites\/UnitTests\/lib\/FellowshipOne.php",
+                132,
+                {
+                    "r": {
+                        "error": true,
+                        "http_code": 500,
+                        "response": null,
+                        "data": null,
+                        "url": "http:\/\/dc.qa.f1api.dev.activenetwork.com\/v1\/People\/Search?createdDate=2011-01-01&page=16"
+                    },
+                    "additionalPages": "27",
+                    "randomPage": 16,
+                    "index": 5
+                }
+            ]
+        },
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 305,
+            "function": "randomId",
+            "class": "FellowshipOne",
+            "type": "->",
+            "args": [
+                "person"
+            ]
+        }
+    ],
+    "message": "Undefined index: body",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleImagesCreate",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleImagesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleImagesCreate",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testPeopleImagesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressesNew"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressesNew",
+    "status": "error",
+    "time": 1.1268711090088,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/lib\/FellowshipOne.php",
+            "line": 127,
+            "function": "handleError",
+            "class": "PHPUnit_Util_ErrorHandler",
+            "type": "::",
+            "args": [
+                8,
+                "Undefined index: body",
+                "\/Users\/tmazelin\/Sites\/UnitTests\/lib\/FellowshipOne.php",
+                127,
+                {
+                    "r": {
+                        "error": true,
+                        "http_code": 500,
+                        "response": null,
+                        "data": null,
+                        "url": "http:\/\/dc.qa.f1api.dev.activenetwork.com\/v1\/People\/Search?createdDate=2011-01-01"
+                    }
+                }
+            ]
+        },
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 349,
+            "function": "randomId",
+            "class": "FellowshipOne",
+            "type": "->",
+            "args": [
+                "person"
+            ]
+        }
+    ],
+    "message": "Undefined index: body",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAddressesNew\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAddressesNew\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAddressesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAddressesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAddressesEdit\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressesNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAddressesCreate\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressTypesList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAddressTypesList",
     "status": "pass",
-    "time": 3.647775888443,
+    "time": 0.16236710548401,
     "trace": [
 
     ],
@@ -20,13 +530,13 @@
 }{
     "event": "testStart",
     "suite": "FellowshipOnePeopleTest",
-    "test": "FellowshipOnePeopleTest::testPeopleImagesShow"
+    "test": "FellowshipOnePeopleTest::testAddressTypesShow"
 }{
     "event": "test",
     "suite": "FellowshipOnePeopleTest",
-    "test": "FellowshipOnePeopleTest::testPeopleImagesShow",
+    "test": "FellowshipOnePeopleTest::testAddressTypesShow",
     "status": "pass",
-    "time": 0.54095196723938,
+    "time": 0.14871883392334,
     "trace": [
 
     ],
@@ -35,13 +545,566 @@
 }{
     "event": "testStart",
     "suite": "FellowshipOnePeopleTest",
-    "test": "FellowshipOnePeopleTest::testPeopleImagesUpdate"
+    "test": "FellowshipOnePeopleTest::testAttributeGroupsList"
 }{
     "event": "test",
     "suite": "FellowshipOnePeopleTest",
-    "test": "FellowshipOnePeopleTest::testPeopleImagesUpdate",
+    "test": "FellowshipOnePeopleTest::testAttributeGroupsList",
+    "status": "fail",
+    "time": 1.1448578834534,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 461,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAttributeGroupsList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAttributeGroupsList\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAttributeGroupsList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAttributeGroupsList\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testAttributeGroupsList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testAttributeGroupsList\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationsNew"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationsNew",
+    "status": "error",
+    "time": 1.1147608757019,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/lib\/FellowshipOne.php",
+            "line": 127,
+            "function": "handleError",
+            "class": "PHPUnit_Util_ErrorHandler",
+            "type": "::",
+            "args": [
+                8,
+                "Undefined index: body",
+                "\/Users\/tmazelin\/Sites\/UnitTests\/lib\/FellowshipOne.php",
+                127,
+                {
+                    "r": {
+                        "error": true,
+                        "http_code": 500,
+                        "response": null,
+                        "data": null,
+                        "url": "http:\/\/dc.qa.f1api.dev.activenetwork.com\/v1\/People\/Search?createdDate=2011-01-01"
+                    }
+                }
+            ]
+        },
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 513,
+            "function": "randomId",
+            "class": "FellowshipOne",
+            "type": "->",
+            "args": [
+                "person"
+            ]
+        }
+    ],
+    "message": "Undefined index: body",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationsNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testCommunicationsNew\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationsNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testCommunicationsNew\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationsNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testCommunicationsCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationsNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testCommunicationsCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationsNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testCommunicationsEdit\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationsNew",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testCommunicationsCreate\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationTypeList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationTypeList",
     "status": "pass",
-    "time": 1.6263129711151,
+    "time": 0.17609620094299,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationTypeShow"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testCommunicationTypeShow",
+    "status": "pass",
+    "time": 0.14006114006042,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testDenominationsList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testDenominationsList",
+    "status": "fail",
+    "time": 1.1080799102783,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 625,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testDenominationsList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testDenominationsList\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testOccupationsList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testOccupationsList",
+    "status": "fail",
+    "time": 1.5224878787994,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 650,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testOccupationsList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testOccupationsList\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testSchoolsList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testSchoolsList",
+    "status": "pass",
+    "time": 0.38863396644592,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testSchoolsShow"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testSchoolsShow",
+    "status": "pass",
+    "time": 0.16584515571594,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testStatusesList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testStatusesList",
+    "status": "fail",
+    "time": 1.1211137771606,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 700,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testStatusesList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testStatusesList\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testSubStatusesList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testSubStatusesList",
+    "status": "fail",
+    "time": 1.1177520751953,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 724,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testSubStatusesList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testSubStatusesList\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsNew"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsNew",
+    "status": "pass",
+    "time": 0.17955279350281,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsCreate"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsCreate",
+    "status": "fail",
+    "time": 1.1229801177979,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 766,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "201",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '201'.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsList",
+    "status": "pass",
+    "time": 0.2630078792572,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testRequirementsCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testRequirementsCreate\" to pass.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementsList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testRequirementsEdit\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementStatusesList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementStatusesList",
+    "status": "pass",
+    "time": 0.15735602378845,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementStatusesShow"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testRequirementStatusesShow",
+    "status": "fail",
+    "time": 1.1286809444427,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 839,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testBackgroundCheckStatusesList"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testBackgroundCheckStatusesList",
+    "status": "fail",
+    "time": 1.1207499504089,
+    "trace": [
+        {
+            "file": "\/Users\/tmazelin\/Sites\/UnitTests\/tests\/people.php",
+            "line": 852,
+            "function": "assertEquals",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::",
+            "args": [
+                "200",
+                500
+            ]
+        }
+    ],
+    "message": "Failed asserting that 500 matches expected '200'.",
+    "output": ""
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testBackgroundCheckStatusesList",
+    "status": "error",
+    "time": 0,
+    "trace": [
+
+    ],
+    "message": "Skipped Test: This test depends on \"FellowshipOnePeopleTest::testBackgroundCheckStatusesList\" to pass.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleRequirementsNew"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleRequirementsNew",
+    "status": "pass",
+    "time": 0.49888610839844,
+    "trace": [
+
+    ],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleRequirementsCreate"
+}{
+    "event": "test",
+    "suite": "FellowshipOnePeopleTest",
+    "test": "FellowshipOnePeopleTest::testPeopleRequirementsCreate",
+    "status": "pass",
+    "time": 0.00074219703674316,
     "trace": [
 
     ],

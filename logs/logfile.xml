@@ -1,8 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" tests="3" assertions="3" failures="0" errors="0" time="5.815041">
-    <testcase name="testPeopleImagesCreate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="303" assertions="1" time="3.647776"/>
-    <testcase name="testPeopleImagesShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="322" assertions="1" time="0.540952"/>
-    <testcase name="testPeopleImagesUpdate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="333" assertions="1" time="1.626313"/>
+  <testsuite name="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" tests="16" assertions="20" failures="14" errors="3" time="12.504332">
+    <testcase name="testHouseholdSearch" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="35" assertions="1" time="1.134744">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testHouseholdSearch
+Failed asserting that 500 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:38
+</failure>
+    </testcase>
+    <testcase name="testHouseholdCreate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="82" assertions="1" time="1.101938">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testHouseholdCreate
+Failed asserting that 500 matches expected '201'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:86
+</failure>
+    </testcase>
+    <testcase name="testPeopleShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="146" assertions="2" time="0.532871"/>
+    <testcase name="testPeopleEdit" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="157" assertions="1" time="1.134478">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testPeopleEdit
+Failed asserting that 500 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:160
+</failure>
+    </testcase>
+    <testcase name="testPeopleNew" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="168" assertions="1" time="1.135463">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testPeopleNew
+Failed asserting that 500 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:171
+</failure>
+    </testcase>
+    <testcase name="testAddressTypesShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="445" assertions="2" time="0.148719"/>
+    <testcase name="testAttributeGroupsList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="458" assertions="1" time="1.144858">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testAttributeGroupsList
+Failed asserting that 500 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:461
+</failure>
+    </testcase>
+    <testcase name="testCommunicationTypeShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="609" assertions="2" time="0.140061"/>
+    <testcase name="testDenominationsList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="622" assertions="1" time="1.108080">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testDenominationsList
+Failed asserting that 500 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:625
+</failure>
+    </testcase>
+    <testcase name="testSchoolsShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="684" assertions="2" time="0.165845"/>
+    <testcase name="testStatusesList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="697" assertions="1" time="1.121114">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testStatusesList
+Failed asserting that 500 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:700
+</failure>
+    </testcase>
+    <testcase name="testRequirementsCreate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="761" assertions="1" time="1.122980">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testRequirementsCreate
+Failed asserting that 500 matches expected '201'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:766
+</failure>
+    </testcase>
+    <testcase name="testRequirementsList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="775" assertions="2" time="0.263008"/>
+    <testcase name="testRequirementStatusesShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="836" assertions="1" time="1.128681">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testRequirementStatusesShow
+Failed asserting that 500 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:839
+</failure>
+    </testcase>
+    <testcase name="testBackgroundCheckStatusesList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="849" assertions="1" time="1.120750">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testBackgroundCheckStatusesList
+Failed asserting that 500 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/people.php:852
+</failure>
+    </testcase>
+    <testcase name="testPeopleRequirementsCreate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="889" assertions="0" time="0.000742"/>
   </testsuite>
 </testsuites>

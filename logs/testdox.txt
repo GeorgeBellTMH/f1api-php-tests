@@ -1,5 +1,33 @@
 FellowshipOnePeople
- [x] People images create
- [x] People images show
- [x] People images update
+ [ ] Household search
+ [x] Household new
+ [ ] Household create
+ [ ] Household member types list
+ [x] People search
+ [x] People show
+ [ ] People edit
+ [ ] People new
+ [ ] People attributes new
+ [ ] People images create
+ [ ] Addresses new
+ [x] Address types list
+ [x] Address types show
+ [ ] Attribute groups list
+ [ ] Communications new
+ [x] Communication type list
+ [x] Communication type show
+ [ ] Denominations list
+ [ ] Occupations list
+ [x] Schools list
+ [x] Schools show
+ [ ] Statuses list
+ [ ] Sub statuses list
+ [x] Requirements new
+ [ ] Requirements create
+ [x] Requirements list
+ [x] Requirement statuses list
+ [ ] Requirement statuses show
+ [ ] Background check statuses list
+ [x] People requirements new
+ [x] People requirements create
 
