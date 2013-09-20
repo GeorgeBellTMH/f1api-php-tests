@@ -1,33 +1,51 @@
-FellowshipOnePeople
- [ ] Household search
- [x] Household new
- [ ] Household create
- [ ] Household member types list
- [x] People search
- [x] People show
- [ ] People edit
- [ ] People new
- [ ] People attributes new
- [ ] People images create
- [ ] Addresses new
- [x] Address types list
- [x] Address types show
- [ ] Attribute groups list
- [ ] Communications new
- [x] Communication type list
- [x] Communication type show
- [ ] Denominations list
- [ ] Occupations list
- [x] Schools list
- [x] Schools show
- [ ] Statuses list
- [ ] Sub statuses list
- [x] Requirements new
- [ ] Requirements create
- [x] Requirements list
- [x] Requirement statuses list
- [ ] Requirement statuses show
- [ ] Background check statuses list
- [x] People requirements new
- [x] People requirements create
+FellowshipOneGiving
+ [ ] Account search
+ [ ] Account show
+ [ ] Account edit
+ [x] Account new
+ [ ] Account create
+ [x] Account type list
+ [x] Account type show
+ [x] Batch search
+ [ ] Batch show
+ [x] Batch new
+ [x] Batch create
+ [x] Batch update
+ [x] Batch type list
+ [x] Batch type show
+ [x] Contribution receipt search
+ [x] Contribution receipt show
+ [ ] Contribution receipt edit
+ [x] Contribution receipt new
+ [x] Contribution receipt create
+ [ ] Contribution receipt update
+ [x] Contribution type list
+ [x] Contribution type show
+ [x] Fund list
+ [x] Fund show
+ [ ] Fund edit
+ [ ] Fund new
+ [ ] Fund create
+ [ ] Fund update
+ [x] Fund type list
+ [x] Fund type show
+ [x] Pledge drive list
+ [ ] Pledge drive show
+ [ ] Pledge drive edit
+ [ ] Pledge drive new
+ [ ] Pledge drive create
+ [x] Pledge drive update
+ [ ] R d c batch show
+ [ ] R d c batch edit
+ [ ] R d c batch new
+ [ ] R d c batch create
+ [ ] R d c batch update
+ [x] Reference image show
+ [x] Reference image create
+ [x] Sub fund list
+ [ ] Sub fund show
+ [ ] Sub fund edit
+ [ ] Sub fund new
+ [ ] Sub fund create
+ [x] Sub fund update
 

@@ -1,81 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" tests="16" assertions="20" failures="14" errors="3" time="12.504332">
-    <testcase name="testHouseholdSearch" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="35" assertions="1" time="1.134744">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testHouseholdSearch
-Failed asserting that 500 matches expected '200'.
+  <testsuite name="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" tests="46" assertions="62" failures="22" errors="2" time="26.965762">
+    <testcase name="testAccountSearch" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="37" assertions="1" time="3.511678">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testAccountSearch
+Failed asserting that 200 matches expected '405'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:38
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:41
 </failure>
     </testcase>
-    <testcase name="testHouseholdCreate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="82" assertions="1" time="1.101938">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testHouseholdCreate
-Failed asserting that 500 matches expected '201'.
+    <testcase name="testAccountShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="48" assertions="1" time="0.364303">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testAccountShow
+Failed asserting that 404 matches expected '405'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:86
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:52
 </failure>
     </testcase>
-    <testcase name="testPeopleShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="146" assertions="2" time="0.532871"/>
-    <testcase name="testPeopleEdit" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="157" assertions="1" time="1.134478">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testPeopleEdit
-Failed asserting that 500 matches expected '200'.
+    <testcase name="testAccountEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="58" assertions="1" time="3.079413">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testAccountEdit
+Failed asserting that 404 matches expected '405'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:160
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:62
 </failure>
     </testcase>
-    <testcase name="testPeopleNew" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="168" assertions="1" time="1.135463">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testPeopleNew
-Failed asserting that 500 matches expected '200'.
+    <testcase name="testAccountNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="68" assertions="2" time="0.417011"/>
+    <testcase name="testAccountCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="80" assertions="0" time="6.054089">
+      <error type="PHPUnit_Framework_Error_Notice">FellowshipOneGivingTest::testAccountCreate
+Undefined index: body
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:171
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:87
+</error>
+    </testcase>
+    <testcase name="testAccountTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="116" assertions="1" time="0.295460"/>
+    <testcase name="testBatchSearch" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="128" assertions="2" time="0.443687"/>
+    <testcase name="testBatchShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="139" assertions="0" time="0.591844">
+      <error type="PHPUnit_Framework_Error_Notice">FellowshipOneGivingTest::testBatchShow
+Undefined index: batch
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:142
+</error>
+    </testcase>
+    <testcase name="testBatchCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="176" assertions="2" time="0.443192"/>
+    <testcase name="testBatchUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="193" assertions="2" time="0.268236"/>
+    <testcase name="testBatchTypeList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="209" assertions="2" time="0.262856"/>
+    <testcase name="testBatchTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="221" assertions="2" time="0.253789"/>
+    <testcase name="testContributionReceiptSearch" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="233" assertions="2" time="1.065182"/>
+    <testcase name="testContributionReceiptShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="246" assertions="2" time="0.533356"/>
+    <testcase name="testContributionReceiptEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="257" assertions="1" time="0.335680">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testContributionReceiptEdit
+Failed asserting that 200 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:261
 </failure>
     </testcase>
-    <testcase name="testAddressTypesShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="445" assertions="2" time="0.148719"/>
-    <testcase name="testAttributeGroupsList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="458" assertions="1" time="1.144858">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testAttributeGroupsList
-Failed asserting that 500 matches expected '200'.
+    <testcase name="testContributionReceiptNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="267" assertions="2" time="0.550137"/>
+    <testcase name="testContributionReceiptCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="279" assertions="2" time="1.120193"/>
+    <testcase name="testContributionReceiptUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="299" assertions="1" time="0.214211">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testContributionReceiptUpdate
+Failed asserting that 200 matches expected '405'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:461
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:305
 </failure>
     </testcase>
-    <testcase name="testCommunicationTypeShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="609" assertions="2" time="0.140061"/>
-    <testcase name="testDenominationsList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="622" assertions="1" time="1.108080">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testDenominationsList
-Failed asserting that 500 matches expected '200'.
+    <testcase name="testContributionTypeList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="313" assertions="2" time="0.262930"/>
+    <testcase name="testContributionTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="327" assertions="2" time="0.257694"/>
+    <testcase name="testFundList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="339" assertions="2" time="0.621175"/>
+    <testcase name="testFundShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="352" assertions="2" time="0.339593"/>
+    <testcase name="testFundEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="364" assertions="1" time="0.300482">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testFundEdit
+Failed asserting that 200 matches expected '405'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:625
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:368
 </failure>
     </testcase>
-    <testcase name="testSchoolsShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="684" assertions="2" time="0.165845"/>
-    <testcase name="testStatusesList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="697" assertions="1" time="1.121114">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testStatusesList
-Failed asserting that 500 matches expected '200'.
+    <testcase name="testFundNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="373" assertions="1" time="0.270247">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testFundNew
+Failed asserting that 200 matches expected '405'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:700
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:377
 </failure>
     </testcase>
-    <testcase name="testRequirementsCreate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="761" assertions="1" time="1.122980">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testRequirementsCreate
-Failed asserting that 500 matches expected '201'.
+    <testcase name="testFundCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="383" assertions="1" time="0.139342">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testFundCreate
+Failed asserting that 400 matches expected '405'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:766
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:387
 </failure>
     </testcase>
-    <testcase name="testRequirementsList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="775" assertions="2" time="0.263008"/>
-    <testcase name="testRequirementStatusesShow" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="836" assertions="1" time="1.128681">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testRequirementStatusesShow
-Failed asserting that 500 matches expected '200'.
+    <testcase name="testFundUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="394" assertions="1" time="0.132388">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testFundUpdate
+Failed asserting that 400 matches expected '405'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:839
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:398
 </failure>
     </testcase>
-    <testcase name="testBackgroundCheckStatusesList" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="849" assertions="1" time="1.120750">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOnePeopleTest::testBackgroundCheckStatusesList
-Failed asserting that 500 matches expected '200'.
+    <testcase name="testFundTypeList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="407" assertions="2" time="0.261007"/>
+    <testcase name="testFundTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="420" assertions="2" time="0.250612"/>
+    <testcase name="testPledgeDriveList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="433" assertions="2" time="0.388503"/>
+    <testcase name="testPledgeDriveShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="448" assertions="1" time="0.248265">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testPledgeDriveShow
+Failed asserting that 404 matches expected '200'.
 
-/Users/tmazelin/Sites/UnitTests/tests/people.php:852
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:451
 </failure>
     </testcase>
-    <testcase name="testPeopleRequirementsCreate" class="FellowshipOnePeopleTest" file="/Users/tmazelin/Sites/UnitTests/tests/people.php" line="889" assertions="0" time="0.000742"/>
+    <testcase name="testPledgeDriveEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="460" assertions="1" time="0.234177">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testPledgeDriveEdit
+Failed asserting that 400 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:464
+</failure>
+    </testcase>
+    <testcase name="testPledgeDriveNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="470" assertions="1" time="0.340216">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testPledgeDriveNew
+Failed asserting that 200 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:474
+</failure>
+    </testcase>
+    <testcase name="testPledgeDriveCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="480" assertions="1" time="0.180162">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testPledgeDriveCreate
+Failed asserting that 400 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:484
+</failure>
+    </testcase>
+    <testcase name="testPledgeDriveUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="491" assertions="1" time="0.089371"/>
+    <testcase name="testRDCBatchEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="526" assertions="1" time="0.255265">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testRDCBatchEdit
+Failed asserting that 404 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:530
+</failure>
+    </testcase>
+    <testcase name="testRDCBatchNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="536" assertions="1" time="0.315024">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testRDCBatchNew
+Failed asserting that 200 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:540
+</failure>
+    </testcase>
+    <testcase name="testRDCBatchCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="546" assertions="1" time="0.161738">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testRDCBatchCreate
+Failed asserting that 400 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:550
+</failure>
+    </testcase>
+    <testcase name="testRDCBatchUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="556" assertions="1" time="0.132286">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testRDCBatchUpdate
+Failed asserting that 400 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:560
+</failure>
+    </testcase>
+    <testcase name="testReferenceImageShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="569" assertions="1" time="0.370712"/>
+    <testcase name="testReferenceImageCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="579" assertions="1" time="0.206878"/>
+    <testcase name="testSubFundList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="592" assertions="2" time="0.336583"/>
+    <testcase name="testSubFundShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="606" assertions="1" time="0.258577">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testSubFundShow
+Failed asserting that 404 matches expected '200'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:609
+</failure>
+    </testcase>
+    <testcase name="testSubFundEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="618" assertions="1" time="0.229973">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testSubFundEdit
+Failed asserting that 400 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:622
+</failure>
+    </testcase>
+    <testcase name="testSubFundNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="627" assertions="1" time="0.333990">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testSubFundNew
+Failed asserting that 200 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:631
+</failure>
+    </testcase>
+    <testcase name="testSubFundCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="637" assertions="1" time="0.135281">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGivingTest::testSubFundCreate
+Failed asserting that 400 matches expected '405'.
+
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:641
+</failure>
+    </testcase>
+    <testcase name="testSubFundUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="649" assertions="1" time="0.108973"/>
   </testsuite>
 </testsuites>
