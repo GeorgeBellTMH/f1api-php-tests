@@ -9,24 +9,26 @@ ok 7 - FellowshipOneGroupsTest::testGroupEdit
 ok 8 - FellowshipOneGroupsTest::testGroupNew
 ok 9 - FellowshipOneGroupsTest::testGroupCreate
 ok 10 - FellowshipOneGroupsTest::testGroupUpdate
-ok 11 - FellowshipOneGroupsTest::testMemberSearch
-ok 12 - FellowshipOneGroupsTest::testMemberList
-ok 13 - FellowshipOneGroupsTest::testMemberShow
-ok 14 - FellowshipOneGroupsTest::testMemberEdit
-ok 15 - FellowshipOneGroupsTest::testMemberNew
-ok 16 - FellowshipOneGroupsTest::testMemberCreate
-ok 17 - FellowshipOneGroupsTest::testMemberUpdate
-ok 18 - FellowshipOneGroupsTest::testMemberDelete
-ok 19 - FellowshipOneGroupsTest::testMemberTypeList
-ok 20 - FellowshipOneGroupsTest::testMemberTypeShow
-ok 21 - FellowshipOneGroupsTest::testProspectNew
-not ok 22 - Error: FellowshipOneGroupsTest::testProspectCreate
-ok 23 - FellowshipOneGroupsTest::testDateRangeTypeList
-ok 24 - FellowshipOneGroupsTest::testDateRangeTypeShow
-ok 25 - FellowshipOneGroupsTest::testGenderList
-ok 26 - FellowshipOneGroupsTest::testGenderShow
-ok 27 - FellowshipOneGroupsTest::testMaritalStatusList
-ok 28 - FellowshipOneGroupsTest::testMaritalStatusShow
-ok 29 - FellowshipOneGroupsTest::testTimeZoneList
-ok 30 - FellowshipOneGroupsTest::testTimeZoneShow
-1..30
+ok 11 - FellowshipOneGroupsTest::testCategoryList
+ok 12 - FellowshipOneGroupsTest::testCategoryShow
+ok 13 - FellowshipOneGroupsTest::testMemberSearch
+ok 14 - FellowshipOneGroupsTest::testMemberList
+ok 15 - FellowshipOneGroupsTest::testMemberShow
+ok 16 - FellowshipOneGroupsTest::testMemberEdit
+ok 17 - FellowshipOneGroupsTest::testMemberNew
+ok 18 - FellowshipOneGroupsTest::testMemberCreate
+ok 19 - FellowshipOneGroupsTest::testMemberUpdate
+ok 20 - FellowshipOneGroupsTest::testMemberDelete
+ok 21 - FellowshipOneGroupsTest::testMemberTypeList
+ok 22 - FellowshipOneGroupsTest::testMemberTypeShow
+ok 23 - FellowshipOneGroupsTest::testProspectNew
+not ok 24 - Error: FellowshipOneGroupsTest::testProspectCreate
+ok 25 - FellowshipOneGroupsTest::testDateRangeTypeList
+ok 26 - FellowshipOneGroupsTest::testDateRangeTypeShow
+ok 27 - FellowshipOneGroupsTest::testGenderList
+ok 28 - FellowshipOneGroupsTest::testGenderShow
+ok 29 - FellowshipOneGroupsTest::testMaritalStatusList
+ok 30 - FellowshipOneGroupsTest::testMaritalStatusShow
+ok 31 - FellowshipOneGroupsTest::testTimeZoneList
+ok 32 - FellowshipOneGroupsTest::testTimeZoneShow
+1..32

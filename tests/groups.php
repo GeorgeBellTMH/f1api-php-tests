@@ -170,7 +170,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/groups/v1/categories.json');
       $category = $r['body']['categories']['category'][0]['@id'];
       $this->assertEquals('200', $r['http_code']);
-      $this->assertNotEmpty($groupTypeId, "No group category id returned");
+      $this->assertNotEmpty($category, "No group category id returned");
       return $category; 
     }
 

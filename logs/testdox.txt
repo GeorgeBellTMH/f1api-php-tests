@@ -9,6 +9,8 @@ FellowshipOneGroups
  [x] Group new
  [x] Group create
  [x] Group update
+ [x] Category list
+ [x] Category show
  [x] Member search
  [x] Member list
  [x] Member show
