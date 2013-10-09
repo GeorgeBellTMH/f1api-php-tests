@@ -1,208 +1,32 @@
 TAP version 13
-not ok 1 - Failure: FellowshipOneGivingTest::testAccountSearch
-  ---
-  message: 'Failed asserting that 200 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 200
-      expected: '405'
-  ...
-not ok 2 - Failure: FellowshipOneGivingTest::testAccountShow
-  ---
-  message: 'Failed asserting that 404 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 404
-      expected: '405'
-  ...
-not ok 3 - Failure: FellowshipOneGivingTest::testAccountEdit
-  ---
-  message: 'Failed asserting that 404 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 404
-      expected: '405'
-  ...
-ok 4 - FellowshipOneGivingTest::testAccountNew
-not ok 5 - Error: FellowshipOneGivingTest::testAccountCreate
-ok 5 - # SKIP This test depends on "FellowshipOneGivingTest::testAccountCreate" to pass.
-ok 6 - FellowshipOneGivingTest::testAccountTypeList
-ok 7 - FellowshipOneGivingTest::testAccountTypeShow
-ok 8 - FellowshipOneGivingTest::testBatchSearch
-not ok 9 - Error: FellowshipOneGivingTest::testBatchShow
-ok 9 - # SKIP This test depends on "FellowshipOneGivingTest::testBatchShow" to pass.
-ok 10 - FellowshipOneGivingTest::testBatchNew
-ok 11 - FellowshipOneGivingTest::testBatchCreate
-ok 12 - FellowshipOneGivingTest::testBatchUpdate
-ok 13 - FellowshipOneGivingTest::testBatchTypeList
-ok 14 - FellowshipOneGivingTest::testBatchTypeShow
-ok 15 - FellowshipOneGivingTest::testContributionReceiptSearch
-ok 16 - FellowshipOneGivingTest::testContributionReceiptShow
-not ok 17 - Failure: FellowshipOneGivingTest::testContributionReceiptEdit
-  ---
-  message: 'Failed asserting that 200 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 200
-      expected: '405'
-  ...
-ok 18 - FellowshipOneGivingTest::testContributionReceiptNew
-ok 19 - FellowshipOneGivingTest::testContributionReceiptCreate
-not ok 20 - Failure: FellowshipOneGivingTest::testContributionReceiptUpdate
-  ---
-  message: 'Failed asserting that 200 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 200
-      expected: '405'
-  ...
-ok 21 - FellowshipOneGivingTest::testContributionTypeList
-ok 22 - FellowshipOneGivingTest::testContributionTypeShow
-ok 23 - FellowshipOneGivingTest::testFundList
-ok 24 - FellowshipOneGivingTest::testFundShow
-not ok 25 - Failure: FellowshipOneGivingTest::testFundEdit
-  ---
-  message: 'Failed asserting that 200 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 200
-      expected: '405'
-  ...
-not ok 26 - Failure: FellowshipOneGivingTest::testFundNew
-  ---
-  message: 'Failed asserting that 200 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 200
-      expected: '405'
-  ...
-not ok 27 - Failure: FellowshipOneGivingTest::testFundCreate
-  ---
-  message: 'Failed asserting that 400 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 400
-      expected: '405'
-  ...
-not ok 28 - Failure: FellowshipOneGivingTest::testFundUpdate
-  ---
-  message: 'Failed asserting that 400 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 400
-      expected: '405'
-  ...
-ok 29 - FellowshipOneGivingTest::testFundTypeList
-ok 30 - FellowshipOneGivingTest::testFundTypeShow
-ok 31 - FellowshipOneGivingTest::testPledgeDriveList
-not ok 32 - Failure: FellowshipOneGivingTest::testPledgeDriveShow
-  ---
-  message: 'Failed asserting that 404 matches expected ''200''.'
-  severity: fail
-  data:
-      got: 404
-      expected: '200'
-  ...
-not ok 33 - Failure: FellowshipOneGivingTest::testPledgeDriveEdit
-  ---
-  message: 'Failed asserting that 400 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 400
-      expected: '405'
-  ...
-not ok 34 - Failure: FellowshipOneGivingTest::testPledgeDriveNew
-  ---
-  message: 'Failed asserting that 200 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 200
-      expected: '405'
-  ...
-not ok 35 - Failure: FellowshipOneGivingTest::testPledgeDriveCreate
-  ---
-  message: 'Failed asserting that 400 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 400
-      expected: '405'
-  ...
-ok 36 - FellowshipOneGivingTest::testPledgeDriveUpdate
-ok 36 - # SKIP This test depends on "FellowshipOneGivingTest::testBatchShow" to pass.
-not ok 37 - Failure: FellowshipOneGivingTest::testRDCBatchShow
-  ---
-  message: 'Failed asserting that 404 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 404
-      expected: '405'
-  ...
-not ok 38 - Failure: FellowshipOneGivingTest::testRDCBatchEdit
-  ---
-  message: 'Failed asserting that 404 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 404
-      expected: '405'
-  ...
-not ok 39 - Failure: FellowshipOneGivingTest::testRDCBatchNew
-  ---
-  message: 'Failed asserting that 200 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 200
-      expected: '405'
-  ...
-not ok 40 - Failure: FellowshipOneGivingTest::testRDCBatchCreate
-  ---
-  message: 'Failed asserting that 400 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 400
-      expected: '405'
-  ...
-not ok 41 - Failure: FellowshipOneGivingTest::testRDCBatchUpdate
-  ---
-  message: 'Failed asserting that 400 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 400
-      expected: '405'
-  ...
-ok 42 - FellowshipOneGivingTest::testReferenceImageShow
-ok 43 - FellowshipOneGivingTest::testReferenceImageCreate
-ok 44 - FellowshipOneGivingTest::testSubFundList
-not ok 45 - Failure: FellowshipOneGivingTest::testSubFundShow
-  ---
-  message: 'Failed asserting that 404 matches expected ''200''.'
-  severity: fail
-  data:
-      got: 404
-      expected: '200'
-  ...
-not ok 46 - Failure: FellowshipOneGivingTest::testSubFundEdit
-  ---
-  message: 'Failed asserting that 400 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 400
-      expected: '405'
-  ...
-not ok 47 - Failure: FellowshipOneGivingTest::testSubFundNew
-  ---
-  message: 'Failed asserting that 200 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 200
-      expected: '405'
-  ...
-not ok 48 - Failure: FellowshipOneGivingTest::testSubFundCreate
-  ---
-  message: 'Failed asserting that 400 matches expected ''405''.'
-  severity: fail
-  data:
-      got: 400
-      expected: '405'
-  ...
-ok 49 - FellowshipOneGivingTest::testSubFundUpdate
-1..49
+ok 1 - FellowshipOneGroupsTest::testGroupTypeList
+ok 2 - FellowshipOneGroupsTest::testGroupTypeShow
+ok 3 - FellowshipOneGroupsTest::testGroupTypeSearch
+ok 4 - FellowshipOneGroupsTest::testGroupSearch
+ok 5 - FellowshipOneGroupsTest::testGroupList
+ok 6 - FellowshipOneGroupsTest::testGroupShow
+ok 7 - FellowshipOneGroupsTest::testGroupEdit
+ok 8 - FellowshipOneGroupsTest::testGroupNew
+ok 9 - FellowshipOneGroupsTest::testGroupCreate
+ok 10 - FellowshipOneGroupsTest::testGroupUpdate
+ok 11 - FellowshipOneGroupsTest::testMemberSearch
+ok 12 - FellowshipOneGroupsTest::testMemberList
+ok 13 - FellowshipOneGroupsTest::testMemberShow
+ok 14 - FellowshipOneGroupsTest::testMemberEdit
+ok 15 - FellowshipOneGroupsTest::testMemberNew
+ok 16 - FellowshipOneGroupsTest::testMemberCreate
+ok 17 - FellowshipOneGroupsTest::testMemberUpdate
+ok 18 - FellowshipOneGroupsTest::testMemberDelete
+ok 19 - FellowshipOneGroupsTest::testMemberTypeList
+ok 20 - FellowshipOneGroupsTest::testMemberTypeShow
+ok 21 - FellowshipOneGroupsTest::testProspectNew
+not ok 22 - Error: FellowshipOneGroupsTest::testProspectCreate
+ok 23 - FellowshipOneGroupsTest::testDateRangeTypeList
+ok 24 - FellowshipOneGroupsTest::testDateRangeTypeShow
+ok 25 - FellowshipOneGroupsTest::testGenderList
+ok 26 - FellowshipOneGroupsTest::testGenderShow
+ok 27 - FellowshipOneGroupsTest::testMaritalStatusList
+ok 28 - FellowshipOneGroupsTest::testMaritalStatusShow
+ok 29 - FellowshipOneGroupsTest::testTimeZoneList
+ok 30 - FellowshipOneGroupsTest::testTimeZoneShow
+1..30

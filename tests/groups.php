@@ -21,7 +21,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
       global $settings;
-      $env = 'qa-new';
+      $env = 'dev';
       self::$f1 = new FellowshipOne($settings[$env]); 
       self::$today = new DateTime('now');
       self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
@@ -161,6 +161,32 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 
     }
+
+    /**
+    * @group Categories
+    */
+    public function testCategoryList()
+    {
+      $r = self::$f1->get('/groups/v1/categories.json');
+      $category = $r['body']['categories']['category'][0]['@id'];
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($groupTypeId, "No group category id returned");
+      return $category; 
+    }
+
+    
+    /**
+     * @group Categories
+     * @depends testCategoryList
+     */
+    public function testCategoryShow($categoryId)
+    {
+     $r = self::$f1->get('/groups/v1/categories/'.$categoryId .'.json');
+     $this->assertEquals('200', $r['http_code']);
+     $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+
 
     /**
      * @group Members
