@@ -123,10 +123,10 @@
 		 * @return array
 		 */
 		public function randomId(){
-			$r = $this->fetchJson($this->settings->baseUrl . "/v1/People/Search?createdDate=2011-01-01");
+			$r = $this->fetchJson($this->settings->baseUrl . "/v1/People/Search?createdDate=2001-01-01");
 			$additionalPages = $r['body']['results']['@additionalPages'];
 			$randomPage = rand(0, $additionalPages);
-			$r = $this->fetchJson($this->settings->baseUrl . "/v1/People/Search?createdDate=2011-01-01&page={$randomPage}");
+			$r = $this->fetchJson($this->settings->baseUrl . "/v1/People/Search?createdDate=2001-01-01&page={$randomPage}");
 			$index = rand(0,19); // 20 records per page is default
 			$id = array(
 				'person' => $r['body']['results']['person'][$index]['@id'],

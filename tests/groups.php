@@ -21,7 +21,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
       global $settings;
-      $env = 'dev';
+      $env = 'qa';
       self::$f1 = new FellowshipOne($settings[$env]); 
       self::$today = new DateTime('now');
       self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
@@ -155,6 +155,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $model['group']['isPublic'] = "true";
       $model['group']['hasChildcare'] = "true";
       $model['group']['isSearchable'] = "true";
+      $model['group']['isLocationPrivate'] = "true";
       $model['group']['groupType']['@id'] = $groupTypeId;
       $model['group']['timeZone']['@id'] = "115";
       $r = self::$f1->put($model, '/groups/v1/groups/'.$groupId.'.json');

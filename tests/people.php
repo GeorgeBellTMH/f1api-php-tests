@@ -132,7 +132,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
      */
     public function testPeopleSearch()
     {
-      $r = self::$f1->get('/v1/people/search.json?createdDate=2009-01-01');
+      $r = self::$f1->get('/v1/people/search.json?createdDate=2001-01-01');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response Body");
       return $personId = $r['body']['results']['person'][0]['@id'];
