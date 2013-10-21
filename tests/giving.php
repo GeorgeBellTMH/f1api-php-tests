@@ -341,7 +341,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/giving/v1/funds.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
-      return $fundId = $r['body']['funds']['fund'][0]['@id'];
+      return $fundId = $r['body']['funds']['fund'][1]['@id'];
     }
 
 
@@ -409,7 +409,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/giving/v1/funds/fundtypes.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
-      return $fundTypeId = $r['body']['fundTypes']['fundType'][0]['@id'];
+      return $fundTypeId = $r['body']['fundTypes']['fundType'][1]['@id'];
     }
 
 

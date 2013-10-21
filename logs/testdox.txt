@@ -1,70 +1,30 @@
-FellowshipOnePeople
- [x] Household search
- [x] Household show
- [x] Household edit
- [x] Household new
- [x] Household create
- [x] Household update
- [x] Household member types list
- [x] Household member types show
- [x] People search
- [x] People show
- [x] People edit
- [x] People new
- [x] People create
- [x] People update
- [x] People attributes new
- [x] People attributes create
- [x] People attributes list
- [x] People attributes show
- [x] People attributes edit
- [x] People attributes update
- [x] People attributes delete
- [x] People images create
- [x] People images show
- [x] People images update
- [x] Addresses new
- [x] Addresses create
- [x] Addresses list
- [x] Addresses show
- [x] Addresses edit
- [x] Addresses update
- [x] Addresses delete
- [x] Address types list
- [x] Address types show
- [x] Attribute groups list
- [x] Attribute groups show
- [x] Attribute list
- [x] Attribute show
- [x] Communications new
- [x] Communications create
- [x] Communications list
- [x] Communications show
- [x] Communications edit
- [x] Communications update
- [x] Communications delete
- [x] Communication type list
- [x] Communication type show
- [x] Denominations list
- [x] Denominations show
- [x] Occupations list
- [x] Occupations show
- [x] Schools list
- [x] Schools show
- [x] Statuses list
- [x] Statuses show
- [x] Sub statuses list
- [x] Sub statuses show
- [x] Requirements new
- [x] Requirements create
- [x] Requirements list
- [x] Requirements show
- [x] Requirements edit
- [x] Requirements update
- [x] Requirement statuses list
- [x] Requirement statuses show
- [x] Background check statuses list
- [x] Background check statuses show
- [x] People requirements new
- [x] People requirements create
+FellowshipOneGroups
+ [x] Group type list
+ [x] Group type show
+ [x] Group type search
+ [x] Group search
+ [x] Group list
+ [x] Group show
+ [x] Group edit
+ [x] Group new
+ [x] Group create
+ [x] Group update
+ [ ] Category list
+ [x] Member search
+ [ ] Member list
+ [x] Member new
+ [x] Member create
+ [x] Member delete
+ [x] Member type list
+ [x] Member type show
+ [x] Prospect new
+ [x] Prospect create
+ [x] Date range type list
+ [x] Date range type show
+ [x] Gender list
+ [x] Gender show
+ [x] Marital status list
+ [x] Marital status show
+ [x] Time zone list
+ [x] Time zone show
 

@@ -1,70 +1,38 @@
 TAP version 13
-ok 1 - FellowshipOnePeopleTest::testHouseholdSearch
-ok 2 - FellowshipOnePeopleTest::testHouseholdShow
-ok 3 - FellowshipOnePeopleTest::testHouseholdEdit
-ok 4 - FellowshipOnePeopleTest::testHouseholdNew
-ok 5 - FellowshipOnePeopleTest::testHouseholdCreate
-ok 6 - FellowshipOnePeopleTest::testHouseholdUpdate
-ok 7 - FellowshipOnePeopleTest::testHouseholdMemberTypesList
-ok 8 - FellowshipOnePeopleTest::testHouseholdMemberTypesShow
-ok 9 - FellowshipOnePeopleTest::testPeopleSearch
-ok 10 - FellowshipOnePeopleTest::testPeopleShow
-ok 11 - FellowshipOnePeopleTest::testPeopleEdit
-ok 12 - FellowshipOnePeopleTest::testPeopleNew
-ok 13 - FellowshipOnePeopleTest::testPeopleCreate
-ok 14 - FellowshipOnePeopleTest::testPeopleUpdate
-ok 15 - FellowshipOnePeopleTest::testPeopleAttributesNew
-ok 16 - FellowshipOnePeopleTest::testPeopleAttributesCreate
-ok 17 - FellowshipOnePeopleTest::testPeopleAttributesList
-ok 18 - FellowshipOnePeopleTest::testPeopleAttributesShow
-ok 19 - FellowshipOnePeopleTest::testPeopleAttributesEdit
-ok 20 - FellowshipOnePeopleTest::testPeopleAttributesUpdate
-ok 21 - FellowshipOnePeopleTest::testPeopleAttributesDelete
-ok 22 - FellowshipOnePeopleTest::testPeopleImagesCreate
-ok 23 - FellowshipOnePeopleTest::testPeopleImagesShow
-ok 24 - FellowshipOnePeopleTest::testPeopleImagesUpdate
-ok 25 - FellowshipOnePeopleTest::testAddressesNew
-ok 26 - FellowshipOnePeopleTest::testAddressesCreate
-ok 27 - FellowshipOnePeopleTest::testAddressesList
-ok 28 - FellowshipOnePeopleTest::testAddressesShow
-ok 29 - FellowshipOnePeopleTest::testAddressesEdit
-ok 30 - FellowshipOnePeopleTest::testAddressesUpdate
-ok 31 - FellowshipOnePeopleTest::testAddressesDelete
-ok 32 - FellowshipOnePeopleTest::testAddressTypesList
-ok 33 - FellowshipOnePeopleTest::testAddressTypesShow
-ok 34 - FellowshipOnePeopleTest::testAttributeGroupsList
-ok 35 - FellowshipOnePeopleTest::testAttributeGroupsShow
-ok 36 - FellowshipOnePeopleTest::testAttributeList
-ok 37 - FellowshipOnePeopleTest::testAttributeShow
-ok 38 - FellowshipOnePeopleTest::testCommunicationsNew
-ok 39 - FellowshipOnePeopleTest::testCommunicationsCreate
-ok 40 - FellowshipOnePeopleTest::testCommunicationsList
-ok 41 - FellowshipOnePeopleTest::testCommunicationsShow
-ok 42 - FellowshipOnePeopleTest::testCommunicationsEdit
-ok 43 - FellowshipOnePeopleTest::testCommunicationsUpdate
-ok 44 - FellowshipOnePeopleTest::testCommunicationsDelete
-ok 45 - FellowshipOnePeopleTest::testCommunicationTypeList
-ok 46 - FellowshipOnePeopleTest::testCommunicationTypeShow
-ok 47 - FellowshipOnePeopleTest::testDenominationsList
-ok 48 - FellowshipOnePeopleTest::testDenominationsShow
-ok 49 - FellowshipOnePeopleTest::testOccupationsList
-ok 50 - FellowshipOnePeopleTest::testOccupationsShow
-ok 51 - FellowshipOnePeopleTest::testSchoolsList
-ok 52 - FellowshipOnePeopleTest::testSchoolsShow
-ok 53 - FellowshipOnePeopleTest::testStatusesList
-ok 54 - FellowshipOnePeopleTest::testStatusesShow
-ok 55 - FellowshipOnePeopleTest::testSubStatusesList
-ok 56 - FellowshipOnePeopleTest::testSubStatusesShow
-ok 57 - FellowshipOnePeopleTest::testRequirementsNew
-ok 58 - FellowshipOnePeopleTest::testRequirementsCreate
-ok 59 - FellowshipOnePeopleTest::testRequirementsList
-ok 60 - FellowshipOnePeopleTest::testRequirementsShow
-ok 61 - FellowshipOnePeopleTest::testRequirementsEdit
-ok 62 - FellowshipOnePeopleTest::testRequirementsUpdate
-ok 63 - FellowshipOnePeopleTest::testRequirementStatusesList
-ok 64 - FellowshipOnePeopleTest::testRequirementStatusesShow
-ok 65 - FellowshipOnePeopleTest::testBackgroundCheckStatusesList
-ok 66 - FellowshipOnePeopleTest::testBackgroundCheckStatusesShow
-ok 67 - FellowshipOnePeopleTest::testPeopleRequirementsNew
-ok 68 - FellowshipOnePeopleTest::testPeopleRequirementsCreate
-1..68
+ok 1 - FellowshipOneGroupsTest::testGroupTypeList
+ok 2 - FellowshipOneGroupsTest::testGroupTypeShow
+ok 3 - FellowshipOneGroupsTest::testGroupTypeSearch
+ok 4 - FellowshipOneGroupsTest::testGroupSearch
+ok 5 - FellowshipOneGroupsTest::testGroupList
+ok 6 - FellowshipOneGroupsTest::testGroupShow
+ok 7 - FellowshipOneGroupsTest::testGroupEdit
+ok 8 - FellowshipOneGroupsTest::testGroupNew
+ok 9 - FellowshipOneGroupsTest::testGroupCreate
+ok 10 - FellowshipOneGroupsTest::testGroupUpdate
+not ok 11 - Error: FellowshipOneGroupsTest::testCategoryList
+ok 11 - # SKIP This test depends on "FellowshipOneGroupsTest::testCategoryList" to pass.
+ok 12 - FellowshipOneGroupsTest::testMemberSearch
+not ok 13 - Failure: FellowshipOneGroupsTest::testMemberList
+  ---
+  message: 'No Member ID'
+  severity: fail
+  ...
+ok 13 - # SKIP This test depends on "FellowshipOneGroupsTest::testMemberList" to pass.
+ok 13 - # SKIP This test depends on "FellowshipOneGroupsTest::testMemberList" to pass.
+ok 14 - FellowshipOneGroupsTest::testMemberNew
+ok 15 - FellowshipOneGroupsTest::testMemberCreate
+ok 15 - # SKIP This test depends on "FellowshipOneGroupsTest::testMemberEdit" to pass.
+ok 16 - FellowshipOneGroupsTest::testMemberDelete
+ok 17 - FellowshipOneGroupsTest::testMemberTypeList
+ok 18 - FellowshipOneGroupsTest::testMemberTypeShow
+ok 19 - FellowshipOneGroupsTest::testProspectNew
+ok 20 - FellowshipOneGroupsTest::testProspectCreate
+ok 21 - FellowshipOneGroupsTest::testDateRangeTypeList
+ok 22 - FellowshipOneGroupsTest::testDateRangeTypeShow
+ok 23 - FellowshipOneGroupsTest::testGenderList
+ok 24 - FellowshipOneGroupsTest::testGenderShow
+ok 25 - FellowshipOneGroupsTest::testMaritalStatusList
+ok 26 - FellowshipOneGroupsTest::testMaritalStatusShow
+ok 27 - FellowshipOneGroupsTest::testTimeZoneList
+ok 28 - FellowshipOneGroupsTest::testTimeZoneShow
+1..28

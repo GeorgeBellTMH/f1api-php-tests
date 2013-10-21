@@ -79,7 +79,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGroupList($groupTypeId)
     {
       $r = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
-      $groupId = $r['body']['groups']['group'][0]['@id'];
+      $groupId = $r['body']['groups']['group'][5]['@id'];
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($groupId, "No Group ID");
       return $groupId;
@@ -155,7 +155,6 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $model['group']['isPublic'] = "true";
       $model['group']['hasChildcare'] = "true";
       $model['group']['isSearchable'] = "true";
-      $model['group']['isLocationPrivate'] = "true";
       $model['group']['groupType']['@id'] = $groupTypeId;
       $model['group']['timeZone']['@id'] = "115";
       $r = self::$f1->put($model, '/groups/v1/groups/'.$groupId.'.json');
