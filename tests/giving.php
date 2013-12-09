@@ -22,7 +22,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'qa';
+        $env = 'uat';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$randomNumber = rand();
@@ -138,11 +138,12 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
      */
     public function testBatchShow()
     {
-      $randomId = self::$f1->randomId("batch");
-      $r = self::$f1->get('/giving/v1/batches/'.$randomId['batch'] .'.json');
+      $r = self::$f1->get('/giving/v1/batches/search.json?batchTypeID=1');
+      $batchId = $r['body']['results']['batch'][0]['@id'];
+      $r = self::$f1->get('/giving/v1/batches/'. $batchId .'.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
-      return $batchId = $r['body']['batch']['@id'];
+      return $batchId;
     }
 
     /**
