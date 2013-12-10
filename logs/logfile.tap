@@ -1,38 +1,8 @@
 TAP version 13
-ok 1 - FellowshipOneGroupsTest::testGroupTypeList
-ok 2 - FellowshipOneGroupsTest::testGroupTypeShow
-ok 3 - FellowshipOneGroupsTest::testGroupTypeSearch
-ok 4 - FellowshipOneGroupsTest::testGroupSearch
-ok 5 - FellowshipOneGroupsTest::testGroupList
-ok 6 - FellowshipOneGroupsTest::testGroupShow
-ok 7 - FellowshipOneGroupsTest::testGroupEdit
-ok 8 - FellowshipOneGroupsTest::testGroupNew
-ok 9 - FellowshipOneGroupsTest::testGroupCreate
-ok 10 - FellowshipOneGroupsTest::testGroupUpdate
-not ok 11 - Error: FellowshipOneGroupsTest::testCategoryList
-ok 11 - # SKIP This test depends on "FellowshipOneGroupsTest::testCategoryList" to pass.
-ok 12 - FellowshipOneGroupsTest::testMemberSearch
-not ok 13 - Failure: FellowshipOneGroupsTest::testMemberList
-  ---
-  message: 'No Member ID'
-  severity: fail
-  ...
-ok 13 - # SKIP This test depends on "FellowshipOneGroupsTest::testMemberList" to pass.
-ok 13 - # SKIP This test depends on "FellowshipOneGroupsTest::testMemberList" to pass.
-ok 14 - FellowshipOneGroupsTest::testMemberNew
-ok 15 - FellowshipOneGroupsTest::testMemberCreate
-ok 15 - # SKIP This test depends on "FellowshipOneGroupsTest::testMemberEdit" to pass.
-ok 16 - FellowshipOneGroupsTest::testMemberDelete
-ok 17 - FellowshipOneGroupsTest::testMemberTypeList
-ok 18 - FellowshipOneGroupsTest::testMemberTypeShow
-ok 19 - FellowshipOneGroupsTest::testProspectNew
-ok 20 - FellowshipOneGroupsTest::testProspectCreate
-ok 21 - FellowshipOneGroupsTest::testDateRangeTypeList
-ok 22 - FellowshipOneGroupsTest::testDateRangeTypeShow
-ok 23 - FellowshipOneGroupsTest::testGenderList
-ok 24 - FellowshipOneGroupsTest::testGenderShow
-ok 25 - FellowshipOneGroupsTest::testMaritalStatusList
-ok 26 - FellowshipOneGroupsTest::testMaritalStatusShow
-ok 27 - FellowshipOneGroupsTest::testTimeZoneList
-ok 28 - FellowshipOneGroupsTest::testTimeZoneShow
-1..28
+ok 1 - FellowshipOneGivingTest::testBatchSearch
+ok 2 - FellowshipOneGivingTest::testBatchShow
+ok 3 - FellowshipOneGivingTest::testBatchEdit
+ok 4 - FellowshipOneGivingTest::testBatchNew
+ok 5 - FellowshipOneGivingTest::testBatchCreate
+ok 6 - FellowshipOneGivingTest::testBatchUpdate
+1..6

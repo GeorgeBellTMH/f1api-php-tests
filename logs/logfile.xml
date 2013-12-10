@@ -1,43 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" tests="25" assertions="48" failures="1" errors="1" time="10.481666">
-    <testcase name="testGroupTypeList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="33" assertions="2" time="0.891496"/>
-    <testcase name="testGroupTypeShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="47" assertions="2" time="0.295956"/>
-    <testcase name="testGroupTypeSearch" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="57" assertions="2" time="0.453405"/>
-    <testcase name="testGroupSearch" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="68" assertions="2" time="0.869244"/>
-    <testcase name="testGroupList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="79" assertions="2" time="0.527992"/>
-    <testcase name="testGroupShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="92" assertions="2" time="0.282009"/>
-    <testcase name="testGroupEdit" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="103" assertions="2" time="0.293857"/>
-    <testcase name="testGroupNew" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="114" assertions="2" time="0.303113"/>
-    <testcase name="testGroupCreate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="127" assertions="2" time="0.405916"/>
-    <testcase name="testGroupUpdate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="150" assertions="2" time="0.394478"/>
-    <testcase name="testCategoryList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="168" assertions="0" time="0.269556">
-      <error type="PHPUnit_Framework_Error_Notice">FellowshipOneGroupsTest::testCategoryList
-Undefined index: body
-
-/Users/tmazelin/Sites/UnitTests/tests/groups.php:171
-</error>
-    </testcase>
-    <testcase name="testMemberList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="207" assertions="2" time="0.287024">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneGroupsTest::testMemberList
-No Member ID
-Failed asserting that a NULL is not empty.
-
-/Users/tmazelin/Sites/UnitTests/tests/groups.php:212
-</failure>
-    </testcase>
-    <testcase name="testMemberCreate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="258" assertions="2" time="1.007045"/>
-    <testcase name="testMemberTypeList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="306" assertions="2" time="0.284723"/>
-    <testcase name="testMemberTypeShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="319" assertions="2" time="0.282610"/>
-    <testcase name="testProspectNew" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="330" assertions="2" time="0.273769"/>
-    <testcase name="testProspectCreate" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="343" assertions="2" time="0.405881"/>
-    <testcase name="testDateRangeTypeList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="359" assertions="2" time="0.369970"/>
-    <testcase name="testDateRangeTypeShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="373" assertions="2" time="0.375908"/>
-    <testcase name="testGenderList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="384" assertions="2" time="0.297091"/>
-    <testcase name="testGenderShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="398" assertions="2" time="0.337407"/>
-    <testcase name="testMaritalStatusList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="408" assertions="2" time="0.357274"/>
-    <testcase name="testMaritalStatusShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="421" assertions="2" time="0.353166"/>
-    <testcase name="testTimeZoneList" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="432" assertions="2" time="0.502499"/>
-    <testcase name="testTimeZoneShow" class="FellowshipOneGroupsTest" file="/Users/tmazelin/Sites/UnitTests/tests/groups.php" line="445" assertions="2" time="0.360276"/>
+  <testsuite name="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" tests="6" assertions="12" failures="0" errors="0" time="2.230756">
+    <testcase name="testBatchSearch" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="128" assertions="2" time="0.390588"/>
+    <testcase name="testBatchShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="139" assertions="2" time="0.669711"/>
+    <testcase name="testBatchEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="153" assertions="2" time="0.284170"/>
+    <testcase name="testBatchNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="165" assertions="2" time="0.276003"/>
+    <testcase name="testBatchCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="177" assertions="2" time="0.296688"/>
+    <testcase name="testBatchUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="194" assertions="2" time="0.313596"/>
   </testsuite>
 </testsuites>
