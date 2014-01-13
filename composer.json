@@ -1,5 +1,5 @@
 {
-    "name": "FellowshipOne/API_Unit_Tests",
+    "name": "fellowshipone/api_unit_tests",
     "type": "library",
     "description": "A suite of tests/example consumption for the Fellowship One API.",
     "keywords": ["fellowshipone", "api", "tests"],
