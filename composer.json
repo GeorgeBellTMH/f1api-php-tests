@@ -1,5 +1,18 @@
 {
-    "require-dev": {
+    "name": "F1 API PHP Unit Tests",
+    "description": "A suite of tests/example consumption for the Fellowship One API.",
+    "keywords": ["fellowshipone", "api", "tests"],
+    "license": "https://github.com/fellowshiptech/f1api-php-tests/blob/master/license.txt",
+    "authors": [
+        {
+            "name": "Tracy Mazelin",
+            "email": "tracy.mazelin@activenetwork.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "ext-mcrypt": "*",
+        "ext-oauth": "*",
         "phpunit/phpunit": "3.7.*"
     }
 }

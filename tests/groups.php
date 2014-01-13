@@ -21,7 +21,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
       global $settings;
-      $env = 'uat';
+      $env = 'prod';
       self::$f1 = new FellowshipOne($settings[$env]); 
       self::$today = new DateTime('now');
       self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
@@ -79,7 +79,7 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
     public function testGroupList($groupTypeId)
     {
       $r = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
-      $groupId = $r['body']['groups']['group'][5]['@id'];
+      $groupId = $r['body']['groups']['group'][0]['@id'];
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($groupId, "No Group ID");
       return $groupId;
