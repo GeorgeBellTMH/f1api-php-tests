@@ -1,5 +1,6 @@
 {
-    "name": "F1 API PHP Unit Tests",
+    "name": "FellowshipOne/API_Unit_Tests",
+    "type": "library",
     "description": "A suite of tests/example consumption for the Fellowship One API.",
     "keywords": ["fellowshipone", "api", "tests"],
     "license": "https://github.com/fellowshiptech/f1api-php-tests/blob/master/license.txt",
