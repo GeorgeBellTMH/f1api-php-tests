@@ -762,27 +762,28 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response Body");
+
     }
 
     /**
-     * @group PeopleListsMembers
-     * @depends testPeopleListsShow
+     * @group PeopleLists
+     * @depends testPeopleListsList
      */
-    public function testPeopleListMembersList($list)
+    public function testPeopleListMembersList($lists)
     {
       $r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'/members.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response Body");
-      return $r['body']['peopleList']['members'];
+      return $r['body']['members']['member'];
     }
 
     /*
-     * @group PeopleListsMembers
+     * @group PeopleLists
      * @depends testPeopleListsShow
      * @depends testPeopleListMembersList
      */
      
-    public function testPeopleListMembersShow($list, $members)
+    public function testPeopleListMembersShow($lists, $members)
     {
       $r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'/members/'.$members['members'][0]['@id'].'.json');
       $this->assertEquals('200', $r['http_code'] );
@@ -790,25 +791,25 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group PeopleListsUsers
-     * @depends testPeopleListsShow
+     * @group PeopleLists
+     * @depends testPeopleListsList
      */
-    public function testPeopleListUsersList($list)
+    public function testPeopleListUsersList($lists)
     {
       $r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'/users.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response Body");
-      return $r['body']['peopleList']['users'];
+      return $r['body']['users'];
     }
 
     /**
-     * @group PeopleListsUsers
-     * @depends testPeopleListsShow
+     * @group PeopleLists
+     * @depends testPeopleListsList
      * @depends testPeopleListUsersList
      */
-    public function testPeopleListUsersShow($list, $users)
+    public function testPeopleListUsersShow($lists, $users)
     {
-      $r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'/users/'.$users['users'][0]['@id'].'.json');
+      $r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'/users/'.$users['user'][0]['@id'].'.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response Body");
     }
