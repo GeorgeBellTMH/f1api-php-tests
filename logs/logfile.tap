@@ -1,54 +1,32 @@
 TAP version 13
-ok 1 - FellowshipOneGivingTest::testAccountSearch
-ok 2 - FellowshipOneGivingTest::testAccountShow
-ok 3 - FellowshipOneGivingTest::testAccountEdit
-ok 4 - FellowshipOneGivingTest::testAccountNew
-ok 5 - FellowshipOneGivingTest::testAccountCreate
-ok 6 - FellowshipOneGivingTest::testAccountUpdate
-ok 7 - FellowshipOneGivingTest::testAccountTypeList
-ok 8 - FellowshipOneGivingTest::testAccountTypeShow
-ok 9 - FellowshipOneGivingTest::testBatchSearch
-ok 10 - FellowshipOneGivingTest::testBatchShow
-ok 11 - FellowshipOneGivingTest::testBatchEdit
-ok 12 - FellowshipOneGivingTest::testBatchNew
-ok 13 - FellowshipOneGivingTest::testBatchCreate
-ok 14 - FellowshipOneGivingTest::testBatchUpdate
-ok 15 - FellowshipOneGivingTest::testBatchTypeList
-ok 16 - FellowshipOneGivingTest::testBatchTypeShow
-ok 17 - FellowshipOneGivingTest::testContributionReceiptSearch
-ok 18 - FellowshipOneGivingTest::testContributionReceiptShow
-ok 19 - FellowshipOneGivingTest::testContributionReceiptEdit
-ok 20 - FellowshipOneGivingTest::testContributionReceiptNew
-ok 21 - FellowshipOneGivingTest::testContributionReceiptCreate
-ok 22 - FellowshipOneGivingTest::testContributionReceiptUpdate
-ok 23 - FellowshipOneGivingTest::testContributionTypeList
-ok 24 - FellowshipOneGivingTest::testContributionTypeShow
-ok 25 - FellowshipOneGivingTest::testFundList
-ok 26 - FellowshipOneGivingTest::testFundShow
-ok 27 - FellowshipOneGivingTest::testFundEdit
-ok 28 - FellowshipOneGivingTest::testFundNew
-ok 29 - FellowshipOneGivingTest::testFundCreate
-ok 30 - FellowshipOneGivingTest::testFundUpdate
-ok 31 - FellowshipOneGivingTest::testFundTypeList
-ok 32 - FellowshipOneGivingTest::testFundTypeShow
-ok 33 - FellowshipOneGivingTest::testPledgeDriveList
-ok 34 - FellowshipOneGivingTest::testPledgeDriveShow
-ok 35 - FellowshipOneGivingTest::testPledgeDriveEdit
-ok 36 - FellowshipOneGivingTest::testPledgeDriveNew
-ok 37 - FellowshipOneGivingTest::testPledgeDriveCreate
-ok 38 - FellowshipOneGivingTest::testPledgeDriveUpdate
-ok 39 - FellowshipOneGivingTest::testRDCBatchList
-ok 40 - FellowshipOneGivingTest::testRDCBatchShow
-ok 41 - FellowshipOneGivingTest::testRDCBatchEdit
-ok 42 - FellowshipOneGivingTest::testRDCBatchNew
-ok 43 - FellowshipOneGivingTest::testRDCBatchCreate
-ok 44 - FellowshipOneGivingTest::testRDCBatchUpdate
-ok 45 - FellowshipOneGivingTest::testReferenceImageShow
-ok 46 - FellowshipOneGivingTest::testReferenceImageCreate
-ok 47 - FellowshipOneGivingTest::testSubFundList
-ok 48 - FellowshipOneGivingTest::testSubFundShow
-ok 49 - FellowshipOneGivingTest::testSubFundEdit
-ok 50 - FellowshipOneGivingTest::testSubFundNew
-ok 51 - FellowshipOneGivingTest::testSubFundCreate
-ok 52 - FellowshipOneGivingTest::testSubFundUpdate
-1..52
+ok 1 - FellowshipOneEventsTest::testEventList
+ok 2 - FellowshipOneEventsTest::testEventShow
+ok 3 - FellowshipOneEventsTest::testEventEdit
+ok 4 - FellowshipOneEventsTest::testEventUpdate
+not ok 5 - Failure: FellowshipOneEventsTest::testScheduleList
+  ---
+  message: 'No Schedule ID'
+  severity: fail
+  ...
+ok 5 - # SKIP This test depends on "FellowshipOneEventsTest::testScheduleList" to pass.
+ok 5 - # SKIP This test depends on "FellowshipOneEventsTest::testScheduleList" to pass.
+ok 6 - FellowshipOneEventsTest::testScheduleNew
+ok 7 - FellowshipOneEventsTest::testScheduleCreate
+ok 8 - FellowshipOneEventsTest::testScheduleUpdate
+ok 9 - FellowshipOneEventsTest::testScheduleDelete
+not ok 10 - Failure: FellowshipOneEventsTest::testLocationList
+  ---
+  message: 'No Response Body'
+  severity: fail
+  ...
+ok 10 - # SKIP This test depends on "FellowshipOneEventsTest::testLocationList" to pass.
+ok 10 - # SKIP This test depends on "FellowshipOneEventsTest::testLocationList" to pass.
+ok 11 - FellowshipOneEventsTest::testLocationNew
+ok 12 - FellowshipOneEventsTest::testLocationCreate
+ok 13 - FellowshipOneEventsTest::testLocationUpdate
+ok 14 - FellowshipOneEventsTest::testLocationDelete
+ok 15 - FellowshipOneEventsTest::testRecurrenceTypeList
+ok 16 - FellowshipOneEventsTest::testRecurrenceTypeShow
+ok 17 - FellowshipOneEventsTest::testAttendanceSummmariesSearch
+ok 18 - FellowshipOneEventsTest::testAttendanceSummmariesShow
+1..18

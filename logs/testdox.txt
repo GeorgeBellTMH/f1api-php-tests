@@ -1,54 +1,20 @@
-FellowshipOneGiving
- [x] Account search
- [x] Account show
- [x] Account edit
- [x] Account new
- [x] Account create
- [x] Account update
- [x] Account type list
- [x] Account type show
- [x] Batch search
- [x] Batch show
- [x] Batch edit
- [x] Batch new
- [x] Batch create
- [x] Batch update
- [x] Batch type list
- [x] Batch type show
- [x] Contribution receipt search
- [x] Contribution receipt show
- [x] Contribution receipt edit
- [x] Contribution receipt new
- [x] Contribution receipt create
- [x] Contribution receipt update
- [x] Contribution type list
- [x] Contribution type show
- [x] Fund list
- [x] Fund show
- [x] Fund edit
- [x] Fund new
- [x] Fund create
- [x] Fund update
- [x] Fund type list
- [x] Fund type show
- [x] Pledge drive list
- [x] Pledge drive show
- [x] Pledge drive edit
- [x] Pledge drive new
- [x] Pledge drive create
- [x] Pledge drive update
- [x] R d c batch list
- [x] R d c batch show
- [x] R d c batch edit
- [x] R d c batch new
- [x] R d c batch create
- [x] R d c batch update
- [x] Reference image show
- [x] Reference image create
- [x] Sub fund list
- [x] Sub fund show
- [x] Sub fund edit
- [x] Sub fund new
- [x] Sub fund create
- [x] Sub fund update
+FellowshipOneEvents
+ [x] Event list
+ [x] Event show
+ [x] Event edit
+ [x] Event update
+ [ ] Schedule list
+ [x] Schedule new
+ [x] Schedule create
+ [x] Schedule update
+ [x] Schedule delete
+ [ ] Location list
+ [x] Location new
+ [x] Location create
+ [x] Location update
+ [x] Location delete
+ [x] Recurrence type list
+ [x] Recurrence type show
+ [x] Attendance summmaries search
+ [x] Attendance summmaries show
 

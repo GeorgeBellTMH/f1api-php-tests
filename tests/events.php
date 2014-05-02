@@ -299,5 +299,32 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
+
+    /**
+     * @group AttendanceSummaries
+     * 
+     */
+    public function testAttendanceSummmariesSearch()
+    {
+     $r = self::$f1->get('/events/v1/attendanceSummaries/Search?attendanceContextTypeID=1');
+     $attendanceSummaryId = $r['body']['results']['attendanceSummary'][0]['@id'];
+     $this->assertEquals('200', $r['http_code']);
+     $this->assertNotEmpty($attendanceSummaryId, "No attendance summary id returned");
+     return $attendanceSummaryId;   
+    }
+
+    /**
+     * @group AttendanceSummaries
+     * @depends testAttendanceSummmariesSearch
+     * 
+     */
+    public function testAttendanceSummmariesShow($attendanceSummaryId)
+    {
+     $r = self::$f1->get('/events/v1/attendanceSummaries/'.$attendanceSummaryId);
+     $this->assertEquals('200', $r['http_code']);
+    }
+
+
+
 }
 ?>
