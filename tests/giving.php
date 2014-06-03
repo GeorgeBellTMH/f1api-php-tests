@@ -351,7 +351,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
      */
     public function testContributionSubTypeShow($contributionSubTypeId)
     {
-      $r = self::$f1->get("/giving/v1/contributiontypes/{$contributionSubTypeId}.json");
+      $r = self::$f1->get("/giving/v1/contributiontypes/4/contributionsubtypes/{$contributionSubTypeId}.json");
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
     }
