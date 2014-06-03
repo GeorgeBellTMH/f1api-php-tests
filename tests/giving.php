@@ -22,7 +22,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'uat';
+        $env = 'int';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$randomNumber = rand();
@@ -327,11 +327,36 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
      */
     public function testContributionTypeShow($contributionTypeId)
     {
-      $r = self::$f1->get('/giving/v1/contributiontypes/'.$contributionTypeId.'.json');
+      $r = self::$f1->get("/giving/v1/contributiontypes/{$contributionTypeId}.json");
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
     }
 
+    // CONTRIBUTION SUBTYPES START
+
+    /**
+     * @group ContributionSubTypes
+     */
+    public function testContributionSubTypeList()
+    {
+      $r = self::$f1->get('/giving/v1/contributiontypes/4/contributionsubtypes.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+      return $contributionSubTypeId = $r['body']['contributionSubTypes']['contributionSubType'][0]['@id'];
+    }
+
+    /**
+     * @group ContributionSubTypes
+     * @depends testContributionSubTypeList
+     */
+    public function testContributionSubTypeShow($contributionSubTypeId)
+    {
+      $r = self::$f1->get("/giving/v1/contributiontypes/{$contributionSubTypeId}.json");
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response");
+    }
+
+  
     // FUNDS START
 
    /**
@@ -498,16 +523,18 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
          
          
     // RDC START
+
+    //testing prod rdcBatches
     
      /**
      * @group RDCBatches
-     * @depends testBatchShow
      */
-    public function testRDCBatchList($batchId)
+    public function testRDCBatchList()
     {
       //1st party only.  Expecting 405..
-      $r = self::$f1->get('/giving/v1/batches/'.$batchId.'/rdcbatches.json');
-      $this->assertEquals('405', $r['http_code'] );
+      $r = self::$f1->get('/giving/v1/batches/1886796/rdcbatches.json');
+      $this->assertEquals('200', $r['http_code'] );
+      //$this->assertEquals('405', $r['http_code'] );
     }
 
 
@@ -517,8 +544,9 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public function testRDCBatchShow()
     {
       //1st party only.  Expecting 405..
-      $r = self::$f1->get('/giving/v1/rdcbatches/12345.json');
-      $this->assertEquals('405', $r['http_code'] );
+      $r = self::$f1->get('/giving/v1/rdcbatches/1.json');
+      $this->assertEquals('200', $r['http_code'] );
+      //$this->assertEquals('405', $r['http_code'] );
     }
 
     /**
@@ -527,10 +555,11 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public function testRDCBatchEdit()
     {
       //1st party only.  Expecting 405..
-      $r = self::$f1->get('/giving/v1/rdcbatches/12345/edit.json');
-      $this->assertEquals('405', $r['http_code'] );
-    
-    }
+      $r = self::$f1->get('/giving/v1/rdcbatches/1/edit.json');
+      $this->assertEquals('200', $r['http_code'] );
+      //$this->assertEquals('405', $r['http_code'] );
+      return $model = $r['body'];
+     }
    /**
      * @group RDCBatches
      */
@@ -538,27 +567,40 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     {
       //1st party only.  Expecting 405..
       $r = self::$f1->get('/giving/v1/rdcbatches/new.json');
-      $this->assertEquals('405', $r['http_code']);
+      $this->assertEquals('200', $r['http_code'] );
+      //$this->assertEquals('405', $r['http_code']);
+      return $model = $r['body'];
+    }
+
+    /**
+     * @group RDCBatches
+     * @depends testRDCBatchNew
+     */
+    public function testRDCBatchCreate($model)
+    {
+      $model['rdcBatch']['@ppMerchantAccountID'] = "76";
+      $model['rdcBatch']['@locationID'] = "77098";
+      $model['rdcBatch']['name'] = "test";
+      $model['rdcBatch']['parentBatch']['@id'] = "4191808";
+      $model['rdcBatch']['batchCreatedDate'] = self::$today->format(DATE_ATOM);
+      $model['rdcBatch']['itemCount'] = "1";
+      $model['rdcBatch']['batchAmount'] = rand(1,1000);
+      $model['rdcBatch']['glPostDate'] = self::$today->format(DATE_ATOM);
+      $model['rdcBatch']['hasMultipleFunds'] = "false";
+      $r = self::$f1->post($model, '/giving/v1/rdcbatches.json');
+      $this->assertEquals('201', $r['http_code']);
     }
 
      /**
      * @group RDCBatches
+     * @depends testRDCBatchEdit
      */
-    public function testRDCBatchCreate()
+    public function testRDCBatchUpdate($model)
     {
-      //1st party only.  Expecting 405..
-      $r = self::$f1->post($model=null, '/giving/v1/rdcbatches.json');
-      $this->assertEquals('405', $r['http_code']);
-    }
-
-     /**
-     * @group RDCBatches
-     */
-    public function testRDCBatchUpdate()
-    {
-      //1st party only.  Expecting 405..
-      $r = self::$f1->put($model=null, '/giving/v1/rdcbatches/12345.json');
-      $this->assertEquals('405', $r['http_code'] );
+      
+      $model['rdcBatch']['batchAmount'] = rand(1,1000);
+      $r = self::$f1->put($model, '/giving/v1/rdcbatches/1.json');
+      $this->assertEquals('200', $r['http_code'] );
     }
 
        
