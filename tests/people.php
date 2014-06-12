@@ -21,7 +21,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'qa';
+        $env = 'staging';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
@@ -496,11 +496,9 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
      */
     public function testAttributeShow($attributeGroup, $attribute)
     {
-      // $r = self::$f1->get('/v1/people/attributegroups/'.$attributeGroup['attributeGroup'][0]['@id'].'/attributes/'.$attribute['attribute'][0]['@id'].'.json');
-      // $this->assertEquals('200', $r['http_code'] );
-      // $this->assertNotEmpty($r['body'], "No Response Body");
-      // returning 500 - error in api?
-      // $uri = "https://tmazelin.staging.fellowshiponeapi.com/v1/People/AttributeGroups/35240/Attributes/468099"
+      $r = self::$f1->get('/v1/people/attributegroups/'.$attributeGroup['attributeGroup'][0]['@id'].'/attributes/'.$attribute['attribute'][0]['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
     }
    
   

@@ -22,7 +22,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'int';
+        $env = 'qa';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$randomNumber = rand();
@@ -696,6 +696,5 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       //This is a 1st party only method.  Expecting Exception to be thrown.
       $r = self::$f1->put($model=null, '/giving/v1/funds/'.$fundId .'/subfunds/'.$subFundId.'.json');
       $this->assertEquals('405', $r['http_code'] );
-    }
-   
+    }  
 }

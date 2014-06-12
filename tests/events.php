@@ -21,7 +21,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'staging';
+        $env = 'prod';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
@@ -101,7 +101,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/events/v1/events/'.$eventId.'/schedules/'.$scheduleId.'.json');
       $this->assertEquals('200', $r['http_code']);    
       $this->assertNotEmpty($r['body'], "No Response Body");  
-    }
+    } 
 
     /**
      * @group Schedules
