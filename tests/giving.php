@@ -22,7 +22,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'qa';
+        $env = 'int2';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$randomNumber = rand();
@@ -72,8 +72,8 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($model['body'], "No Response Body");
       return $model['body'];
     }
-
-     /**
+       
+    /**
      * @group Accounts
      * @depends testAccountNew
      */

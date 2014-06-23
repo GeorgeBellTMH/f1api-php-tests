@@ -1,35 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" tests="16" assertions="32" failures="2" errors="0" time="13.228291">
-    <testcase name="testEventList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="34" assertions="2" time="0.622742"/>
-    <testcase name="testEventShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="47" assertions="2" time="0.484891"/>
-    <testcase name="testEventEdit" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="59" assertions="2" time="0.364479"/>
-    <testcase name="testEventUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="72" assertions="2" time="0.599145"/>
-    <testcase name="testScheduleList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="85" assertions="2" time="0.265378">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneEventsTest::testScheduleList
-No Schedule ID
-Failed asserting that a NULL is not empty.
+  <testsuite name="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" tests="52" assertions="76" failures="0" errors="1" time="60.909230">
+    <testcase name="testAccountSearch" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="37" assertions="1" time="2.862994"/>
+    <testcase name="testAccountShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="48" assertions="1" time="2.801374"/>
+    <testcase name="testAccountEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="58" assertions="1" time="0.787186"/>
+    <testcase name="testAccountNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="68" assertions="2" time="0.987115"/>
+    <testcase name="testAccountCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="80" assertions="0" time="9.717561">
+      <error type="PHPUnit_Framework_Error_Notice">FellowshipOneGivingTest::testAccountCreate
+Undefined index: body
 
-/Users/tmazelin/Sites/UnitTests/tests/events.php:90
-</failure>
+/Users/tmazelin/Sites/UnitTests/tests/giving.php:87
+</error>
     </testcase>
-    <testcase name="testScheduleCreate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="136" assertions="2" time="3.094386"/>
-    <testcase name="testScheduleUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="158" assertions="2" time="2.068766"/>
-    <testcase name="testScheduleDelete" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="176" assertions="2" time="0.378590"/>
-    <testcase name="testLocationList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="189" assertions="2" time="0.327051">
-      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneEventsTest::testLocationList
-No Response Body
-Failed asserting that null is not null.
-
-/Users/tmazelin/Sites/UnitTests/tests/events.php:194
-</failure>
-    </testcase>
-    <testcase name="testLocationCreate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="241" assertions="3" time="2.918395"/>
-    <testcase name="testLocationUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="259" assertions="2" time="0.379408"/>
-    <testcase name="testLocationDelete" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="272" assertions="2" time="0.297016"/>
-    <testcase name="testRecurrenceTypeList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="282" assertions="2" time="0.283672"/>
-    <testcase name="testRecurrenceTypeShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="296" assertions="2" time="0.253418"/>
-    <testcase name="testAttendanceSummmariesSearch" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="307" assertions="2" time="0.474273"/>
-    <testcase name="testAttendanceSummmariesShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="321" assertions="1" time="0.416681"/>
+    <testcase name="testAccountTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="116" assertions="1" time="0.810435"/>
+    <testcase name="testBatchSearch" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="128" assertions="2" time="0.995036"/>
+    <testcase name="testBatchShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="139" assertions="2" time="1.837196"/>
+    <testcase name="testBatchEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="153" assertions="2" time="1.919712"/>
+    <testcase name="testBatchNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="165" assertions="2" time="0.704680"/>
+    <testcase name="testBatchCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="177" assertions="2" time="0.842268"/>
+    <testcase name="testBatchUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="194" assertions="2" time="0.999928"/>
+    <testcase name="testBatchTypeList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="210" assertions="2" time="0.749698"/>
+    <testcase name="testBatchTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="222" assertions="2" time="0.783201"/>
+    <testcase name="testContributionReceiptSearch" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="234" assertions="2" time="1.645878"/>
+    <testcase name="testContributionReceiptShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="247" assertions="2" time="0.958103"/>
+    <testcase name="testContributionReceiptEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="258" assertions="1" time="0.689201"/>
+    <testcase name="testContributionReceiptNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="268" assertions="2" time="0.792596"/>
+    <testcase name="testContributionReceiptCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="280" assertions="2" time="2.318874"/>
+    <testcase name="testContributionReceiptUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="300" assertions="1" time="0.765373"/>
+    <testcase name="testContributionTypeList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="314" assertions="2" time="0.758014"/>
+    <testcase name="testContributionTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="328" assertions="2" time="0.766825"/>
+    <testcase name="testContributionSubTypeList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="340" assertions="2" time="3.021358"/>
+    <testcase name="testContributionSubTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="352" assertions="2" time="0.770118"/>
+    <testcase name="testFundList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="365" assertions="2" time="0.844590"/>
+    <testcase name="testFundShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="378" assertions="2" time="0.840652"/>
+    <testcase name="testFundEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="390" assertions="1" time="0.684752"/>
+    <testcase name="testFundNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="399" assertions="1" time="2.309981"/>
+    <testcase name="testFundCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="409" assertions="1" time="0.702179"/>
+    <testcase name="testFundUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="420" assertions="1" time="0.691798"/>
+    <testcase name="testFundTypeList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="433" assertions="2" time="0.752245"/>
+    <testcase name="testFundTypeShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="446" assertions="2" time="0.584359"/>
+    <testcase name="testPledgeDriveList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="459" assertions="2" time="0.903008"/>
+    <testcase name="testPledgeDriveShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="474" assertions="2" time="0.837587"/>
+    <testcase name="testPledgeDriveEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="486" assertions="1" time="0.618987"/>
+    <testcase name="testPledgeDriveNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="496" assertions="1" time="0.590846"/>
+    <testcase name="testPledgeDriveCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="506" assertions="1" time="0.536677"/>
+    <testcase name="testPledgeDriveUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="517" assertions="1" time="0.613391"/>
+    <testcase name="testRDCBatchList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="532" assertions="1" time="0.736522"/>
+    <testcase name="testRDCBatchShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="544" assertions="1" time="0.750116"/>
+    <testcase name="testRDCBatchEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="555" assertions="1" time="0.677779"/>
+    <testcase name="testRDCBatchNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="566" assertions="1" time="0.777358"/>
+    <testcase name="testRDCBatchCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="579" assertions="1" time="0.715052"/>
+    <testcase name="testRDCBatchUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="599" assertions="1" time="0.761827"/>
+    <testcase name="testReferenceImageShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="614" assertions="1" time="0.640548"/>
+    <testcase name="testReferenceImageCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="624" assertions="1" time="0.695963"/>
+    <testcase name="testSubFundList" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="637" assertions="2" time="0.777339"/>
+    <testcase name="testSubFundShow" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="651" assertions="2" time="0.797182"/>
+    <testcase name="testSubFundEdit" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="663" assertions="1" time="0.688575"/>
+    <testcase name="testSubFundNew" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="672" assertions="1" time="0.680993"/>
+    <testcase name="testSubFundCreate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="682" assertions="1" time="0.690475"/>
+    <testcase name="testSubFundUpdate" class="FellowshipOneGivingTest" file="/Users/tmazelin/Sites/UnitTests/tests/giving.php" line="694" assertions="1" time="0.723725"/>
   </testsuite>
 </testsuites>
