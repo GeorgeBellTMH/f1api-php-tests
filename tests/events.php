@@ -362,7 +362,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group Ministries
+     * @group Activities
      * @depends testActivityList
      */
     public function testActivityShow($activityId)
