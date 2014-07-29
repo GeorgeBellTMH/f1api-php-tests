@@ -21,7 +21,7 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'prod';
+        $env = 'qa';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
@@ -324,7 +324,53 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
      $this->assertEquals('200', $r['http_code']);
     }
 
+    /****** v2 ******/
 
+     /**
+     * @group Ministries
+     */
+    public function testMinistryList()
+    {
+      $r = self::$f1->get('/events/v2/ministries');
+      $ministryId = $r['body'][0]['id'];
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($ministryId, "No ministry id returned");
+      return $ministryId; 
+    }
+
+    /**
+     * @group Ministries
+     * @depends testMinistryList
+     */
+    public function testMinistryShow($ministryId)
+    {
+     $r = self::$f1->get("/events/v2/ministries/{$ministryId}");
+     $this->assertEquals('200', $r['http_code']);
+     $this->assertNotEmpty($r['body'], "No Response Body");   
+    }
+
+    /**
+     * @group Activities
+     */
+    public function testActivityList()
+    {
+      $r = self::$f1->get('/events/v2/activities');
+      $activityId = $r['body'][0]['id'];
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($activityId, "No activity id returned");
+      return $activityId; 
+    }
+
+    /**
+     * @group Ministries
+     * @depends testActivityList
+     */
+    public function testActivityShow($activityId)
+    {
+     $r = self::$f1->get("/events/v2/activities/{$activityId}");
+     $this->assertEquals('200', $r['http_code']);
+     $this->assertNotEmpty($r['body'], "No Response Body");   
+    }
 
 }
 ?>
