@@ -21,3 +21,4 @@ lib/settings.php
 tests/sandbox.php
 logs
 logs/reports
+tests/events-v2.php
