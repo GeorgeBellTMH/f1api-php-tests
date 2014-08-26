@@ -4,7 +4,6 @@
   * PHPUnit Tests for the FellowshipOne.com API Giving Realm.
   * @class FellowshipOneGivingTest
   * @license apache license 2.0, code is distributed "as is", use at own risk, all rights reserved
-  * @copyright 2013 Tracy Mazelin
   * @author Tracy Mazelin tracy.mazelin@activenetwork.com
   * @requires PHP 5.4, PECL OAuth, PHPUnit, XDebug (for logs)
   *
