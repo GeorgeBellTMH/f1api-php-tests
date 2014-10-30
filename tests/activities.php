@@ -21,11 +21,11 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'int';
+        $env = 'qa';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']); 
-        $person = self::$f1->get("/v1/people/search?searchfor=john");
+        $person = self::$f1->get("/v1/people/search?searchfor=Paul");
         self::$personId = $person['body']['results']['person'][0]['@id'];   
    
     }
@@ -192,17 +192,47 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
 
+
+     // ROSTERS START
+
+     /**
+     * @group Rosters
+     * @depends testActivityList
+     */
+    public function testRosterList($activityId)
+    {
+      $r = self::$f1->get("/activities/v1/activities/{$activityId}/rosters?pagesize=5");
+      
+      $rosterId = $r['body'][0]['id'];
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($rosterId, "No roster id returned");
+      return $rosterId; 
+    }
+
+    /**
+     * @group Schedules
+     * @depends testActivityList
+     * @depends testScheduleList
+     */
+    public function testRosterShow($activityId, $rosterId)
+    {
+     $r = self::$f1->get("/activities/v1/activities/{$activityId}/rosters/{$rosterId}");
+     $this->assertEquals('200', $r['http_code']);
+     $this->assertNotEmpty($r['body'], "No Response Body");   
+    }
+
+
     // INSTANCES START
 
     /**
      * @group Instances
-     * @depends testActivityList
+     * @depends testScheduleList
      */
-    public function testInstanceList($activityId)
+    public function testInstanceList($scheduleId)
     {
-      $r = self::$f1->get("/activities/v1/activities/{$activityId}/instances?pagesize=5");
+      $r = self::$f1->get("/activities/v1/schedules/{$scheduleId}/instances?pagesize=5");
       
-      $instanceId = $r['body'][2]['id'];
+      $instanceId = $r['body'][1]['id'];
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($instanceId, "No instance id returned");
       return $instanceId; 
@@ -210,12 +240,12 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
 
     /**
      * @group Instances
-     * @depends testActivityList
+     * @depends testScheduleList
      * @depends testInstanceList
      */
-    public function testInstanceShow($activityId, $instanceId)
+    public function testInstanceShow($scheduleId, $instanceId)
     {
-     $r = self::$f1->get("/activities/v1/activities/{$activityId}/instances/{$instanceId}");
+     $r = self::$f1->get("/activities/v1/schedules/{$scheduleId}/instances/{$instanceId}");
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
@@ -224,33 +254,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
 
     // ATTENDANCE START
 
-    /**
-     * @group Attendances
-     * @depends testActivityList
-     * @depends testInstanceList
-     */
-    // public function testAttendanceList($activityId, $instanceId)
-    // {
-    //   $r = self::$f1->get("/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances");
-    //   $attendanceId = $r['body'][0]['id'];
-    //   $this->assertEquals('200', $r['http_code']);
-    //   $this->assertNotEmpty($attendanceId, "No Attendance ID");
-    //   return $attendanceId;
-    // }
-
-    /**
-     * @group Attendances
-     * @depends testActivityList
-     * @depends testAttendanceList
-     * @depends testInstanceList
-     */
-    public function testAttendanceShow($activityId, $instanceId, $attendanceId)
-    {
-      $r = self::$f1->get("/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances/{$attendanceId}");
-      $this->assertEquals('200', $r['http_code']);    
-      $this->assertNotEmpty($r['body'], "No Response Body");  
-    } 
-   
+      
 
    /**
      * @group Attendances
@@ -267,22 +271,39 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      * @group Attendances
      * @depends testActivityList
      * @depends testInstanceList
+     * @depends testRosterList
      * @depends testAttendanceNew
      */
-    // public function testAttendanceCreate($activityId, $instanceId, $model)
-    // {
-    //   $model['type']['id'] = 1;
-    //   $model['person']['id'] = self::$personId;
-    //   $model['activity']['id'] = $activityId;
-    //   $model['roster']['id'] = 3235;
+    public function testAttendanceCreate($activityId, $instanceId, $rosterId, $model)
+    {
+      $model['person']['id'] = self::$personId;
+      $model['activity']['id'] = $activityId;
+      $model['instance']['id'] = $instanceId;
+      $model['roster']['id'] = $rosterId;
+      $model['type']['id'] = 1;
+   
       
-    //   $r = self::$f1->post($model, "/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances");
-    //   $attendance = $r['body'];
-    //   $this->assertEquals('201', $r['http_code']);
-    //   $this->assertNotEmpty($attendance, "No Response Body");
-    //   return $attendance;
+      $r = self::$f1->post($model, "/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances");
+      $attendanceId = $r['body']['id'];
+      $this->assertEquals('201', $r['http_code']);
+      $this->assertNotEmpty($attendanceId, "No Response Body");
+      return $attendanceId;
 
-    // }
+    }
+
+     /**
+     * @group Attendances
+     * @depends testActivityList
+     * @depends testInstanceList
+     */
+    public function testAttendanceList($activityId, $instanceId)
+    {
+      $r = self::$f1->get("/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances");
+      $attendanceId = $r['body'][0]['id'];
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($attendanceId, "No Attendance ID");
+      return $attendanceId;
+    }
 
     /**
      * @group Attendances
@@ -290,11 +311,23 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      * @depends testInstanceList
      * @depends testAttendanceCreate
      */
-    public function testAttendanceUpdate($activityId, $instanceId, $attendance)
+    public function testAttendanceShow($activityId, $instanceId, $attendanceId)
     {
-      $attendanceId = $attendance['id'];
-      //$attendance['person']['id'] = "1234";
-      $r = self::$f1->put($attendance, "/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances/{$attendanceId}");
+      $r = self::$f1->get("/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances/{$attendanceId}");
+      $this->assertEquals('200', $r['http_code']);    
+      $this->assertNotEmpty($r['body'], "No Response Body");  
+    } 
+
+    /**
+     * @group Attendances
+     * @depends testActivityList
+     * @depends testInstanceList
+     * @depends testAttendanceCreate
+     */
+    public function testAttendanceUpdate($activityId, $instanceId, $attendanceId)
+    {
+      $attendance = self::$f1->get("/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances/{$attendanceId}");
+      $r = self::$f1->put($attendance['body'], "/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances/{$attendanceId}");
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 
     }
@@ -305,9 +338,9 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      * @depends testInstanceList
      * @depends testAttendanceCreate
      */
-    public function testAttendanceDelete($activityId, $instanceId, $attendance)
+    public function testAttendanceDelete($activityId, $instanceId, $attendanceId)
     {
-      $attendanceId = $attendance['id'];
+      
       $r = self::$f1->delete("/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances/{$attendanceId}"); 
       $this->assertEquals('204', $r['http_code']);   
       $this->assertEmpty($r['body'], 'Failed to delete resource');
