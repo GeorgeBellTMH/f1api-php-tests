@@ -1,8 +1,32 @@
 TAP version 13
-ok 1 - FellowshipOneEventsV2Test::testMinistryList
-ok 2 - FellowshipOneEventsV2Test::testMinistryShow
-ok 3 - FellowshipOneEventsV2Test::testActivityList
-ok 4 - FellowshipOneEventsV2Test::testActivityShow
-ok 5 - FellowshipOneEventsV2Test::testScheduleList
-ok 6 - FellowshipOneEventsV2Test::testScheduleShow
-1..6
+ok 1 - FellowshipOneEventsTest::testEventList
+ok 2 - FellowshipOneEventsTest::testEventShow
+ok 3 - FellowshipOneEventsTest::testEventEdit
+ok 4 - FellowshipOneEventsTest::testEventUpdate
+not ok 5 - Failure: FellowshipOneEventsTest::testScheduleList
+  ---
+  message: 'No Schedule ID'
+  severity: fail
+  ...
+ok 5 - # SKIP This test depends on "FellowshipOneEventsTest::testScheduleList" to pass.
+ok 5 - # SKIP This test depends on "FellowshipOneEventsTest::testScheduleList" to pass.
+ok 6 - FellowshipOneEventsTest::testScheduleNew
+ok 7 - FellowshipOneEventsTest::testScheduleCreate
+ok 8 - FellowshipOneEventsTest::testScheduleUpdate
+ok 9 - FellowshipOneEventsTest::testScheduleDelete
+not ok 10 - Failure: FellowshipOneEventsTest::testLocationList
+  ---
+  message: 'No Response Body'
+  severity: fail
+  ...
+ok 10 - # SKIP This test depends on "FellowshipOneEventsTest::testLocationList" to pass.
+ok 10 - # SKIP This test depends on "FellowshipOneEventsTest::testLocationList" to pass.
+ok 11 - FellowshipOneEventsTest::testLocationNew
+ok 12 - FellowshipOneEventsTest::testLocationCreate
+ok 13 - FellowshipOneEventsTest::testLocationUpdate
+ok 14 - FellowshipOneEventsTest::testLocationDelete
+ok 15 - FellowshipOneEventsTest::testRecurrenceTypeList
+ok 16 - FellowshipOneEventsTest::testRecurrenceTypeShow
+ok 17 - FellowshipOneEventsTest::testAttendanceSummmariesSearch
+ok 18 - FellowshipOneEventsTest::testAttendanceSummmariesShow
+1..18

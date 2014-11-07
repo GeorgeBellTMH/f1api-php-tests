@@ -1,8 +1,20 @@
-FellowshipOneEventsV2
- [x] Ministry list
- [x] Ministry show
- [x] Activity list
- [x] Activity show
- [x] Schedule list
- [x] Schedule show
+FellowshipOneEvents
+ [x] Event list
+ [x] Event show
+ [x] Event edit
+ [x] Event update
+ [ ] Schedule list
+ [x] Schedule new
+ [x] Schedule create
+ [x] Schedule update
+ [x] Schedule delete
+ [ ] Location list
+ [x] Location new
+ [x] Location create
+ [x] Location update
+ [x] Location delete
+ [x] Recurrence type list
+ [x] Recurrence type show
+ [x] Attendance summmaries search
+ [x] Attendance summmaries show
 

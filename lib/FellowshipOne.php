@@ -175,7 +175,7 @@
 				$this->error = array(
 					'error'=>true,
 					'http_code'=>$e->getCode(),
-					'response'=>$e->lastResponse,	
+					'response'=>$o->getLastResponseInfo(),	
 					'data'=>$data,
 					'url'=>$url,
 				);

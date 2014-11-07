@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="FellowshipOneEventsV2Test" file="/Users/tmazelin/Sites/UnitTests/tests/eventsV2.php" tests="6" assertions="12" failures="0" errors="0" time="1.994316">
-    <testcase name="testMinistryList" class="FellowshipOneEventsV2Test" file="/Users/tmazelin/Sites/UnitTests/tests/eventsV2.php" line="35" assertions="2" time="0.386197"/>
-    <testcase name="testMinistryShow" class="FellowshipOneEventsV2Test" file="/Users/tmazelin/Sites/UnitTests/tests/eventsV2.php" line="48" assertions="2" time="0.311239"/>
-    <testcase name="testActivityList" class="FellowshipOneEventsV2Test" file="/Users/tmazelin/Sites/UnitTests/tests/eventsV2.php" line="59" assertions="2" time="0.329031"/>
-    <testcase name="testActivityShow" class="FellowshipOneEventsV2Test" file="/Users/tmazelin/Sites/UnitTests/tests/eventsV2.php" line="72" assertions="2" time="0.287363"/>
-    <testcase name="testScheduleList" class="FellowshipOneEventsV2Test" file="/Users/tmazelin/Sites/UnitTests/tests/eventsV2.php" line="87" assertions="2" time="0.337487"/>
-    <testcase name="testScheduleShow" class="FellowshipOneEventsV2Test" file="/Users/tmazelin/Sites/UnitTests/tests/eventsV2.php" line="102" assertions="2" time="0.342999"/>
+  <testsuite name="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" tests="16" assertions="32" failures="2" errors="0" time="20.110507">
+    <testcase name="testEventList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="33" assertions="2" time="1.395717"/>
+    <testcase name="testEventShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="46" assertions="2" time="0.645462"/>
+    <testcase name="testEventEdit" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="58" assertions="2" time="0.363750"/>
+    <testcase name="testEventUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="71" assertions="2" time="1.146598"/>
+    <testcase name="testScheduleList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="84" assertions="2" time="0.355643">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneEventsTest::testScheduleList
+No Schedule ID
+Failed asserting that a NULL is not empty.
+
+/Users/tmazelin/Sites/UnitTests/tests/events.php:89
+</failure>
+    </testcase>
+    <testcase name="testScheduleCreate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="135" assertions="2" time="3.981564"/>
+    <testcase name="testScheduleUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="157" assertions="2" time="4.933783"/>
+    <testcase name="testScheduleDelete" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="175" assertions="2" time="0.391738"/>
+    <testcase name="testLocationList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="188" assertions="2" time="1.634577">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">FellowshipOneEventsTest::testLocationList
+No Response Body
+Failed asserting that null is not null.
+
+/Users/tmazelin/Sites/UnitTests/tests/events.php:193
+</failure>
+    </testcase>
+    <testcase name="testLocationCreate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="240" assertions="3" time="0.667027"/>
+    <testcase name="testLocationUpdate" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="258" assertions="2" time="0.768724"/>
+    <testcase name="testLocationDelete" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="271" assertions="2" time="0.448900"/>
+    <testcase name="testRecurrenceTypeList" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="281" assertions="2" time="0.605902"/>
+    <testcase name="testRecurrenceTypeShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="295" assertions="2" time="0.403388"/>
+    <testcase name="testAttendanceSummmariesSearch" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="306" assertions="2" time="1.229268"/>
+    <testcase name="testAttendanceSummmariesShow" class="FellowshipOneEventsTest" file="/Users/tmazelin/Sites/UnitTests/tests/events.php" line="320" assertions="1" time="1.138465"/>
   </testsuite>
 </testsuites>
