@@ -29,6 +29,9 @@
 				'userAuthorization'=>'/v1/PortalUser/Login',
 				'accessToken'=>'/v1/PortalUser/AccessToken',
 			),
+			'weblinklUser' => array(
+				'accessToken'=>'/v1/WeblinkUser/AccessToken',
+			),
 			
 		);
 		
