@@ -1,4 +1,5 @@
 <?php
+
 /**
   * PHPUnit Tests for the FellowshipOne.com API Events Realm.
   * @class FellowshipOneEventsV2Test
@@ -9,6 +10,7 @@
   */
 require_once('../lib/FellowshipOne.php');
 require_once('../lib/settings.php');
+
 class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
 {
     protected static $f1;
@@ -28,6 +30,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
     }
    
     // MINISTRIES START
+    
      /**
      * @group Ministries
      */
@@ -39,6 +42,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($ministryId, "No ministry id returned");
       return $ministryId; 
     }
+    
     /**
      * @group Ministries
      * @depends testMinistryList
@@ -49,7 +53,9 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
+    
     // ACTIVITIES START
+    
     /**
      * @group Activities
      */
@@ -61,6 +67,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($activityId, "No activity id returned");
       return $activityId; 
     }
+    
     /**
      * @group Activities
      * @depends testActivityList
@@ -71,7 +78,9 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
+    
     // ASSIGNMENTS START
+    
     /**
      * @group Assignments
      * @depends testActivityList
@@ -84,6 +93,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($assignmentId, "No Assignment ID");
       return $assignmentId;
     }
+    
     /**
      * @group Assignments
      * @depends testActivityList
@@ -96,7 +106,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($r['body'], "No Response Body");  
     } 
    
-   /**
+    /**
      * @group Assignments
      */
     public function testAssignmentNew()
@@ -106,6 +116,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($model['body'], "No Response Body"); 
       return $model['body'];
     }
+    
     /**
      * @group Assignments
      * @depends testActivityList
@@ -122,6 +133,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($assignment, "No Response Body");
       return $assignment;
     }
+    
     /**
      * @group Assignments
      * @depends testActivityList
@@ -135,6 +147,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 
     }
+    
     /**
      * @group Assignments
      * @depends testActivityList
@@ -147,8 +160,10 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('204', $r['http_code']);   
       $this->assertEmpty($r['body'], 'Failed to delete resource');
     }
+    
     // SCHEDULES START
-     /**
+    
+    /**
      * @group Schedules
      * @depends testActivityList
      */
@@ -161,6 +176,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($scheduleId, "No schedule id returned");
       return $scheduleId; 
     }
+    
     /**
      * @group Schedules
      * @depends testActivityList
@@ -173,8 +189,8 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
 
+    // ROSTERS START
 
-     // ROSTERS START
      /**
      * @group Rosters
      * @depends testActivityList
@@ -188,6 +204,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($rosterId, "No roster id returned");
       return $rosterId; 
     }
+
     /**
      * @group Rosters
      * @depends testActivityList
@@ -199,7 +216,6 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
-
 
     // ROSTERFOLDERS START
 
@@ -229,8 +245,8 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
 
-
     // INSTANCES START
+
     /**
      * @group Instances
      * @depends testScheduleList
@@ -244,6 +260,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($instanceId, "No instance id returned");
       return $instanceId; 
     }
+
     /**
      * @group Instances
      * @depends testScheduleList
@@ -255,9 +272,10 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
+
     // ATTENDANCE START
       
-   /**
+    /**
      * @group Attendances
      */
     public function testAttendanceNew()
@@ -267,6 +285,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($model['body'], "No Response Body"); 
       return $model['body'];
     }
+ 
     /**
      * @group Attendances
      * @depends testActivityList
@@ -281,14 +300,13 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $model['instance']['id'] = $instanceId;
       $model['roster']['id'] = $rosterId;
       $model['type']['id'] = 1;
-   
-      
       $r = self::$f1->post($model, "/activities/v1/activities/{$activityId}/instances/{$instanceId}/attendances");
       $attendanceId = $r['body']['id'];
       $this->assertEquals('201', $r['http_code']);
       $this->assertNotEmpty($attendanceId, "No Response Body");
       return $attendanceId;
     }
+ 
      /**
      * @group Attendances
      * @depends testActivityList
@@ -302,6 +320,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertNotEmpty($attendanceId, "No Attendance ID");
       return $attendanceId;
     }
+ 
     /**
      * @group Attendances
      * @depends testActivityList
@@ -314,6 +333,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('200', $r['http_code']);    
       $this->assertNotEmpty($r['body'], "No Response Body");  
     } 
+ 
     /**
      * @group Attendances
      * @depends testActivityList
@@ -327,6 +347,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 
     }
+ 
     /**
      * @group Attendances
      * @depends testActivityList
@@ -341,19 +362,20 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertEmpty($r['body'], 'Failed to delete resource');
     }
 
-     // TYPES START
-     /**
+    // TYPES START
+ 
+    /**
      * @group Types
      */
     public function testTypeList()
     {
       $r = self::$f1->get("/activities/v1/types?pagesize=5");
-      
       $typeId = $r['body'][0]['id'];
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($typeId, "No type id returned");
       return $typeId; 
     }
+ 
     /**
      * @group Types
      * @depends testTypeList
@@ -364,8 +386,5 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
-
-
-
 }
 ?>
