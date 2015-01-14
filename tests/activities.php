@@ -20,7 +20,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'qa';
+        $env = 'staging';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']); 
@@ -255,7 +255,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
     {
       $r = self::$f1->get("/activities/v1/schedules/{$scheduleId}/instances?pagesize=5");
       
-      $instanceId = $r['body'][1]['id'];
+      $instanceId = $r['body'][0]['id'];
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($instanceId, "No instance id returned");
       return $instanceId; 
@@ -386,5 +386,74 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");   
     }
+
+    // HEAD COUNTS START
+
+    /**
+     * @group HeadCounts
+     */
+    public function testHeadCountCreate()
+    {
+      $r = self::$f1->get("/activities/v1/headcounts/new");
+      $model = $r['body'];
+      $model['instance']['id'] = 210377;
+      $model['roster']['id'] = 12867;
+      $model['headCount'] = 121;
+      $r = self::$f1->post($model, "/activities/v1/headcounts");
+      $headCountId = $r['body']['id'];
+      $this->assertEquals('201', $r['http_code']);
+      $this->assertNotEmpty($headCountId, "No Response Body");
+      return $headCountId;
+    }
+ 
+     /**
+     * @group HeadCounts
+     */
+    public function testHeadCountList()
+    {
+     
+      $r = self::$f1->get("/activities/v1/instances/210377/headcounts");
+      $headCountId = $r['body'][0]['id'];
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($headCountId, "No HeadCount ID");
+      return $headCountId;
+    }
+ 
+    /**
+     * @group HeadCounts
+     * @depends testHeadCountList
+     */
+    public function testHeadCountShow($headCountId)
+    {
+      $r = self::$f1->get("/activities/v1/headcounts/{$headCountId}");
+      $this->assertEquals('200', $r['http_code']);    
+      $this->assertNotEmpty($r['body'], "No Response Body");  
+    } 
+ 
+    /**
+     * @group HeadCounts
+     * @depends testHeadCountCreate
+     */
+    public function testHeadCountUpdate($headCountId)
+    {
+      $headCount = self::$f1->get("/activities/v1/headcounts/{$headCountId}");
+      $r = self::$f1->put($headCount['body'], "/activities/v1/headcounts/{$headCountId}");
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($r['body'], "No Response Body"); 
+    }
+ 
+    /**
+     * @group HeadCounts
+     * @depends testHeadCountCreate
+     */
+    public function testHeadCountDelete($headCountId)
+    {
+      
+      $r = self::$f1->delete("/activities/v1/headcounts/{$headCountId}"); 
+      $this->assertEquals('204', $r['http_code']);   
+      $this->assertEmpty($r['body'], 'Failed to delete resource');
+    }
+
+
 }
 ?>

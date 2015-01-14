@@ -30,7 +30,7 @@
 				'accessToken'=>'/v1/PortalUser/AccessToken',
 			),
 			'weblinklUser' => array(
-				'accessToken'=>'/v1/WeblinkUser/AccessToken',
+				'accessToken'=>'/v1/PortalUser/AccessToken',
 			),
 			
 		);
@@ -271,9 +271,14 @@
 				$message = urlencode(base64_encode("{$username} {$password}"));
 				$url = "{$this->settings->baseUrl}{$this->paths['portalUser']['accessToken']}?ec={$message}";
 				$o = new OAuth($this->settings->key, $this->settings->secret, OAUTH_SIG_METHOD_HMACSHA1);
+				$error = $o->getLastResponse();
+				echo $error;
+					
+
 				return (object) $o->getAccessToken($url);
 			}catch(OAuthException $e){
-				die("Error: {$e->getMessage()}\nCode: {$e->getCode()}\nResponse: {$e->lastResponse}\n");
+				
+				die("Error: {$e->getMessage()}\nCode: {$e->getCode()}\nResponse: {$error}\n");
 			}
 		}
 		
