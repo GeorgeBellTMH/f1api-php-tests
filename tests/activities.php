@@ -20,7 +20,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'staging';
+        $env = 'qa';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']); 
@@ -398,7 +398,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $model = $r['body'];
       $model['instance']['id'] = 210377;
       $model['roster']['id'] = 12867;
-      $model['headCount'] = 121;
+      $model['headCount'] = 120;
       $r = self::$f1->post($model, "/activities/v1/headcounts");
       $headCountId = $r['body']['id'];
       $this->assertEquals('201', $r['http_code']);

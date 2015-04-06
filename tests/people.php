@@ -20,7 +20,7 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'staging';
+        $env = 'qa';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']);        
@@ -95,6 +95,85 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
     {
       $model['household']['householdName'] = "API Unit Test - ".self::$today->format("Y-m-d H:i:s");
       $r = self::$f1->put($model, '/v1/households/'.$model['household']['@id'].'.json');
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+    // Organizations (which are households with no people, and partyType=2 or 3)
+
+    /**
+     * @group Orgs
+     */
+    public function testOrgSearch()
+    { $contentType='application/vnd.fellowshiponeapi.com.households.v2+json';
+      $r = self::$f1->get('/v1/households/search.json?createdDate=2009-01-01', $contentType);
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $householdId = $r['body']['results']['household'][0]['@id'];
+    }
+
+
+    /**
+     * @group Orgs
+     * @depends testOrgSearch
+     */
+    public function testOrgShow($householdId)
+    {
+      $contentType='application/vnd.fellowshiponeapi.com.households.v2+json';
+      $r = self::$f1->get("/v1/households/{$householdId}.json", $contentType);
+      $this->assertEquals('200', $r['http_code'] );
+      $this->assertNotEmpty($r['body'], "No Response Body");
+    }
+
+    /**
+     * @group Orgs
+     * @depends testOrgSearch
+     */
+    public function testOrgEdit($householdId)
+    {
+      $contentType='application/vnd.fellowshiponeapi.com.households.v2+json';
+      $model = self::$f1->get("/v1/households/{$householdId}/edit.json", $contentType);
+      $this->assertEquals('200', $model['http_code'] );
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $model['body'];
+    }
+
+    /**
+     * @group Orgs
+     */
+    public function testOrgNew()
+    {
+      $contentType='application/vnd.fellowshiponeapi.com.households.v2+json';
+      $model = self::$f1->get('/v1/households/new.json', $contentType);
+      $this->assertEquals('200', $model['http_code']);
+      $this->assertNotEmpty($model['body'], "No Response Body");
+      return $model['body'];
+    }
+
+    /**
+     * @group Orgs
+     * @depends testOrgNew
+     */
+    public function testOrgCreate($model)
+    {
+      $contentType='application/vnd.fellowshiponeapi.com.households.v2+json';
+      $model['household']['householdName'] = "API Create Unit Test - ".self::$today->format("Y-m-d H:i:s");
+      $model['household']['partyType']['@id']=2;
+      $r = self::$f1->post($model, '/v1/households.json', $contentType);
+      $this->assertEquals('201', $r['http_code']);
+      $this->assertNotEmpty($r['body'], "No Response Body");
+      return $r['body']['household']['@id'];
+    }
+
+    /**
+     * @group Orgs
+     * @depends testOrgEdit
+     */
+    public function testOrgUpdate($model)
+    {
+      $contentType='application/vnd.fellowshiponeapi.com.households.v2+json';
+      $model['household']['householdName'] = "API Unit Test - ".self::$today->format("Y-m-d H:i:s");
+      $r = self::$f1->put($model, '/v1/households/'.$model['household']['@id'].'.json', $contentType);
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response Body");
     }
