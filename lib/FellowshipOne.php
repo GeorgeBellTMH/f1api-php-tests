@@ -34,7 +34,6 @@
 			),
 			
 		);
-		
 	
 		/**
 		 * contruct fellowship one class with settings array that contains
@@ -49,9 +48,9 @@
 		 * @param string $endpoint 
 		 * @return object
 		 */
-		public function get($endpoint){
+		public function get($endpoint, $contentType='application/json'){
 			$url = $this->settings->baseUrl . $endpoint;
-			return $this->fetchJson($url);
+			return $this->fetchJson($url, null, OAUTH_HTTP_METHOD_GET, $contentType);
 		}
 
 		/**
@@ -60,10 +59,10 @@
 		 * @param string $endpoint 
 		 * @return object
 		 */
-		public function post($model, $endpoint){
+		public function post($model, $endpoint, $contentType='application/json'){
 			$url = $this->settings->baseUrl . $endpoint;
 			$model = json_encode($model);
-			return $this->fetchJson($url,$model,OAUTH_HTTP_METHOD_POST);
+			return $this->fetchJson($url,$model,OAUTH_HTTP_METHOD_POST, $contentType);
 		}
 		
 		/**
@@ -72,10 +71,10 @@
 		 * @param string $endpoint 
 		 * @return object
 		 */
-		public function put($model, $endpoint){
+		public function put($model, $endpoint, $contentType='application/json'){
 			$url = $this->settings->baseUrl . $endpoint;
 			$model = json_encode($model);
-			return $this->fetchJson($url,$model,OAUTH_HTTP_METHOD_PUT);
+			return $this->fetchJson($url,$model,OAUTH_HTTP_METHOD_PUT, $contentType);
 		}
 		
 		/**
@@ -83,9 +82,9 @@
 		 * @param string $endpoint 
 		 * @return object
 		 */
-		public function delete($endpoint){
+		public function delete($endpoint, $contentType='application/json'){
 			$url = $this->settings->baseUrl . $endpoint;
-			return $this->fetchJson($url,$model=null,OAUTH_HTTP_METHOD_DELETE);
+			return $this->fetchJson($url,$model=null,OAUTH_HTTP_METHOD_DELETE, $contentType);
 		}
 
 
@@ -93,9 +92,9 @@
 		 * @param string $endpoint 
 		 * @return object
 		 */
-		public function get_img($endpoint){
+		public function get_img($endpoint, $contentType='image/jpg'){
 			$url = $this->settings->baseUrl . $endpoint;
-			return $this->fetchJson($url, $model=null, OAUTH_HTTP_METHOD_GET, $contentType='image/jpg');
+			return $this->fetchJson($url, $model=null, OAUTH_HTTP_METHOD_GET, $contentType);
 		}
 
 
@@ -105,9 +104,9 @@
 		 * @param string $endpoint 
 		 * @return object
 		 */
-		public function post_img($file, $endpoint){
+		public function post_img($file, $endpoint, $contentType='image/jpg'){
 			$url = $this->settings->baseUrl . $endpoint;
-			return $this->fetchJson($url,$file,OAUTH_HTTP_METHOD_POST, $contentType='image/jpg');
+			return $this->fetchJson($url,$file,OAUTH_HTTP_METHOD_POST, $contentType);
 		}
 
 		/**
@@ -116,8 +115,8 @@
 		 * @param string $url
 		 * @return object
 		 */
-		public function put_img($file, $url){
-			return $this->fetchJson($url,$file,OAUTH_HTTP_METHOD_PUT, $contentType='image/jpg');
+		public function put_img($file, $url, $contentType='image/jpg') {
+			return $this->fetchJson($url,$file,OAUTH_HTTP_METHOD_PUT, $contentType);
 		}
 
 
