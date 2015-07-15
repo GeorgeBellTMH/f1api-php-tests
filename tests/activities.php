@@ -20,7 +20,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'qa';
+        $env = 'int';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']); 
@@ -454,6 +454,29 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
       $this->assertEmpty($r['body'], 'Failed to delete resource');
     }
 
+    // Rooms start
+     /**
+     * @group Rooms
+     */
+    public function testRoomList()
+    {
+      $r = self::$f1->get('/activities/v1/rooms?pagesize=5');
+      $roomId = $r['body'][0]['id'];
+      $this->assertEquals('200', $r['http_code']);
+      $this->assertNotEmpty($roomId, "No room id returned");
+      return $roomId; 
+    }
+    
+    /**
+     * @group Rooms
+     * @depends testRoomList
+     */
+    public function testRoomShow($roomId)
+    {
+     $r = self::$f1->get("/activities/v1/rooms/{$roomId}");
+     $this->assertEquals('200', $r['http_code']);
+     $this->assertNotEmpty($r['body'], "No Response Body");   
+    }
 
 }
 ?>
