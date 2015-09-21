@@ -20,7 +20,7 @@ class FellowshipOneActivitesTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'staging';
+        $env = 'qa';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$f1->login2ndParty($settings[$env]['username'],$settings[$env]['password']); 

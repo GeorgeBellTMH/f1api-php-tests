@@ -22,7 +22,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         global $settings;
-        $env = 'staging';
+        $env = 'qa';
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$randomNumber = rand();
@@ -367,7 +367,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/giving/v1/funds.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
-      return $fundId = $r['body']['funds']['fund'][1]['@id'];
+      return $fundId = $r['body']['funds']['fund'][3]['@id'];
     }
 
 
@@ -380,7 +380,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/giving/v1/funds/'.$fundId .'.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
-      //return $fundId = $r['body']['fund']['@id'];
+      return $fundId = $r['body']['fund']['@id'];
     }
 
     /**
@@ -468,25 +468,24 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
 
     /**
      * @group PledgeDrives
-     * @depends testFundList
      * @depends testPledgeDriveList
      */
-    public function testPledgeDriveShow($fundId, $pledgeDriveId)
+    public function testPledgeDriveShow($pledgeDriveId)
     {
-      $r = self::$f1->get('/giving/v1/funds/'.$fundId . '/pledgedrives/'.$pledgeDriveId .'.json');
+      //$r = self::$f1->get('/giving/v1/funds/'.$fundId . '/pledgedrives/'.$pledgeDriveId .'.json');
+      $r = self::$f1->get("/giving/v1/pledgedrives/{$pledgeDriveId}.json");
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response");
     }
 
     /**
      * @group PledgeDrives
-     * @depends testFundList
      * @depends testPledgeDriveList
      */
-    public function testPledgeDriveEdit($fundId, $pledgeDriveId)
+    public function testPledgeDriveEdit($pledgeDriveId)
     {
       //Docs say 3rd party but it's 1st party
-      $r = self::$f1->get('/giving/v1/funds/'.$fundId .'/pledgedrives/'.$pledgeDriveId.'/edit.json');
+      $r = self::$f1->get("/giving/v1/pledgedrives/{$pledgeDriveId}/edit.json");
       $this->assertEquals('405', $r['http_code'] );
       //$this->assertNotEmpty($model['body'], "No Response");
     }
