@@ -270,6 +270,7 @@
 				$message = urlencode(base64_encode("{$username} {$password}"));
 				$url = "{$this->settings->baseUrl}{$this->paths['portalUser']['accessToken']}?ec={$message}";
 				$o = new OAuth($this->settings->key, $this->settings->secret, OAUTH_SIG_METHOD_HMACSHA1);
+				$o->disableSSLChecks();
 				$error = $o->getLastResponse();
 				echo $error;
 					
