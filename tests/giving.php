@@ -21,8 +21,7 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
     
     public static function setupBeforeClass()
     {
-        global $settings;
-        $env = 'qa';
+        global $settings,$env;
         self::$f1 = new FellowshipOne($settings[$env]); 
         self::$today = new DateTime('now');
         self::$randomNumber = rand();

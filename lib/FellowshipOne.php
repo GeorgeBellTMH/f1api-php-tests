@@ -11,6 +11,8 @@
 	 * @requires PHP PECL OAuth, http://php.net/oauth, packaged with OAuth Adapter when PHP PECL OAuth is not present. PECL OAuth is STRONGLY Recommended for Modularity.
 	 *
 	 */
+	define('CA_PATH', '../lib/'); 
+	define('CA_INFO', '../lib/ca-bundle.crt'); 
 
 	class FellowshipOne{
 
@@ -160,6 +162,7 @@
 		public function fetchJson($url,$data=null,$method=OAUTH_HTTP_METHOD_GET,$contentType="application/json"){
 			try{
 				$o = new OAuth($this->settings->key, $this->settings->secret, OAUTH_SIG_METHOD_HMACSHA1);
+				$o->setCAPath(CA_PATH,CA_INFO);
 				$o->setToken($this->accessToken->oauth_token, $this->accessToken->oauth_token_secret);
 				$headers = array(
 					'Content-Type' => $contentType,
@@ -270,7 +273,7 @@
 				$message = urlencode(base64_encode("{$username} {$password}"));
 				$url = "{$this->settings->baseUrl}{$this->paths['portalUser']['accessToken']}?ec={$message}";
 				$o = new OAuth($this->settings->key, $this->settings->secret, OAUTH_SIG_METHOD_HMACSHA1);
-				$o->disableSSLChecks();
+				$o->setCAPath(CA_PATH,CA_INFO);
 				$error = $o->getLastResponse();
 				echo $error;
 					
