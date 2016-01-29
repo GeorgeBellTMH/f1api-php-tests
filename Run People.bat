@@ -1,5 +1,5 @@
 cd tests
 
-phpunit --debug people
+call phpunit --debug people
 
 pause

@@ -1,5 +1,5 @@
 cd tests
 
-phpunit --debug activities
+call phpunit --debug activities
 
 pause

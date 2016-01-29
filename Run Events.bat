@@ -1,5 +1,5 @@
 cd tests
 
-phpunit --debug events
+call phpunit --debug events
 
 pause
