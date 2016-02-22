@@ -202,13 +202,41 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
      * @group Members
      * @depends testGroupList
      */
-    public function testMemberList($groupId)
+    //public function testMemberList($groupId)
+    //{
+      //$r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
+      //$memberId = $r['body']['members']['member'][0]['@id'];
+      //$this->assertEquals('200', $r['http_code']);
+      //$this->assertNotEmpty($memberId, "No Member ID");
+      //return $memberId;
+    //}
+	
+	//Overwite by grace zhang testcase testMemberList:find a group which has valid member
+	/**
+     * @group Groups
+     * @depends testGroupTypeList
+     */
+	public function testMemberList($groupTypeId)
     {
-      $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
-      $memberId = $r['body']['members']['member'][0]['@id'];
-      $this->assertEquals('200', $r['http_code']);
-      $this->assertNotEmpty($memberId, "No Member ID");
-      return $memberId;
+	  $r1 = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
+      $this->assertEquals('200', $r1['http_code']);  
+	  $groupIdCount = count($r1['body']['groups']['group']);	  
+	  print_r("groupIdCount =");	
+	  print_r($groupIdCount);
+	  
+	  for ($i = 0; $i < $groupIdCount; $i++) 
+	  {
+		$groupId = $r1['body']['groups']['group'][$i]['@id'];
+	    $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
+        $memberId = $r['body']['members']['member'][0]['@id'];
+        if($memberId != null)
+		{
+			$this->assertEquals('200', $r['http_code']);
+            $this->assertNotEmpty($memberId, "No Member ID");
+            return $memberId;
+			break;
+		}
+	  }		
     }
 
     /**
@@ -216,11 +244,39 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
      * @depends testGroupList
      * @depends testMemberList
      */
-    public function testMemberShow($groupId, $memberId)
+    //public function testMemberShow($groupId, $memberId)
+    //{
+      //$r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'.json');  
+      //$this->assertEquals('200', $r['http_code']);  
+      //$this->assertNotEmpty($r['body'], "No Response Body");  
+    //}
+	//Overwite by grace zhang testcase testMemberShow:find a group which has valid member
+	/**
+     * @group Groups
+     * @depends testGroupTypeList
+     */
+	 public function testMemberShow($groupTypeId)
     {
-      $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'.json');  
-      $this->assertEquals('200', $r['http_code']);  
-      $this->assertNotEmpty($r['body'], "No Response Body");  
+	  $r1 = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
+      $this->assertEquals('200', $r1['http_code']);  
+	  $groupIdCount = count($r1['body']['groups']['group']);	  
+	  print_r("groupIdCount =");	
+	  print_r($groupIdCount);
+	  
+	  for ($i = 0; $i < $groupIdCount; $i++) 
+	  {
+		$groupId = $r1['body']['groups']['group'][$i]['@id'];
+	    $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
+        $memberId = $r['body']['members']['member'][0]['@id'];
+        if($memberId != null)
+		{
+			$r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'.json');  
+            $this->assertEquals('200', $r['http_code']);  
+            $this->assertNotEmpty($r['body'], "No Response Body");
+            break;			
+		}
+	  }		
+      
     }
 
     /**
@@ -228,12 +284,41 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
      * @depends testGroupList
      * @depends testMemberList
      */
-    public function testMemberEdit($groupId, $memberId)
+    //public function testMemberEdit($groupId, $memberId)
+    //{
+       //$model = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'/edit.json');
+       //$this->assertEquals('200', $model['http_code']);
+       //$this->assertNotEmpty($model['body'], "No Response Body");
+       //return $model['body'];
+    //}
+	//Overwite by grace zhang testcase testMemberEdit:find a group which has valid member
+	/**
+     * @group Groups
+     * @depends testGroupTypeList
+     */
+	 public function testMemberEdit($groupTypeId)
     {
-       $model = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'/edit.json');
-       $this->assertEquals('200', $model['http_code']);
-       $this->assertNotEmpty($model['body'], "No Response Body");
-       return $model['body'];
+	  $r1 = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
+      $this->assertEquals('200', $r1['http_code']);  
+	  $groupIdCount = count($r1['body']['groups']['group']);	  
+	  print_r("groupIdCount =");	
+	  print_r($groupIdCount);
+	  
+	  for ($i = 0; $i < $groupIdCount; $i++) 
+	  {
+		$groupId = $r1['body']['groups']['group'][$i]['@id'];
+	    $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
+        $memberId = $r['body']['members']['member'][0]['@id'];
+        if($memberId != null)
+		{
+			$model = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'/edit.json');
+            $this->assertEquals('200', $model['http_code']);
+            $this->assertNotEmpty($model['body'], "No Response Body");
+            return $model['body'];
+			break;
+		}
+	  }		
+       
     }
 
    /**

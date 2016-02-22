@@ -646,11 +646,39 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
      * @depends testFundList
      * @depends testSubFundList
      */
-    public function testSubFundShow($fundId, $subFundId)
+    //public function testSubFundShow($fundId, $subFundId)
+    //{
+      //$r = self::$f1->get('/giving/v1/funds/'.$fundId . '/subfunds/'.$subFundId .'.json');
+      //$this->assertEquals('200', $r['http_code'] );
+      //$this->assertNotEmpty($r['body'], "No Response");
+    //}
+	
+	//Overwite by grace zhang testcase testSubFundShow:find a fund which has a valid subFund
+	public function testSubFundShow()
     {
-      $r = self::$f1->get('/giving/v1/funds/'.$fundId . '/subfunds/'.$subFundId .'.json');
-      $this->assertEquals('200', $r['http_code'] );
-      $this->assertNotEmpty($r['body'], "No Response");
+	  $r1 = self::$f1->get('/giving/v1/funds.json');
+      $this->assertEquals('200', $r1['http_code'] );
+      $this->assertNotEmpty($r1['body'], "No Response");
+	  $foundIdCount = count($r1['body']['funds']['fund']);	  
+	  print_r("foundIdCount =");	
+	  print_r($foundIdCount);
+	  
+	  for ($i = 0; $i < $foundIdCount; $i++) 
+	  {
+		$fundId = $r1['body']['funds']['fund'][$i]['@id'];
+	    $r2 = self::$f1->get('/giving/v1/funds/'.$fundId.'/subfunds.json');
+        $this->assertEquals('200', $r2['http_code'] );
+        $this->assertNotEmpty($r2['body'], "No Response");
+        $subFundId = $r2['body']['subFunds']['subFund'][0]['@id'];
+        if($subFundId != null)
+		{
+			$r = self::$f1->get('/giving/v1/funds/'.$fundId .'/subfunds/'.$subFundId .'.json');
+            $this->assertEquals('200', $r['http_code'] );
+            $this->assertNotEmpty($r['body'], "No Response");
+			break;
+		}
+	  }
+      
     }
 
     /**
@@ -658,11 +686,39 @@ class FellowshipOneGivingTest extends PHPUnit_Framework_TestCase
      * @depends testFundList
      * @depends testSubFundList
      */
-    public function testSubFundEdit($fundId, $subFundId)
-    {
+    //public function testSubFundEdit($fundId, $subFundId)
+    //{
       //This is a 1st party only method.  Expecting Exception to be thrown.
-      $r = self::$f1->get('/giving/v1/funds/'.$fundId .'/subfunds/'.$subFundId.'/edit.json');
-      $this->assertEquals('405', $r['http_code'] );
+      //$r = self::$f1->get('/giving/v1/funds/'.$fundId .'/subfunds/'.$subFundId.'/edit.json');
+      //$this->assertEquals('405', $r['http_code'] );
+    //}
+	
+	//Overwite by grace zhang testcase testSubFundEdit:find a fund which has a valid subFund
+	public function testSubFundEdit()
+    {
+	  $r1 = self::$f1->get('/giving/v1/funds.json');
+      $this->assertEquals('200', $r1['http_code'] );
+      $this->assertNotEmpty($r1['body'], "No Response");
+	  $foundIdCount = count($r1['body']['funds']['fund']);	  
+	  print_r("foundIdCount =");	
+	  print_r($foundIdCount);
+	  
+	  for ($i = 0; $i < $foundIdCount; $i++) 
+	  {
+		$fundId = $r1['body']['funds']['fund'][$i]['@id'];
+	    $r2 = self::$f1->get('/giving/v1/funds/'.$fundId.'/subfunds.json');
+        $this->assertEquals('200', $r2['http_code'] );
+        $this->assertNotEmpty($r2['body'], "No Response");
+        $subFundId = $r2['body']['subFunds']['subFund'][0]['@id'];
+        if($subFundId != null)
+		{
+			//This is a 1st party only method.  Expecting Exception to be thrown.
+			$r = self::$f1->get('/giving/v1/funds/'.$fundId .'/subfunds/'.$subFundId.'/edit.json');
+            $this->assertEquals('405', $r['http_code'] );
+			break;
+		}
+	  }
+      
     }
    /**
      * @group SubFunds

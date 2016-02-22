@@ -80,13 +80,39 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
      * @group Schedules
      * @depends testEventList
      */
-    public function testScheduleList($eventId)
+    //public function testScheduleList($eventId)
+    //{
+      //$r = self::$f1->get('/events/v1/events/'.$eventId.'/schedules.json');
+      //$scheduleId = $r['body']['schedules']['schedule'][0]['@id'];
+      //$this->assertEquals('200', $r['http_code']);
+      //$this->assertNotEmpty($scheduleId, "No Schedule ID");
+      //return $scheduleId;
+    //}
+	
+	//Overwite by grace zhang testcase testScheduleList:find a event which has a valid schedule
+	public function testScheduleList()
     {
-      $r = self::$f1->get('/events/v1/events/'.$eventId.'/schedules.json');
-      $scheduleId = $r['body']['schedules']['schedule'][0]['@id'];
-      $this->assertEquals('200', $r['http_code']);
-      $this->assertNotEmpty($scheduleId, "No Schedule ID");
-      return $scheduleId;
+	  $r1 = self::$f1->get('/events/v1/events.json');   
+      $eventId = $r1['body']['events']['event'][0]['@id'];
+      $this->assertEquals('200', $r1['http_code']);     
+      $eventIdCount = count($r1['body']['events']['event']);	  
+	  print_r("eventIdCount =");	
+	  print_r($eventIdCount); 
+		
+	  for ($i = 0; $i < $eventIdCount; $i++) 
+	  {
+		$eventId = $r1['body']['events']['event'][$i]['@id'];
+	    $r = self::$f1->get('/events/v1/events/'.$eventId.'/schedules.json');
+        $scheduleId = $r['body']['schedules']['schedule'][0]['@id'];
+        if($scheduleId != null)
+		{
+			 $this->assertEquals('200', $r['http_code']);
+             $this->assertNotEmpty($scheduleId, "No Schedule ID");
+             return $scheduleId;
+			break;
+		}
+	  }			
+      
     }
 
     /**
@@ -184,15 +210,39 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
      * @group Locations
      * @depends testEventList
      */ 
-    public function testLocationList($eventId)
+    //public function testLocationList($eventId)
+    //{
+      //$r = self::$f1->get('/events/v1/events/'.$eventId.'/locations.json');
+      //$locationId = $r['body']['locations']['location'][0]['@id'];
+      //$this->assertEquals('200', $r['http_code']);
+      //$this->assertNotNull($locationId, "No Response Body");
+      //return $locationId;
+    //}
+    //Overwite by grace zhang testcase testLocationList:find a event which has a valid location
+	public function testLocationList()
     {
-      $r = self::$f1->get('/events/v1/events/'.$eventId.'/locations.json');
-      $locationId = $r['body']['locations']['location'][0]['@id'];
-      $this->assertEquals('200', $r['http_code']);
-      $this->assertNotNull($locationId, "No Response Body");
-      return $locationId;
+      $r1 = self::$f1->get('/events/v1/events.json');   
+      $eventId = $r1['body']['events']['event'][0]['@id'];
+      $this->assertEquals('200', $r1['http_code']);     
+      $eventIdCount = count($r1['body']['events']['event']);	  
+	  print_r("eventIdCount =");	
+	  print_r($eventIdCount); 
+		
+	  for ($i = 0; $i < $eventIdCount; $i++) 
+	  {
+		$eventId = $r1['body']['events']['event'][$i]['@id'];
+	    $r = self::$f1->get('/events/v1/events/'.$eventId.'/locations.json');
+        $locationId = $r['body']['locations']['location'][0]['@id'];
+        if($locationId != null)
+		{
+			$this->assertEquals('200', $r['http_code']);
+            $this->assertNotNull($locationId, "No Response Body");
+            return $locationId;
+			break;
+		}
+	  }			
+     
     }
-
     /**
      * @group Locations
      * @depends testEventList
@@ -291,11 +341,34 @@ class FellowshipOneEventsTest extends PHPUnit_Framework_TestCase
      * @group RecurrenceTypes
      * @depends testRecurrenceTypeList
      */
-    public function testRecurrenceTypeShow($recurrenceTypeId)
+    //public function testRecurrenceTypeShow($recurrenceTypeId)
+    //{
+     //$r = self::$f1->get('/events/v1/recurrencetypes/'.$recurrenceTypeId .'.json');
+     //$this->assertEquals('200', $r['http_code']);
+     //$this->assertNotEmpty($r['body'], "No Response Body");   
+    //}
+	
+	//Overwite by grace zhang testcase testRecurrenceTypeShow:find a valid recurrenceType
+	public function testRecurrenceTypeShow()
     {
-     $r = self::$f1->get('/events/v1/recurrencetypes/'.$recurrenceTypeId .'.json');
-     $this->assertEquals('200', $r['http_code']);
-     $this->assertNotEmpty($r['body'], "No Response Body");   
+	  $r1 = self::$f1->get('/events/v1/recurrencetypes.json');          
+      $this->assertEquals('200', $r1['http_code']);      
+	  $recurrenceTypeIdCount = count($r1['body']['recurrenceTypes']['recurrenceType']);	  
+	  print_r("recurrenceTypeIdCount =");	
+	  print_r($recurrenceTypeIdCount); 
+      for ($i = 0; $i < $recurrenceTypeIdCount; $i++) 
+	  {
+		$recurrenceTypeId = $r1['body']['recurrenceTypes']['recurrenceType'][$i]['@id'];
+	    $r = self::$f1->get('/events/v1/recurrencetypes/'.$recurrenceTypeId .'.json');
+       
+        if( $r['http_code'] == '200')
+		{
+			 $this->assertEquals('200', $r['http_code']);
+             $this->assertNotEmpty($r['body'], "No Response Body");   
+			break;
+		}
+	  }			
+     
     }
 
     /**

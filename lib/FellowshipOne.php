@@ -170,7 +170,9 @@
 				if($o->fetch($url, $data, $method, $headers)){
 					$response["http_code"] = $o->getLastResponseInfo()['http_code'];
 					$response["body"] = json_decode($o->getLastResponse(),true);
-						 if($this->settings->debug){
+						 if($this->settings->debug){	
+                            //add by grace zhang: add url in log file.						 
+							print_r($url);							
 						 	print_r($response);
 						 }
 				return $response;
@@ -185,6 +187,8 @@
 					'url'=>$url,
 				);
 				if($this->settings->debug){
+					//add by grace zhang: add url in log file.	
+					print_r($url);	
 					print_r($this->error);
 					}
 				return $this->error;

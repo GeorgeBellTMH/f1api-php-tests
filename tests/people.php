@@ -850,20 +850,36 @@ class FellowshipOnePeopleTest extends PHPUnit_Framework_TestCase
       $r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'/members.json');
       $this->assertEquals('200', $r['http_code'] );
       $this->assertNotEmpty($r['body'], "No Response Body");
-      return $r['body']['members']['member'];
+      return $r['body']['members'];
     }
 
     /*
      * @group PeopleLists
-     * @depends testPeopleListsShow
+     * @depends testPeopleListsList
      * @depends testPeopleListMembersList
      */
      
-    public function testPeopleListMembersShow($lists, $members)
-    {
-      $r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'/members/'.$members['members'][0]['@id'].'.json');
-      $this->assertEquals('200', $r['http_code'] );
-      $this->assertNotEmpty($r['body'], "No Response Body");
+    //public function testPeopleListMembersShow($lists, $members)
+    //{
+      //$r = self::$f1->get('/v1/people/lists/'.$lists['peopleList'][0]['@id'].'/members/'.$members['member'][0]['@id'].'.json');
+      //$this->assertEquals('200', $r['http_code'] );
+      //$this->assertNotEmpty($r['body'], "No Response Body");
+    //}
+	//Overwite by grace zhang testcase testPeopleListMembersShow:don't depend on other cases.I will continue to research why report PHPUnit_Framework_Error_Warning :'Missing argument 1...'
+	public function testPeopleListMembersShow()
+    { 
+      //get people list	
+	  $r1 = self::$f1->get('/v1/people/lists.json');
+      $this->assertEquals('200', $r1['http_code'] );
+      $this->assertNotEmpty($r1['body'], "No Response Body");
+	  //get Members List of a people	
+	  $r2 = self::$f1->get('/v1/people/lists/'.$r1['body']['peopleLists']['peopleList'][0]['@id'].'/members.json');
+      $this->assertEquals('200', $r2['http_code'] );
+      $this->assertNotEmpty($r2['body'], "No Response Body");
+	  //Show members 
+	  $r3 = self::$f1->get('/v1/people/lists/'.$r2['body']['members']['member'][0]['peopleList']['@id'].'/members/'.$r2['body']['members']['member'][0]['@id'].'.json');
+      $this->assertEquals('200', $r3['http_code'] );
+      $this->assertNotEmpty($r3['body'], "No Response Body");
     }
 
     /**
