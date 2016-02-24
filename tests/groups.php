@@ -28,13 +28,63 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
    /**
     * @group GroupTypes
     */
+    //public function testGroupTypeList()
+    //{
+      //$r = self::$f1->get('/groups/v1/grouptypes.json');
+      //$groupTypeId = $r['body']['groupTypes']['groupType'][0]['@id'];
+      //$this->assertEquals('200', $r['http_code']);
+      //$this->assertNotEmpty($groupTypeId, "No group type id returned");
+      //return $groupTypeId; 
+    //}
+	
+	//Overwite by grace zhang testcase testGroupTypeList:find a real valid grouptype to used by other cases
     public function testGroupTypeList()
     {
-      $r = self::$f1->get('/groups/v1/grouptypes.json');
-      $groupTypeId = $r['body']['groupTypes']['groupType'][0]['@id'];
-      $this->assertEquals('200', $r['http_code']);
-      $this->assertNotEmpty($groupTypeId, "No group type id returned");
-      return $groupTypeId; 
+      $r0 = self::$f1->get('/groups/v1/grouptypes.json'); 
+      $this->assertEquals('200', $r0['http_code']);     
+	  $groupTypeIdCount = count($r0['body']['groupTypes']['groupType']);
+      print_r("groupTypeIdCount =");	
+	  print_r($groupTypeIdCount);
+	  for ($i = 0; $i < $groupTypeIdCount; $i++) 
+	  {
+	    $groupTypeId = $r0['body']['groupTypes']['groupType'][$i]['@id'];	
+        print_r("groupTypeId =");	
+	    print_r($groupTypeId);		
+	    $r1 = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
+        $this->assertEquals('200', $r1['http_code']);  
+	    $groupIdCount = count($r1['body']['groups']['group']);	  
+	    print_r("groupIdCount =");	
+	    print_r($groupIdCount);
+	    
+		$index =0;
+	    for ($j = 0; $j < $groupIdCount; $j++) 
+	    {
+		  $groupId = $r1['body']['groups']['group'][$j]['@id'];
+	      $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
+          $memberId = $r['body']['members']['member'][0]['@id'];
+          if($memberId != null)
+		  {
+			  $model = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'/edit.json');
+              $this->assertEquals('200', $model['http_code']);
+              $this->assertNotEmpty($model['body'], "No Response Body");            
+			  print_r("testMemberEdit - model=");
+		      print_r($model['body']);
+			  break;
+		  }
+		  $index++;
+	    }
+		print_r("index =");	
+	    print_r($index);
+		if($index==$groupIdCount)
+		{
+			continue;
+		}
+		else
+		{
+			 return $groupTypeId; 
+		}
+	  }		
+      
     }
 
     
@@ -44,6 +94,8 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
      */
     public function testGroupTypeShow($groupTypeId)
     {
+	 print_r("groupTypeId in testGroupTypeShow =");	
+	 print_r($groupTypeId);		
      $r = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId .'.json');
      $this->assertEquals('200', $r['http_code']);
      $this->assertNotEmpty($r['body'], "No Response Body");
@@ -291,31 +343,53 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
        //$this->assertNotEmpty($model['body'], "No Response Body");
        //return $model['body'];
     //}
-	//Overwite by grace zhang testcase testMemberEdit:find a group which has valid member
-	/**
-     * @group Groups
-     * @depends testGroupTypeList
-     */
-	 public function testMemberEdit($groupTypeId)
+	//Overwite by grace zhang testcase testMemberEdit:find a group  which has valid member	
+	public function testMemberEdit()
     {
-	  $r1 = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
-      $this->assertEquals('200', $r1['http_code']);  
-	  $groupIdCount = count($r1['body']['groups']['group']);	  
-	  print_r("groupIdCount =");	
-	  print_r($groupIdCount);
-	  
-	  for ($i = 0; $i < $groupIdCount; $i++) 
+		
+	  $r0 = self::$f1->get('/groups/v1/grouptypes.json'); 
+      $this->assertEquals('200', $r0['http_code']);     
+	  $groupTypeIdCount = count($r0['body']['groupTypes']['groupType']);
+      print_r("groupTypeIdCount =");	
+	  print_r($groupTypeIdCount);
+	  for ($i = 0; $i < $groupTypeIdCount; $i++) 
 	  {
-		$groupId = $r1['body']['groups']['group'][$i]['@id'];
-	    $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
-        $memberId = $r['body']['members']['member'][0]['@id'];
-        if($memberId != null)
+	    $groupTypeId = $r0['body']['groupTypes']['groupType'][$i]['@id'];	
+        print_r("groupTypeId =");	
+	    print_r($groupTypeId);		
+	    $r1 = self::$f1->get('/groups/v1/grouptypes/'.$groupTypeId.'/groups.json');
+        $this->assertEquals('200', $r1['http_code']);  
+	    $groupIdCount = count($r1['body']['groups']['group']);	  
+	    print_r("groupIdCount =");	
+	    print_r($groupIdCount);
+	    
+		$index =0;
+	    for ($j = 0; $j < $groupIdCount; $j++) 
+	    {
+		  $groupId = $r1['body']['groups']['group'][$j]['@id'];
+	      $r = self::$f1->get('/groups/v1/groups/'.$groupId.'/members.json');
+          $memberId = $r['body']['members']['member'][0]['@id'];
+          if($memberId != null)
+		  {
+			  $model = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'/edit.json');
+              $this->assertEquals('200', $model['http_code']);
+              $this->assertNotEmpty($model['body'], "No Response Body");
+              return $model['body'];
+			  print_r("testMemberEdit - model=");
+		      print_r($model['body']);
+			  //break;
+		  }
+		  $index++;
+	    }
+		print_r("index =");	
+	    print_r($index);
+		if($index==$groupIdCount)
 		{
-			$model = self::$f1->get('/groups/v1/groups/'.$groupId.'/members/'.$memberId.'/edit.json');
-            $this->assertEquals('200', $model['http_code']);
-            $this->assertNotEmpty($model['body'], "No Response Body");
-            return $model['body'];
-			break;
+			continue;
+		}
+		else
+		{
+			 break;
 		}
 	  }		
        
@@ -365,6 +439,8 @@ class FellowshipOneGroupsTest extends PHPUnit_Framework_TestCase
       $model['member']['person']['@id'] = $personId;
       $model['member']['memberType']['@id'] = "2";
       $model['member']['group']['@id'] = $groupId;  
+	  print_r("model =");
+	  print_r($model);
       $r = self::$f1->put($model, '/groups/v1/groups/'.$groupId.'/members/'.$memberId.'.json');
       $this->assertEquals('200', $r['http_code']);
       $this->assertNotEmpty($r['body'], "No Response Body"); 

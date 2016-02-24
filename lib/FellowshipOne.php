@@ -171,8 +171,12 @@
 					$response["http_code"] = $o->getLastResponseInfo()['http_code'];
 					$response["body"] = json_decode($o->getLastResponse(),true);
 						 if($this->settings->debug){	
-                            //add by grace zhang: add url in log file.						 
-							print_r($url);							
+                            //add by grace zhang: add url in log file.	
+							print_r("url =");
+							print_r($url);
+							print_r("data =");
+							print_r($data);
+							print_r("response =");
 						 	print_r($response);
 						 }
 				return $response;
@@ -188,7 +192,11 @@
 				);
 				if($this->settings->debug){
 					//add by grace zhang: add url in log file.	
-					print_r($url);	
+					print_r("url =");
+				    print_r($url);
+					print_r("data =");
+					print_r($data);
+					print_r("errorResponse =");
 					print_r($this->error);
 					}
 				return $this->error;
